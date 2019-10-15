@@ -25,19 +25,14 @@ public class MainFX extends Application {
     @Override
     public void start(Stage stage) throws FXMLExcepton, IOException{
         
-//        Parent root = FXMLLoader.load(getClass().getResource("/br/com/argus/view/Login.fxml"));
-//        
-//        Scene scene = new Scene(root);
-//        
-//        stage.setScene(scene);
-//        stage.setResizable(false);
-//        stage.show();
-
-        Parent root = FXMLLoader.load(getClass().getResource("/br/com/argus/view/Dashboard.fxml"));
-        Scene scene = new Scene(root);
+      Parent root = FXMLLoader.load(getClass().getResource("/br/com/argus/view/Login.fxml"));
+       
+       Scene scene = new Scene(root);
+       
         stage.setScene(scene);
+       stage.setResizable(false);
         stage.show();
-   
+
     }
 
     /**

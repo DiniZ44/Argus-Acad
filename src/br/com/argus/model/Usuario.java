@@ -5,8 +5,11 @@
  */
 package br.com.argus.model;
 
+import br.com.argus.enuns.TipoCargo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 /**
@@ -17,23 +20,24 @@ import javax.persistence.Table;
 @Table(name = "usuario")
 public class Usuario extends Entidade{
     
-    @Column
+    @Column(nullable = false)
     private String nome;
     @Column(nullable = false, unique = true)
     private String login;
     @Column(nullable = false)
     private String senha;
+    @Enumerated(EnumType.STRING)
+    private TipoCargo tipoCargo;
 
     public Usuario() {
     }
 
-    public Usuario(String nome, String login, String senha) {
+    public Usuario(String nome, String login, String senha, TipoCargo tipoCargo) {
         this.nome = nome;
         this.login = login;
         this.senha = senha;
+        this.tipoCargo = tipoCargo;
     }
-    
-    
 
     public String getNome() {
         return nome;
@@ -58,8 +62,14 @@ public class Usuario extends Entidade{
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    
-    
+
+    public TipoCargo getTipoCargo() {
+        return tipoCargo;
+    }
+
+    public void setTipoCargo(TipoCargo tipoCargo) {
+        this.tipoCargo = tipoCargo;
+    }
+        
     
 }

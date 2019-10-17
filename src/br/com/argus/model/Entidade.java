@@ -5,7 +5,7 @@
  */
 package br.com.argus.model;
 //
-import java.util.logging.Logger;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.MappedSuperclass;
@@ -19,30 +19,30 @@ import javax.persistence.Column;
 @MappedSuperclass
 public abstract class Entidade {
     
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
+    
     @Column
-    private boolean ativade = true;
+    private boolean status = true;
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-
+    
     public boolean isAtivade() {
-        return ativade;
+        return status;
     }
 
     public void setAtivade(boolean ativade) {
-        this.ativade = ativade;
+        this.status = ativade;
     }
-    private static final Logger LOG = Logger.getLogger(Entidade.class.getName());
-    
-    
+
     
     
 }

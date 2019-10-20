@@ -22,7 +22,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button fx:id="aluno_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Alunos" textFill="WHITE">
+            <Button fx:id="aluno" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#abrirAluno" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Alunos" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -37,7 +37,7 @@
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="disciplinas_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Disciplinas" textFill="WHITE">
+            <Button fx:id="disciplinas_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#abrir_disciplina" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Disciplinas" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -52,7 +52,7 @@
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="prof_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Professores" textFill="WHITE">
+            <Button fx:id="prof_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#abrir_turma" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Professores" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -67,7 +67,7 @@
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="finan_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Finanças" textFill="WHITE">
+            <Button fx:id="finan_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#abrir_financas" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Finanças" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -84,7 +84,7 @@
             </Button>
             <Pane fx:id="pane_adm" prefHeight="164.0" prefWidth="312.0">
                <children>
-                  <Button fx:id="config_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Configurações" textFill="WHITE">
+                  <Button fx:id="config_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="95.0" mnemonicParsing="false" onAction="#abir_config" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Configurações" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="15.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -99,7 +99,7 @@
                         <Font name="Arial Black" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="usuario_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Usuários" textFill="WHITE">
+                  <Button fx:id="usuario_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#abrir_usuario" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Usuários" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="15.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -114,11 +114,26 @@
                         <Font name="Arial Black" size="15.0" />
                      </font>
                   </Button>
+                  <Button fx:id="turma_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="50.0" mnemonicParsing="false" onAction="#abrir_turma" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Turma" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../res/Class.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
             <Pane fx:id="panel_home" prefHeight="225.0" prefWidth="312.0">
                <children>
-                  <Button fx:id="home_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="166.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Tela Inicial" textFill="WHITE">
+                  <Button fx:id="home_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="-6.0" layoutY="166.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="144.0" style="-fx-background-color: A9A9A9;" text="Logout" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="15.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -129,6 +144,11 @@
                      <padding>
                         <Insets left="50.0" />
                      </padding>
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="alterar_senha" layoutX="162.0" layoutY="166.0" mnemonicParsing="false" onAction="#alterar_senha" prefHeight="45.0" prefWidth="136.0" style="-fx-background-color: A9A9A9;" text="Alterar Senha" textFill="WHITE">
                      <font>
                         <Font name="Arial Black" size="15.0" />
                      </font>

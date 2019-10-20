@@ -40,6 +40,9 @@ public class Endereco extends Entidade{
     @Column(nullable = false, length = 9)
     private String cep;
     
+    @Column(nullable = false, length = 20)
+    private String complemento;
+    
     @Enumerated(EnumType.STRING)
     private TipoEstadoUF tipoEstadoUF;
 
@@ -91,6 +94,15 @@ public class Endereco extends Entidade{
         this.tipoEstadoUF = tipoEstadoUF;
     }
 
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+    
+    
     @Override
     public String toString() {
         return "Endereco{" + "logradouro=" + logradouro + ", numero=" + numero + ", bairro=" + bairro + ", cidade=" + cidade + ", cep=" + cep + ", tipoEstadoUF=" + tipoEstadoUF + '}';

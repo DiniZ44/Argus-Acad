@@ -32,20 +32,20 @@ public abstract class Aluno extends Entidade{
     public static final long serialVersionUID = 1L;
     protected static final String SEQUENCE_ENTIDADE = "aluno_sequence";
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String nome;
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 20)
     private String naturalidade;
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "resp_fin_id")    
     private Resp_Financeiro responsavel_financeiro;
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 20)
     private String pai;
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 20)
     private String mae;
    
     @OneToOne(cascade = CascadeType.ALL)
@@ -63,7 +63,7 @@ public abstract class Aluno extends Entidade{
     private Contato contato;
     
     
-
+    
     public String getNome() {
         return nome;
     }

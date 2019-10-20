@@ -29,6 +29,9 @@ public class Turma extends Entidade{
     public static final long serialVersionUID = 1L;
     protected static final String SEQUENCE_ENTIDADE = "turma_sequence";
     
+    @Column(nullable = false, length = 20)
+    private String nome;
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Aluno aluno;
@@ -37,12 +40,21 @@ public class Turma extends Entidade{
     @JoinColumn
     private Disciplina disciplina;
     
-    @Column
+    @Column(nullable = false, length = 5)
     private String nota;
     
     @Enumerated(EnumType.STRING)
     private TipoSituacao statusAluno;
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    
     public Aluno getAluno() {
         return aluno;
     }

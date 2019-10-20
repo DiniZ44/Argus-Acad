@@ -5,9 +5,12 @@
  */
 package br.com.argus.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -16,13 +19,22 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "disciplina")
+@SequenceGenerator(name = Entidade.SEQUENCE_ENTIDADE, sequenceName = Disciplina.SEQUENCE_ENTIDADE, initialValue = 1, allocationSize = 1)
 public class Disciplina extends Entidade{
+    
+    public static final long serialVersionUID = 1L;
+    protected static final String SEQUENCE_ENTIDADE = "disciplina_sequence";
+    
     @Column(nullable = false, unique = true)
     private String codigo;
+    
     @Column(nullable = false)
     private String nome;
+    
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Professor professor;
+    
     @Column(nullable = false, length = 3)
     private String carga_horaria;
 

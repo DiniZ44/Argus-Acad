@@ -6,11 +6,14 @@
 package br.com.argus.model;
 
 import br.com.argus.enuns.TipoSituacao;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -20,14 +23,23 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "turma")
+@SequenceGenerator(name = Entidade.SEQUENCE_ENTIDADE, sequenceName = Turma.SEQUENCE_ENTIDADE, initialValue = 1, allocationSize = 1)
 public class Turma extends Entidade{
     
+    public static final long serialVersionUID = 1L;
+    protected static final String SEQUENCE_ENTIDADE = "turma_sequence";
+    
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Aluno aluno;
+    
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Disciplina disciplina;
+    
     @Column
     private String nota;
+    
     @Enumerated(EnumType.STRING)
     private TipoSituacao statusAluno;
 

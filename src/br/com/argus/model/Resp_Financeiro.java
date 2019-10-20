@@ -7,6 +7,7 @@ package br.com.argus.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -15,10 +16,15 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "resp_financeiro")
+@SequenceGenerator(name = Entidade.SEQUENCE_ENTIDADE, sequenceName = Resp_Financeiro.SEQUENCE_ENTIDADE, initialValue = 1, allocationSize = 1)
 public class Resp_Financeiro extends Entidade{
+    
+    private static final long serialVersionUID = 1L;
+    protected static final String SEQUENCE_ENTIDADE = "resp_fin_sequence";
     
     @Column(nullable = false)
     private String nome;
+    
     @Column(nullable = false, unique = true)
     private String cpf;
 

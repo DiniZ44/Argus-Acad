@@ -11,6 +11,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -23,26 +25,39 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "aluno")
-public class Aluno extends Entidade{
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@SequenceGenerator(name = Entidade.SEQUENCE_ENTIDADE, sequenceName = Aluno.SEQUENCE_ENTIDADE, initialValue = 1, allocationSize = 1)
+public abstract class Aluno extends Entidade{
+    
+    public static final long serialVersionUID = 1L;
+    protected static final String SEQUENCE_ENTIDADE = "aluno_sequence";
     
     @Column(nullable = false)
     private String nome;
+    
     @Column(nullable = false)
     private String naturalidade;
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "resp_fin_id")    
     private Resp_Financeiro responsavel_financeiro;
+    
     @Column(nullable = false)
     private String pai;
+    
     @Column(nullable = false)
     private String mae;
+   
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
+    
     @Column(nullable = false)
     private LocalDate data_nascimento;
+    
     @Column(nullable = false, unique = true, length = 11)
     private String cpf;
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "contato_id")
     private Contato contato;

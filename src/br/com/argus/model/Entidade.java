@@ -6,6 +6,7 @@
 package br.com.argus.model;
 //
 
+import java.io.Serializable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.MappedSuperclass;
@@ -17,11 +18,13 @@ import javax.persistence.Column;
  * @author santo
  */
 @MappedSuperclass
-public abstract class Entidade {
+public abstract class Entidade implements Serializable{
     
+    public static final long serialVersionUID = 1L;
+    protected static final String SEQUENCE_ENTIDADE = "ENTIDADE";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_ENTIDADE)
     private Integer id;
     
     @Column

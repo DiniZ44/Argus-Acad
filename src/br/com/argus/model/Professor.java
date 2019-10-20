@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -19,19 +20,28 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "professor")
+@SequenceGenerator(name = Entidade.SEQUENCE_ENTIDADE, sequenceName = Professor.SEQUENCE_ENTIDADE, initialValue = 1, allocationSize = 1)
 public class Professor extends Entidade{
+   
+    public static final long serialVersionUID = 1L;
+    protected static final String SEQUENCE_ENTIDADE = "professor_sequence";
     
     @Column(nullable = false)
     private String nome;
+    
     @Column(nullable = false)
     private String naturalidade;
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
+    
     @Column(nullable = false)
     private LocalDate data_nascimento;
+    
     @Column(nullable = false, unique = true, length = 11)
     private String cpf;
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "contato_id")
     private Contato contato;

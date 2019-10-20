@@ -19,17 +19,27 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "endereco")
+@SequenceGenerator(name = Entidade.SEQUENCE_ENTIDADE, sequenceName = Endereco.SEQUENCE_ENTIDADE, initialValue = 1, allocationSize = 1)
 public class Endereco extends Entidade{
+    
+    private static final long serialVersionUID = 1L;
+    protected static final String SEQUENCE_ENTIDADE = "endereco_sequence";
+    
     @Column(nullable = false, length = 120)
     private String logradouro;
+    
     @Column(nullable = false, length = 10)
     private String numero;
+    
     @Column(nullable = false, length = 40)
     private String bairro;
+    
     @Column(nullable = false, length = 50)
     private String cidade;
+    
     @Column(nullable = false, length = 9)
     private String cep;
+    
     @Enumerated(EnumType.STRING)
     private TipoEstadoUF tipoEstadoUF;
 

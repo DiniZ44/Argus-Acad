@@ -12,6 +12,9 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -19,16 +22,23 @@ import javax.persistence.Table;
  * @author santo
  */
 @Entity
-@Table(name = "usuario")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@SequenceGenerator(name = Entidade.SEQUENCE_ENTIDADE, sequenceName = Usuario.SEQUENCE_ENTIDADE, initialValue = 1, allocationSize = 1)
+public abstract class Usuario extends Entidade{
+    
+    public static final long serialVersionUID = 1L;
+    protected static final String SEQUENCE_ENTIDADE = "usuario_sequence";
 
-public class Usuario extends Entidade{
     
     @Column(nullable = false)
     private String nome;
+    
     @Column(nullable = false, unique = true)
     private String login;
+    
     @Column(nullable = false)
     private String senha;
+    
     @Enumerated(EnumType.STRING)
     private TipoCargo tipoCargo;
 

@@ -12,28 +12,24 @@ import javafx.scene.control.Alert.AlertType;
  *
  * @author santo
  */
-public class Mensagem {
-    
-    private static Mensagem instance;
-    private Alert alert;
-    
-    
-    private Mensagem(){
-    alert = new Alert(Alert.AlertType.INFORMATION);
-    }
-    
-    public void verMensagem(AlertType type, String titulo, String h, String mensagem){
-        
-        alert.setAlertType(type);
-        alert.setTitle(titulo);
-        alert.setHeaderText(h);
-        alert.setContentText(mensagem);
-    }
-    
-    public static Mensagem getInsMensagem(){
-        if(instance == null){
-        instance = new Mensagem();
-        } return instance;
-        
-    }
+public class Mensagem extends Alert{
+   
+	private static Mensagem instance;
+	
+	public Mensagem() {
+		super(AlertType.INFORMATION);
+	}
+	
+	public static Mensagem getInstance() {
+		if(instance == null)
+			instance = new Mensagem();
+		return instance;
+	}
+	
+	public void mostrarMensagem(String titulo, String msg, AlertType tipo) {
+		instance.setAlertType(tipo);
+		instance.setTitle(titulo);
+		instance.setContentText(msg);
+		instance.show();
+	}
 }

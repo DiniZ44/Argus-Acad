@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="806.0" prefWidth="968.0" style="-fx-background-color: #DCDCDC;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="br.com.argus.controller.Cadastrar_UsuarioController">
+<AnchorPane id="AnchorPane" prefHeight="806.0" prefWidth="968.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.argus.controller.Cadastrar_UsuarioController">
    <children>
       <Pane layoutY="38.0" prefHeight="68.0" prefWidth="968.0" style="-fx-background-color: A9A9A9;">
          <children>
@@ -122,7 +121,7 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="36.0" layoutY="686.0" prefHeight="25.0" prefWidth="282.0" text="Primeiro nome, mais os dois ultimos digitos do CPF">
+      <Label layoutX="36.0" layoutY="686.0" prefHeight="25.0" prefWidth="282.0" text="CPF por padão">
          <font>
             <Font name="Arial" size="12.0" />
          </font>

@@ -1,17 +1,14 @@
 package br.com.argus.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 
-public class DashboardController implements Initializable{
-    
+public class DashboardController {
 
     @FXML
-    private Button aluno_button;
+    private Button aluno;
 
     @FXML
     private Button disciplinas_button;
@@ -32,15 +29,52 @@ public class DashboardController implements Initializable{
     private Button usuario_button;
 
     @FXML
+    private Button turma_button;
+
+    @FXML
     private Pane panel_home;
 
     @FXML
     private Button home_button;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        
+    @FXML
+    private Button alterar_senha;
+
+    @FXML
+    void abir_config(ActionEvent event) {
+
+    }
+
+    @FXML
+    void abrirAluno(ActionEvent event) {
+
+    }
+
+    @FXML
+    void abrir_disciplina(ActionEvent event) {
+
+    }
+
+    @FXML
+    void abrir_financas(ActionEvent event) {
+
+    }
+
+    @FXML
+    void abrir_turma(ActionEvent event) {
+
+    }
+
+    @FXML
+    void abrir_usuario(ActionEvent event) {
+
+    }
+
+    @FXML
+    void alterar_senha(ActionEvent event) {
+
     }
 
 }
+
 

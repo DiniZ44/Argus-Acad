@@ -6,36 +6,30 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-public class Cadastrar_UsuarioController {
+public class Cadastrar_TurmaController {
+
+    @FXML
+    private Button salvar_button;
 
     @FXML
     private TextField nome;
 
     @FXML
-    private TextField cpf;
-
-    @FXML
-    private ComboBox<?> tipo_ComboBox;
-
-    @FXML
-    private Button salvar;
-
-    @FXML
-    private TextField login;
+    private ComboBox<?> alunos_cbox;
 
     @FXML
     private Button voltar;
 
     @FXML
-    void salvarUsuario(ActionEvent event) {
+    private ComboBox<?> disciplina_cbox1;
+
+    @FXML
+    void salvar(ActionEvent event) {
 
     }
-
+    
     @FXML
     void voltar(ActionEvent event) {
 
     }
-
 }
-
-

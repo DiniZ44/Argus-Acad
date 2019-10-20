@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 
-public class Reset_SenhaController {
+public class Alterar_SenhaController {
 
     @FXML
     private Button salvar_button;

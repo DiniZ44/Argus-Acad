@@ -6,28 +6,28 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-public class Cadastrar_UsuarioController {
+public class Cadastrar_DisciplinaController {
+
+    @FXML
+    private Button salvar_button;
 
     @FXML
     private TextField nome;
 
     @FXML
-    private TextField cpf;
+    private TextField codigo;
 
     @FXML
-    private ComboBox<?> tipo_ComboBox;
+    private TextField carga_horario;
 
     @FXML
-    private Button salvar;
-
-    @FXML
-    private TextField login;
+    private ComboBox<?> professor_cbox;
 
     @FXML
     private Button voltar;
 
     @FXML
-    void salvarUsuario(ActionEvent event) {
+    void salvar(ActionEvent event) {
 
     }
 
@@ -37,5 +37,4 @@ public class Cadastrar_UsuarioController {
     }
 
 }
-
 

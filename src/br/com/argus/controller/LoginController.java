@@ -77,7 +77,10 @@ public class LoginController implements Initializable {
                 return false;
             }
             Mensagem.getInstance().mostrarMensagem("", "Usuario Logado com sucesso", Alert.AlertType.INFORMATION);
+            this.login_field.clear();
+            this.senha_passField.clear();
             return true;
+            
         } catch (Exception e) {
             e.printStackTrace();
             return false;

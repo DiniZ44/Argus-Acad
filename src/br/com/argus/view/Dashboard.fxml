@@ -157,6 +157,6 @@
             </Pane>
          </children>
       </VBox>
-      <AnchorPane fx:id="anchor_pane" layoutX="312.0" opacity="0.8" prefHeight="806.0" prefWidth="966.0" />
+      <AnchorPane fx:id="anchor_pane" layoutX="312.0" opacity="0.8" prefHeight="806.0" prefWidth="968.0" />
    </children>
 </AnchorPane>

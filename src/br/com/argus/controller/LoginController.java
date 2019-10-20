@@ -1,13 +1,13 @@
 package br.com.argus.controller;
 
-
 import br.com.argus.app.App;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Usuario;
 import br.com.argus.view.Mensagem;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
@@ -17,12 +17,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+public class LoginController implements Initializable {
 
 
-public class LoginController implements Initializable{
-    
-    public static final String Tela_Principal = "/br/com/argus/view/Dashboard.fxml";
-    
+
     private static Usuario usuario;
     private Facade facade = Facade.getInstance();
 
@@ -37,35 +37,46 @@ public class LoginController implements Initializable{
 
     @FXML
     private Button redefinir_button;
-    
+
     @FXML
-    void action (ActionEvent event) throws IOException{
-        if(event.getSource() == entrar_button){
-            App.stageDashboard().show();
-            App.stageLogin().close();
-        }
-        if(event.getSource() == redefinir_button){
-            
-        }
+    private Button sair_button;
     
+
+    @FXML
+    void entrar(ActionEvent event) {
+        
+        if(efetuarLogin()){
+        App a = new App();
+        try {
+            a.startA(new Stage());
+            App.getStage().close();
+        } catch (Exception e) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }}
+        @FXML
+    void sair(ActionEvent event) {
+        System.exit(0);
     }
-    
-      @Override
+    @FXML
+
+
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-    
+
     public boolean efetuarLogin(){
         
         try {
             usuario = facade.buscarLoginUsuario(login_field.getText(),senha_passField.getText());
             
+            
             if (usuario == null){
-                Mensagem.getInsMensagem().verMensagem(Alert.AlertType.ERROR, "Erro ao Logar", "Usuário não Existe", "Usuário Invalído");
+                Mensagem.getInstance().mostrarMensagem("", "Usuario não encontrado", Alert.AlertType.ERROR);
                 return false;
             }
-            App.stageDashboard().show();
-            App.stageLogin().close();
+            Mensagem.getInstance().mostrarMensagem("", "Usuario Logado com sucesso", Alert.AlertType.INFORMATION);
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,8 +85,7 @@ public class LoginController implements Initializable{
         
         
     }
-
-
+    
     public TextField getLogin_field() {
         return login_field;
     }
@@ -84,17 +94,16 @@ public class LoginController implements Initializable{
         return senha_passField;
     }
 
-
     public Button getEntrar_button() {
         return entrar_button;
     }
-
 
     public Button getRedefinir_button() {
         return redefinir_button;
     }
 
-    
-    
+    public Button getSair_button() {
+        return sair_button;
+    }
 
 }

@@ -11,9 +11,9 @@ import br.com.argus.model.Resp_Financeiro;
  *
  * @author santo
  */
-public class Resp_Fin extends Dao<Resp_Financeiro> implements IResp_Fin{
+public class Resp_FinDAO extends Dao<Resp_Financeiro> implements IResp_FinDAO{
     
-    public Resp_Fin() {
+    public Resp_FinDAO() {
         super(Resp_Financeiro.class);
     }
     

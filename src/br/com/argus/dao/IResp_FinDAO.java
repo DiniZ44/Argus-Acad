@@ -11,6 +11,6 @@ import br.com.argus.model.Resp_Financeiro;
  *
  * @author santo
  */
-public interface IResp_Fin extends IDao<Resp_Financeiro>{
+public interface IResp_FinDAO extends IDao<Resp_Financeiro>{
     
 }

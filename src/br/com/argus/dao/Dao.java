@@ -4,13 +4,10 @@
  * and open the template in the editor.
  */
 package br.com.argus.dao;
-
 /**
  *
  * @author santo
  */
-
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;

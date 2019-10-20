@@ -70,7 +70,7 @@ public abstract class Business<T extends Entidade> implements IBusiness<T>{
     }
 
     @Override
-    public void remover(T t) throws BussinesException {
+    public void desabilitar(T t) throws BussinesException {
 	try {	
              dao.desabilitar(t);
         } catch (DAOException e) {
@@ -82,8 +82,8 @@ public abstract class Business<T extends Entidade> implements IBusiness<T>{
     }
 
     @Override
-    public List<T> buscarTodos() throws DAOException {
-                T tt = null;
+    public List<T> buscarTodos() throws BussinesException {
+        T tt = null;
 	try {	
            return dao.buscarTodos();
         } catch (DAOException e) {

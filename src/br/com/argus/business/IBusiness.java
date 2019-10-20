@@ -6,7 +6,6 @@
 package br.com.argus.business;
 
 import br.com.argus.exceptions.BussinesException;
-import br.com.argus.exceptions.DAOException;
 import br.com.argus.exceptions.ValidacaoException;
 import br.com.argus.model.Entidade;
 import java.util.List;
@@ -27,9 +26,9 @@ public interface IBusiness <T extends Entidade>{
     
     public void deletar (T t) throws BussinesException;
     
-    public void remover (T t) throws BussinesException;
+    public void desabilitar (T t) throws BussinesException;
     
-    public List<T> buscarTodos() throws DAOException;
+    public List<T> buscarTodos() throws BussinesException;
     
     public void isValid(T t) throws ValidacaoException;
 }

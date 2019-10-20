@@ -24,6 +24,13 @@ public class App extends Application {
 //    public final static String Tela_Login = "login";
 //    public final static String Tela_Home = "home";
     
+    public static void main(String[] args) {
+        
+       IFacade facade = Facade.getInstance();
+        
+        launch(args);
+       
+    }
     @Override
     public void start(Stage primayStage){
         try {
@@ -79,12 +86,6 @@ public class App extends Application {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        
-       IFacade facade = Facade.getInstance();
-        
-        launch(args);
-       
-    }
+
     
 }

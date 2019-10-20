@@ -61,6 +61,8 @@ public abstract class Aluno extends Entidade{
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "contato_id")
     private Contato contato;
+    
+    
 
     public String getNome() {
         return nome;

@@ -20,37 +20,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "super_usuario")
 @SequenceGenerator(name = Entidade.SEQUENCE_ENTIDADE, sequenceName = SuperUsuario.SEQUENCE_ENTIDADE, initialValue = 1, allocationSize = 1)
-public class SuperUsuario extends Entidade {
+public class SuperUsuario extends Usuario {
     
     public static final long serialVersionUID = 1L;
     protected static final String SEQUENCE_ENTIDADE = "super_usuario_sequence";
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn
-    private Usuario usuario;
-    
-    @Column(nullable = false, unique = true)
-    private String Cpf;
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getCpf() {
-        return Cpf;
-    }
-
-    public void setCpf(String Cpf) {
-        this.Cpf = Cpf;
-    }
-
-    @Override
-    public String toString() {
-        return "SuperUsuario{" + "usuario=" + usuario + ", Cpf=" + Cpf + '}';
-    }
      
 }

@@ -20,37 +20,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "cord_pedagogo")
 @SequenceGenerator(name = Entidade.SEQUENCE_ENTIDADE, sequenceName = Coordenador.SEQUENCE_ENTIDADE, initialValue = 1, allocationSize = 1)
-public class Coordenador extends Entidade{
+public class Coordenador extends Usuario{
     
     public static final long serialVersionUID = 1L;
     protected static final String SEQUENCE_ENTIDADE = "coordenador_sequence";
    
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn
-    private Usuario usuario;
-    
-    @Column(nullable = false, unique = true)
-    private String Cpf;
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-
-    public String getCpf() {
-        return Cpf;
-    }
-
-    public void setCpf(String Cpf) {
-        this.Cpf = Cpf;
-    }
-
-    @Override
-    public String toString() {
-        return "Coordenador{" + "usuario=" + usuario + ", Cpf=" + Cpf + '}';
-    }
-    
-    
-    
     
 }

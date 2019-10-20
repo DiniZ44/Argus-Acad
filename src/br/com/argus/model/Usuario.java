@@ -30,27 +30,21 @@ public abstract class Usuario extends Entidade{
     protected static final String SEQUENCE_ENTIDADE = "usuario_sequence";
 
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String nome;
     
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 50)
     private String login;
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 11)
     private String senha;
+    
+    @Column(nullable = false, unique = true, length = 11)
+    private String cpf;
     
     @Enumerated(EnumType.STRING)
     private TipoCargo tipoCargo;
 
-    public Usuario() {
-    }
-
-    public Usuario(String nome, String login, String senha, TipoCargo tipoCargo) {
-        this.nome = nome;
-        this.login = login;
-        this.senha = senha;
-        this.tipoCargo = tipoCargo;
-    }
 
     public String getNome() {
         return nome;
@@ -83,6 +77,15 @@ public abstract class Usuario extends Entidade{
     public void setTipoCargo(TipoCargo tipoCargo) {
         this.tipoCargo = tipoCargo;
     }
-        
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+     
+    
     
 }

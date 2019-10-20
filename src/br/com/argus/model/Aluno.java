@@ -5,10 +5,116 @@
  */
 package br.com.argus.model;
 
+import java.time.LocalDate;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 /**
  *
  * @author santo
  */
-public class Aluno {
+
+@Entity
+@Table(name = "aluno")
+public class Aluno extends Entidade{
+    
+    @Column(nullable = false)
+    private String nome;
+    @Column(nullable = false)
+    private String naturalidade;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "resp_fin_id")    
+    private Resp_Financeiro responsavel_financeiro;
+    @Column(nullable = false)
+    private String pai;
+    @Column(nullable = false)
+    private String mae;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
+    @Column(nullable = false)
+    private LocalDate data_nascimento;
+    @Column(nullable = false, unique = true, length = 11)
+    private String cpf;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "contato_id")
+    private Contato contato;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNaturalidade() {
+        return naturalidade;
+    }
+
+    public void setNaturalidade(String naturalidade) {
+        this.naturalidade = naturalidade;
+    }
+
+    public Resp_Financeiro getResponsavel_financeiro() {
+        return responsavel_financeiro;
+    }
+
+    public void setResponsavel_financeiro(Resp_Financeiro responsavel_financeiro) {
+        this.responsavel_financeiro = responsavel_financeiro;
+    }
+
+    public String getPai() {
+        return pai;
+    }
+
+    public void setPai(String pai) {
+        this.pai = pai;
+    }
+
+    public String getMae() {
+        return mae;
+    }
+
+    public void setMae(String mae) {
+        this.mae = mae;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public LocalDate getData_nascimento() {
+        return data_nascimento;
+    }
+
+    public void setData_nascimento(LocalDate data_nascimento) {
+        this.data_nascimento = data_nascimento;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public Contato getContato() {
+        return contato;
+    }
+
+    public void setContato(Contato contato) {
+        this.contato = contato;
+    }
+    
     
 }

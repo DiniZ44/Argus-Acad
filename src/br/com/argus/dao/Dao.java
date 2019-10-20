@@ -20,7 +20,9 @@ import java.util.List;
 public abstract class Dao <T extends Entidade> implements IDao<T>{
 
         protected Class<T> class1;
-
+    /**
+     * @param class1
+     */
     public Dao(Class<T> class1) {
         this.class1 = class1;
     }

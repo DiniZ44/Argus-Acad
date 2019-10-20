@@ -4,8 +4,12 @@
  * and open the template in the editor.
  */
 package br.com.argus.app;
+import br.com.argus.enuns.TipoCargo;
+import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
 import br.com.argus.facade.IFacade;
+import br.com.argus.model.SuperUsuario;
+import br.com.argus.model.Usuario;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -24,10 +28,19 @@ public class App extends Application {
 //    public final static String Tela_Login = "login";
 //    public final static String Tela_Home = "home";
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BussinesException{
         
        IFacade facade = Facade.getInstance();
-        
+       
+//        SuperUsuario superUsuario = new SuperUsuario();
+//        
+//        superUsuario.setLogin("admin");
+//        superUsuario.setSenha("admin");
+//        superUsuario.setNome("Adminstrador");
+//        superUsuario.setCpf("00000000001");
+//        superUsuario.setTipoCargo(TipoCargo.SUPER_USUARIO);
+//        facade.inserirOuAtualizar(superUsuario);
+       
         launch(args);
        
     }

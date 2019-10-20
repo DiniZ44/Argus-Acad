@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package br.com.argus.app;
+import br.com.argus.facade.Facade;
+import br.com.argus.facade.IFacade;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -79,7 +81,7 @@ public class App extends Application {
      */
     public static void main(String[] args) {
         
-//        IFacade facade = Facade.getInstance();
+       IFacade facade = Facade.getInstance();
         
         launch(args);
        

@@ -5,6 +5,8 @@
  */
 package br.com.argus.business;
 
+import br.com.argus.dao.IProfessorDAO;
+import br.com.argus.dao.ProfessorDAO;
 import br.com.argus.exceptions.ValidacaoException;
 import br.com.argus.model.Professor;
 
@@ -13,7 +15,14 @@ import br.com.argus.model.Professor;
  * @author santo
  */
 public class ProfessorBusiness extends Business<Professor> implements IProfessorBusiness{
+    private IProfessorDAO iProfessorDAO;
 
+    public ProfessorBusiness() {
+    iProfessorDAO = new ProfessorDAO();
+        init(iProfessorDAO);
+    }
+    
+    
     @Override
     public void isValid(Professor t) throws ValidacaoException {
         

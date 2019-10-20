@@ -5,6 +5,8 @@
  */
 package br.com.argus.business;
 
+import br.com.argus.dao.DiretorDAO;
+import br.com.argus.dao.IDiretorDAO;
 import br.com.argus.exceptions.ValidacaoException;
 import br.com.argus.model.Diretor;
 
@@ -14,6 +16,13 @@ import br.com.argus.model.Diretor;
  */
 public class DiretorBusiness extends Business<Diretor> implements IDiretorBusiness{
 
+    private IDiretorDAO iDiretorDAO;
+    public DiretorBusiness() {
+        iDiretorDAO = new DiretorDAO();
+        init(iDiretorDAO);
+    }
+    
+    
     @Override
     public void isValid(Diretor t) throws ValidacaoException {
        

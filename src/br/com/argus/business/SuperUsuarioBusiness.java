@@ -5,6 +5,8 @@
  */
 package br.com.argus.business;
 
+import br.com.argus.dao.ISuperUsuarioDAO;
+import br.com.argus.dao.SuperUsuarioDAO;
 import br.com.argus.exceptions.ValidacaoException;
 import br.com.argus.model.SuperUsuario;
 
@@ -13,6 +15,15 @@ import br.com.argus.model.SuperUsuario;
  * @author santo
  */
 public class SuperUsuarioBusiness extends Business<SuperUsuario> implements ISuperUsuarioBusiness{
+    private ISuperUsuarioDAO iSuperUsuarioDAO;
+
+    public SuperUsuarioBusiness() {
+    
+    iSuperUsuarioDAO = new SuperUsuarioDAO();
+        init(iSuperUsuarioDAO);
+    }
+    
+    
 
     @Override
     public void isValid(SuperUsuario t) throws ValidacaoException {

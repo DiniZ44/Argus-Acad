@@ -33,7 +33,7 @@ public abstract class Usuario extends Entidade{
     @Column(nullable = false, length = 100)
     private String nome;
     
-    @Column(nullable = false, unique = true, length = 50)
+    @Column(nullable = false, length = 50)
     private String login;
     
     @Column(nullable = false, length = 11)

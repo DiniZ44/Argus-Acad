@@ -9,17 +9,17 @@ package br.com.argus.enuns;
  *
  * @author santo
  */
-public enum TipoCargo {
+public enum TipoSituacao {
     
-        SECRETARIA ("Secretaria"), COORDENAÇÃO_PEDAGOGA ("Coordenação Pedagogica"), 
-	DIRETORIA ("Diretoria"), SUPER_USUARIO("Super usuário");
+        AM ("Aprovado por media"), AP ("Aprovado"), 
+	RP ("Reprovado");
 	
 	private String descricao;
 	
 	/**
 	 * 
 	 */
-	private TipoCargo(String descricao) {
+	private TipoSituacao(String descricao) {
 	
 		this.descricao = descricao;
 	}
@@ -36,6 +36,5 @@ public enum TipoCargo {
 		// TODO Auto-generated method stub
 		return getValor();
 	}
-	
     
 }

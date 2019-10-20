@@ -4,6 +4,7 @@ import br.com.argus.app.App;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Usuario;
 import br.com.argus.view.Mensagem;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -21,8 +22,8 @@ import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
 
-
-
+    public static String user_Login_Logado, user_Senha_Logado;;
+    
     private static Usuario usuario;
     private Facade facade = Facade.getInstance();
 
@@ -43,23 +44,34 @@ public class LoginController implements Initializable {
     
 
     @FXML
-    void entrar(ActionEvent event) {
+    void entrar(ActionEvent event) throws IOException {
         
-        if(efetuarLogin()){
-        App a = new App();
-        try {
-            a.startA(new Stage());
-            App.getStage().close();
-        } catch (Exception e) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }}
-        @FXML
+       if(efetuarLogin()){
+        
+        App.stagePrincipal().show();;
+        App.stageLogin().close();
+       }
+//        if(efetuarLogin()){
+//        App a = new App();
+//        try {
+//            a.startA(new Stage());
+//            App.getStage().close();
+//        } catch (Exception e) {
+//            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, e);
+//        }
+//    }
+    
+    }
+    @FXML
     void sair(ActionEvent event) {
         System.exit(0);
     }
-    @FXML
-
+    
+     @FXML
+    void esqueceu_senha(ActionEvent event) throws IOException {
+        
+        App.genericaStage(App.RESET_SENHA);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -73,12 +85,16 @@ public class LoginController implements Initializable {
             
             
             if (usuario == null){
-                Mensagem.getInstance().mostrarMensagem("", "Usuario não encontrado", Alert.AlertType.ERROR);
+                Mensagem.getInstance().mostrarMensagem("LOGIN", "Usuario não encontrado", Alert.AlertType.ERROR);
                 return false;
             }
-            Mensagem.getInstance().mostrarMensagem("", "Usuario Logado com sucesso", Alert.AlertType.INFORMATION);
+            
+            user_Login_Logado = login_field.getText();
+            user_Senha_Logado = senha_passField.getText();
             this.login_field.clear();
             this.senha_passField.clear();
+            Mensagem.getInstance().mostrarMensagem("LOGIN", "Usuario Logado com sucesso", Alert.AlertType.INFORMATION);
+
             return true;
             
         } catch (Exception e) {

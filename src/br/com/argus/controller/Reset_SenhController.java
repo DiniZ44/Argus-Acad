@@ -1,27 +1,48 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.argus.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+import br.com.argus.app.App;
+import br.com.argus.model.Usuario;
+import java.io.IOException;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 
-/**
- * FXML Controller class
- *
- * @author santo
- */
-public class Reset_SenhController implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+public class Reset_SenhController {
     
+    private static String SENHA = "";
+
+    @FXML
+    private TextField login_field;
+
+    @FXML
+    private Button solicitar;
+
+    @FXML
+    private Button sair_button;
+
+    @FXML
+    private RadioButton resetar_senha;
+
+    @FXML
+    void cb_resetar(ActionEvent event) {
+
+    }
+
+    @FXML
+    void voltar(ActionEvent event) throws IOException {
+        App.stageLogin().show();
+    }
+
+    @FXML
+    void solcitar_reset(ActionEvent event) {
+
+    }
+    
+    public String senhaPadrao(Usuario usuario){
+        return SENHA = usuario.getCpf();
+    }
+
 }
+

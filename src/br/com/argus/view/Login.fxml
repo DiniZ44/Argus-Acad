@@ -45,7 +45,7 @@
       <Pane layoutX="46.0" layoutY="232.0" prefHeight="4.0" prefWidth="340.0" style="-fx-background-color: #c0c0c0;" />
       <Pane layoutX="40.0" layoutY="472.0" prefHeight="52.0" prefWidth="350.0">
          <children>
-            <Button fx:id="redefinir_button" layoutX="14.0" layoutY="2.0" mnemonicParsing="false" style="-fx-border-style: null;" text="Esqueceu a senha?">
+            <Button fx:id="redefinir_button" layoutX="14.0" layoutY="2.0" mnemonicParsing="false" onAction="#esqueceu_senha" style="-fx-border-style: null;" text="Esqueceu a senha?">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>

@@ -133,7 +133,7 @@
             </Pane>
             <Pane fx:id="panel_home" prefHeight="225.0" prefWidth="312.0">
                <children>
-                  <Button fx:id="home_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="-6.0" layoutY="166.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="144.0" style="-fx-background-color: A9A9A9;" text="Logout" textFill="WHITE">
+                  <Button fx:id="home_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="-6.0" layoutY="166.0" mnemonicParsing="false" onAction="#deslogar" prefHeight="45.0" prefWidth="144.0" style="-fx-background-color: A9A9A9;" text="Logout" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="15.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -157,5 +157,6 @@
             </Pane>
          </children>
       </VBox>
+      <AnchorPane fx:id="anchor_pane" layoutX="312.0" opacity="0.8" prefHeight="806.0" prefWidth="966.0" />
    </children>
 </AnchorPane>

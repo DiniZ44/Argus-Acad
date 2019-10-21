@@ -5,12 +5,18 @@
  */
 package br.com.argus.app;
 import br.com.argus.enuns.TipoCargo;
+import br.com.argus.enuns.TipoEstadoUF;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
 import br.com.argus.facade.IFacade;
+import br.com.argus.model.Aluno;
+import br.com.argus.model.Contato;
+import br.com.argus.model.Endereco;
+import br.com.argus.model.Resp_Financeiro;
 import br.com.argus.model.SuperUsuario;
 import br.com.argus.model.Usuario;
 import java.io.IOException;
+import java.time.LocalDate;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -53,14 +59,46 @@ public class App extends Application {
         
        IFacade facade = Facade.getInstance();
        
-//        SuperUsuario superUsuario = new SuperUsuario();
+      
+//        Aluno aluno = new Aluno();
+//        Contato contato = new Contato();
+//        Endereco endereco = new Endereco();
+//        Resp_Financeiro financeiro = new Resp_Financeiro();
+//        contato.setEmail("eamail");
+//        contato.setTelefone("09");
+//        contato.setCelular("89");
 //        
-//        superUsuario.setLogin("admin");
-//        superUsuario.setSenha("admin");
-//        superUsuario.setNome("Adminstrador");
-//        superUsuario.setCpf("00000000001");
-//        superUsuario.setTipoCargo(TipoCargo.SUPER_USUARIO);
-//        facade.inserirOuAtualizar(superUsuario);
+//        endereco.setBairro("bairoo");
+//        endereco.setCep("00");
+//        endereco.setCidade("Cidade");
+//        endereco.setComplemento("Casa");
+//        endereco.setLogradouro("logra");
+//        endereco.setNumero("12");
+//        endereco.setTipoEstadoUF(TipoEstadoUF.PERNAMBUCO);
+//        
+//        financeiro.setCpf("0008");
+//        financeiro.setNome("Bergao");
+//        
+//        aluno.setContato(contato);
+//        aluno.setEndereco(endereco);
+//        aluno.setCpf("009");
+//        aluno.setResponsavel_financeiro(financeiro);
+//        aluno.setNaturalidade("Daqui");
+//        aluno.setPai("BergPai");
+//        aluno.setMae("BergMae");
+//        aluno.setNome("Berg");
+//        aluno.setData_nascimento("21/10/2019");
+//        
+//        facade.inserirOuAtualizarAluno(aluno);
+//        
+        SuperUsuario superUsuario = new SuperUsuario();
+        
+        superUsuario.setLogin("admin");
+        superUsuario.setSenha("admin");
+        superUsuario.setNome("Adminstrador");
+        superUsuario.setCpf("00000000001");
+        superUsuario.setTipoCargo(TipoCargo.SUPER_USUARIO);
+        facade.inserirOuAtualizar(superUsuario);
        
         launch(args);
        

@@ -123,7 +123,7 @@ public class Cadastrar_UsuarioController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        carregar_comboBox();
+        //carregar_comboBox();
     }
     
     public void Cadastrar(){

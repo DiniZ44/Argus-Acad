@@ -53,7 +53,7 @@ public class Aluno extends Entidade{
     private Endereco endereco;
     
     @Column
-    private LocalDate data_nascimento;
+    private String data_nascimento;
     
     @Column(nullable = false, unique = true, length = 11)
     private String cpf;
@@ -112,13 +112,15 @@ public class Aluno extends Entidade{
         this.endereco = endereco;
     }
 
-    public LocalDate getData_nascimento() {
+    public String getData_nascimento() {
         return data_nascimento;
     }
 
-    public void setData_nascimento(LocalDate data_nascimento) {
+    public void setData_nascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
+
+ 
 
     public String getCpf() {
         return cpf;

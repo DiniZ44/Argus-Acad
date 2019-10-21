@@ -34,7 +34,7 @@ public enum TipoCargo {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return getValor();
+		return descricao;
 	}
 	
     

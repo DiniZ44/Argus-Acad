@@ -10,9 +10,13 @@ import br.com.argus.model.SuperUsuario;
 import br.com.argus.model.Usuario;
 import br.com.argus.view.Mensagem;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,7 +32,10 @@ public class Cadastrar_UsuarioController implements Initializable{
     private Diretor diretor, NovoDiretor;
     private Secretario secretario, NovoSecretario;
     private Coordenador coordenador, NovoCoordenador;
-
+    
+    private List<TipoCargo> cargos = new ArrayList<>();
+    private ObservableList<TipoCargo> observable ; 
+    
     @FXML
     private TextField nome;
 
@@ -49,7 +56,6 @@ public class Cadastrar_UsuarioController implements Initializable{
 
     @FXML
     void salvarUsuario(ActionEvent event) {
-//        carregar_comboBox();
         Cadastrar();
     }
 
@@ -117,7 +123,7 @@ public class Cadastrar_UsuarioController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //carregar_comboBox();
+        carregar_comboBox();
     }
     
     public void Cadastrar(){
@@ -199,7 +205,9 @@ public class Cadastrar_UsuarioController implements Initializable{
 
     public void carregar_comboBox(){
         
-        getTipo_cargo().getItems().setAll(TipoCargo.values());
+        
+        observable = FXCollections.observableArrayList(TipoCargo.values());
+        tipo_cargo.setItems(observable);
     }
     
     public void limparCampos(){

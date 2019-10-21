@@ -9,6 +9,6 @@ package br.com.argus.model;
  *
  * @author santo
  */
-public class Carne_Pagamento {
+public class Carne_Pagamento{
     
 }

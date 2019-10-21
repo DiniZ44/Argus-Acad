@@ -28,14 +28,14 @@ public class Disciplina extends Entidade{
     @Column(nullable = false, unique = true)
     private String codigo;
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 20)
     private String nome;
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Professor professor;
     
-    @Column(nullable = false, length = 3)
+    @Column(nullable = false, length = 5)
     private String carga_horaria;
 
     public String getCodigo() {

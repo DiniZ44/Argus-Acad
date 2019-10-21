@@ -28,6 +28,7 @@ public class Resp_Financeiro extends Entidade{
     @Column(nullable = false, unique = true, length = 11)
     private String cpf;
 
+
     public String getNome() {
         return nome;
     }

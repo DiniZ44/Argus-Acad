@@ -140,5 +140,17 @@
             </ImageView>
          </graphic>
       </Button>
+      <TextField fx:id="email" layoutX="506.0" layoutY="594.0" opacity="0.7" prefHeight="25.0" prefWidth="199.0" promptText="eexemple@gmail.com" />
+      <Label layoutX="506.0" layoutY="555.0" prefHeight="25.0" prefWidth="133.0" text="e-mail">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="naturalidade" layoutX="33.0" layoutY="668.0" opacity="0.7" prefHeight="25.0" prefWidth="199.0" />
+      <Label layoutX="36.0" layoutY="633.0" prefHeight="25.0" prefWidth="133.0" text="naturalidade">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

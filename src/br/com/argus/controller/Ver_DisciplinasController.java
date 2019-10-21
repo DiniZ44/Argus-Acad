@@ -1,27 +1,54 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.argus.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+import br.com.argus.app.App;
+import java.io.IOException;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
 
-/**
- * FXML Controller class
- *
- * @author santo
- */
-public class Ver_DisciplinasController implements Initializable {
+public class Ver_DisciplinasController {
+    public static final String CADASTRO_DISCIPLINA = "/br/com/argus/view/Cadastrar_Disciplina.fxml" ;
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+    @FXML
+    private TableColumn<?, ?> table_name;
+
+    @FXML
+    private TableColumn<?, ?> table_codigo;
+
+    @FXML
+    private TableColumn<?, ?> table_professor;
+
+    @FXML
+    private TableColumn<?, ?> table_carga_hora;
+
+    @FXML
+    private TextField pesquisa;
+
+    @FXML
+    private Button buscar;
+
+    @FXML
+    private Button add;
+
+    @FXML
+    private Button atualizar;
+
+    @FXML
+    void adcionar_disciplina(ActionEvent event) throws IOException {
+        App.genericaStage(CADASTRO_DISCIPLINA).show();
+    }
+
+    @FXML
+    void atualizar_disciplina(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buscar_disciplina(ActionEvent event) {
+
+    }
+
 }
+

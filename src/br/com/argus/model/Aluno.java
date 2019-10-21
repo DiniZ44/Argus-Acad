@@ -27,7 +27,7 @@ import javax.persistence.Table;
 @Table(name = "aluno")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @SequenceGenerator(name = Entidade.SEQUENCE_ENTIDADE, sequenceName = Aluno.SEQUENCE_ENTIDADE, initialValue = 1, allocationSize = 1)
-public abstract class Aluno extends Entidade{
+public class Aluno extends Entidade{
     
     public static final long serialVersionUID = 1L;
     protected static final String SEQUENCE_ENTIDADE = "aluno_sequence";
@@ -52,7 +52,7 @@ public abstract class Aluno extends Entidade{
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
     
-    @Column(nullable = false)
+    @Column
     private LocalDate data_nascimento;
     
     @Column(nullable = false, unique = true, length = 11)

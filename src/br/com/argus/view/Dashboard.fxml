@@ -52,7 +52,7 @@
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="prof_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#abrir_turma" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Professores" textFill="WHITE">
+            <Button fx:id="prof_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#abrir_professor" prefHeight="45.0" prefWidth="312.0" style="-fx-background-color: A9A9A9;" text="Professores" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                      <image>

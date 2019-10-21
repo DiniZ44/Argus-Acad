@@ -49,6 +49,8 @@ public class LoginController implements Initializable {
        if(efetuarLogin()){
         
         App.stagePrincipal().show();;
+        App.stagePrincipal().setResizable(false);
+        App.stagePrincipal().setTitle("Tela Inicial");
         App.stageLogin().close();
        }
 //        if(efetuarLogin()){

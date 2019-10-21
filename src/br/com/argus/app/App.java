@@ -72,6 +72,8 @@ public class App extends Application {
       STAGE.initOwner(STAGE_PRINCIPAL);
       STAGE.initModality(Modality.WINDOW_MODAL);
       
+      stageLogin().setResizable(false);
+      stageLogin().setTitle("Login Argus Acad");
       stageLogin().show();
       
     }

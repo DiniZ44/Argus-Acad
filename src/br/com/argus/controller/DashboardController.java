@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -26,7 +28,10 @@ public class DashboardController implements Initializable{
     public static final String VER_PROFESSORES = "/br/com/argus/view/Ver_Professores.fxml" ;
     public static final String VER_TURMA = "/br/com/argus/view/Ver_Turma.fxml" ;
     public static final String VER_USUARIO = "/br/com/argus/view/Ver_Usuarios.fxml" ;
+    
+    public Ver_UsuariosController controller;
 
+    //  DASHBOARD
     @FXML
     private Button aluno;
 
@@ -62,35 +67,38 @@ public class DashboardController implements Initializable{
     
     @FXML
     private AnchorPane anchor_pane;
-
+    
     @FXML
     void abir_config(ActionEvent event) {
         
     }
 
     @FXML
-    void abrirAluno(ActionEvent event) {
-
+    void abrirAluno(ActionEvent event) throws IOException {
+        getAnchor_pane().getChildren().clear();
+        getAnchor_pane().getChildren().add(FXMLLoader.load(getClass().getResource(VER_ALUNOS)));
     }
 
     @FXML
-    void abrir_disciplina(ActionEvent event) {
-
+    void abrir_disciplina(ActionEvent event) throws IOException {
+        getAnchor_pane().getChildren().clear();
+        getAnchor_pane().getChildren().add(FXMLLoader.load(getClass().getResource(VER_DISCIPLINAS)));
     }
 
     @FXML
-    void abrir_financas(ActionEvent event) {
-
+    void abrir_financas(ActionEvent event) throws IOException {
     }
 
     @FXML
-    void abrir_turma(ActionEvent event) {
-
+    void abrir_turma(ActionEvent event) throws IOException {
+        getAnchor_pane().getChildren().clear();
+        getAnchor_pane().getChildren().add(FXMLLoader.load(getClass().getResource(VER_TURMA)));
     }
 
     @FXML
-    void abrir_usuario(ActionEvent event) {
-
+    void abrir_usuario(ActionEvent event) throws IOException {
+        getAnchor_pane().getChildren().clear();
+        getAnchor_pane().getChildren().add(FXMLLoader.load(getClass().getResource(VER_USUARIO)));
     }
 
     @FXML
@@ -104,7 +112,13 @@ public class DashboardController implements Initializable{
         App.stagePrincipal().close();
         App.stageLogin().show();
     }
-
+    
+    @FXML
+    void abrir_professor(ActionEvent event) throws IOException {
+        getAnchor_pane().getChildren().clear();
+        getAnchor_pane().getChildren().add(FXMLLoader.load(getClass().getResource(VER_PROFESSORES)));
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
        

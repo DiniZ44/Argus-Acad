@@ -28,10 +28,10 @@ public class Endereco extends Entidade{
     @Column(nullable = false, length = 120)
     private String logradouro;
     
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false, length = 20)
     private String numero;
     
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false, length = 120)
     private String bairro;
     
     @Column(nullable = false, length = 50)
@@ -40,7 +40,7 @@ public class Endereco extends Entidade{
     @Column(nullable = false, length = 9)
     private String cep;
     
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 50)
     private String complemento;
     
     @Enumerated(EnumType.STRING)

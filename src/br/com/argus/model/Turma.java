@@ -40,9 +40,9 @@ public class Turma extends Entidade{
     @JoinColumn
     private Disciplina disciplina;
     
-    @Column(nullable = false, length = 5)
-    private String nota;
-    
+//    @Column(nullable = false, length = 5)
+//    private String nota;
+//    
     @Enumerated(EnumType.STRING)
     private TipoSituacao statusAluno;
 
@@ -71,13 +71,13 @@ public class Turma extends Entidade{
         this.disciplina = disciplina;
     }
 
-    public String getNota() {
-        return nota;
-    }
-
-    public void setNota(String nota) {
-        this.nota = nota;
-    }
+//    public String getNota() {
+//        return nota;
+//    }
+//
+//    public void setNota(String nota) {
+//        this.nota = nota;
+//    }
 
     public TipoSituacao getStatusAluno() {
         return statusAluno;
@@ -89,7 +89,7 @@ public class Turma extends Entidade{
 
     @Override
     public String toString() {
-        return "Turma{" + "aluno=" + aluno + ", disciplina=" + disciplina + ", nota=" + nota + ", statusAluno=" + statusAluno + '}';
+        return "Turma{" + "aluno=" + aluno + ", disciplina=" + disciplina +", statusAluno=" + statusAluno + '}';
     }
     
     

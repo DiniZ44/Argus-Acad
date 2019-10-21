@@ -91,15 +91,15 @@ public class App extends Application {
 //        
 //        facade.inserirOuAtualizarAluno(aluno);
 //        
-        SuperUsuario superUsuario = new SuperUsuario();
-        
-        superUsuario.setLogin("admin");
-        superUsuario.setSenha("admin");
-        superUsuario.setNome("Adminstrador");
-        superUsuario.setCpf("00000000001");
-        superUsuario.setTipoCargo(TipoCargo.SUPER_USUARIO);
-        facade.inserirOuAtualizar(superUsuario);
-       
+//        SuperUsuario superUsuario = new SuperUsuario();
+//        
+//        superUsuario.setLogin("admin");
+//        superUsuario.setSenha("admin");
+//        superUsuario.setNome("Adminstrador");
+//        superUsuario.setCpf("00000000001");
+//        superUsuario.setTipoCargo(TipoCargo.SUPER_USUARIO);
+//        facade.inserirOuAtualizar(superUsuario);
+//       
         launch(args);
        
     }

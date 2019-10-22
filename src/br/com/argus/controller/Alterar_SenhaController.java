@@ -33,6 +33,8 @@ public class Alterar_SenhaController {
 
     @FXML
     void salvar(ActionEvent event) {
+       
+        
         if(trocarSenha()){
             Mensagem.getInstance().mostrarMensagem("ALTERAÇÃO DE SENHA", "Nova senha, cadastrada com sucesso", Alert.AlertType.INFORMATION);
         }else{

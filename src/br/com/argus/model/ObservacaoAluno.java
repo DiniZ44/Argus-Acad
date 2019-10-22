@@ -5,10 +5,19 @@
  */
 package br.com.argus.model;
 
+import javax.persistence.Entity;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 /**
  *
  * @author santo
  */
-public class ObservacaoAluno {
+@Entity
+@Table(name = "observacao_aluno")
+@SequenceGenerator(name = Entidade.SEQUENCE_ENTIDADE, sequenceName = ObservacaoAluno.SEQUENCE_ENTIDADE, initialValue = 1, allocationSize = 1)
+public class ObservacaoAluno extends Entidade{
     
+    public static final long serialVersionUID = 1L;
+    protected static final String SEQUENCE_ENTIDADE = "obs_aluno_sequence";
 }

@@ -32,4 +32,12 @@ public class Mensagem extends Alert{
 		instance.setContentText(msg);
 		instance.show();
 	}
+        
+        public void confirmar(String t, String m, AlertType tipo){
+                instance.setAlertType(tipo);
+		instance.setTitle(t);
+		instance.setContentText(m);
+		instance.show();
+            
+        }
 }

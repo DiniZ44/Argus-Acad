@@ -8,7 +8,6 @@ package br.com.argus.util;
 import java.sql.Date;
 import java.time.LocalDate;
 import javax.persistence.AttributeConverter;
-
 /**
  *
  * @author santo
@@ -27,4 +26,5 @@ public class ConvertLocalDate implements AttributeConverter<LocalDate, Date> {
 		return arg0.toLocalDate();
 	}
 
+        
 }

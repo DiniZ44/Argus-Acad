@@ -123,7 +123,7 @@ public class Cadastrar_UsuarioController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //carregar_comboBox();
+        carregar_comboBox();
     }
     
     public void Cadastrar(){
@@ -205,8 +205,12 @@ public class Cadastrar_UsuarioController implements Initializable{
 
     public void carregar_comboBox(){
         
+        cargos.add(TipoCargo.DIRETORIA);
+        cargos.add(TipoCargo.COORDENAÇÃO_PEDAGOGA);
+        cargos.add(TipoCargo.SECRETARIA);
+        cargos.add(TipoCargo.SUPER_USUARIO);
         
-        observable = FXCollections.observableArrayList(TipoCargo.values());
+        observable = FXCollections.observableArrayList(cargos);
         tipo_cargo.setItems(observable);
     }
     

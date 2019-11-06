@@ -14,8 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="806.0" prefWidth="968.0" style="-fx-background-color: #DCDCDC;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="br.com.argus.controller.Ver_AlunosController">
+<AnchorPane id="AnchorPane" prefHeight="806.0" prefWidth="968.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.argus.controller.Ver_AlunosController">
    <children>
       <GridPane layoutY="229.0" prefHeight="572.0" prefWidth="968.0">
         <columnConstraints>
@@ -26,7 +25,7 @@
           <RowConstraints maxHeight="523.0" minHeight="10.0" prefHeight="517.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TableView opacity="0.8" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+            <TableView fx:id="tabela_aluno" opacity="0.8" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
               <columns>
                 <TableColumn fx:id="table_name" prefWidth="160.0" style="-fx-background-color: A9A9A9;" text="Nome" />
                 <TableColumn fx:id="table_cpf" minWidth="0.0" prefWidth="101.0" style="-fx-background-color: A9A9A9;" text="CPF" />

@@ -144,6 +144,7 @@ public class Cadastrar_AlunoController implements Initializable{
                 Mensagem.getInstance().mostrarMensagem("Cadastro Aluno", "Erro ao cadastrar Aluno", Alert.AlertType.ERROR);
             }
     }
+
     
     void carregarCombo(){
         uf_cbox.getItems().setAll(TipoEstadoUF.values());
@@ -166,6 +167,7 @@ public class Cadastrar_AlunoController implements Initializable{
     email.clear();
     tel_field.clear();
     numCasa.clear();
+    data_nasc.getEditor().clear();
     }
 
 }

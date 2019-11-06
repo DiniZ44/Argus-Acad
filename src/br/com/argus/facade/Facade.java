@@ -6,42 +6,57 @@
 package br.com.argus.facade;
 
 import br.com.argus.business.AlunoBusiness;
+import br.com.argus.business.CarnePagamentoBusiness;
 import br.com.argus.business.ContatoBusiness;
 import br.com.argus.business.CoordenadorBusinees;
 import br.com.argus.business.DiretorBusiness;
 import br.com.argus.business.DisciplinaBusiness;
 import br.com.argus.business.EnderecoBusiness;
+import br.com.argus.business.FaltaBusiness;
 import br.com.argus.business.IAlunoBusiness;
+import br.com.argus.business.ICarnePagamentoBusiness;
 import br.com.argus.business.IContatoBusiness;
 import br.com.argus.business.ICoordenadorBusiness;
 import br.com.argus.business.IDiretorBusiness;
 import br.com.argus.business.IDisciplinaBusiness;
 import br.com.argus.business.IEnderecoBusiness;
+import br.com.argus.business.IFaltaBusiness;
+import br.com.argus.business.ILiquidaCarneBusiness;
+import br.com.argus.business.IObservacaoAlunoBusiness;
 import br.com.argus.business.IProfessorBusiness;
 import br.com.argus.business.IRes_FinBusiness;
 import br.com.argus.business.ISecretarioBusiness;
 import br.com.argus.business.ISuperUsuarioBusiness;
 import br.com.argus.business.ITurmaBisiness;
 import br.com.argus.business.IUsuarioBusiness;
+import br.com.argus.business.IVinculoAlunoTurmaBusiness;
+import br.com.argus.business.LiquidaCarneBusiness;
+import br.com.argus.business.ObservacaoAlunoBusiness;
 import br.com.argus.business.ProfessorBusiness;
 import br.com.argus.business.Res_FinBusiness;
 import br.com.argus.business.SecretarioBusiness;
 import br.com.argus.business.SuperUsuarioBusiness;
 import br.com.argus.business.TurmaBisiness;
 import br.com.argus.business.UsuarioBusiness;
+import br.com.argus.business.VinculoAlunoTurmaBusiness;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.model.Aluno;
+import br.com.argus.model.Carne_Pagamento;
 import br.com.argus.model.Contato;
 import br.com.argus.model.Endereco;
 import br.com.argus.model.Usuario;
 import br.com.argus.model.Coordenador;
 import br.com.argus.model.Diretor;
 import br.com.argus.model.Disciplina;
+import br.com.argus.model.Falta;
+import br.com.argus.model.LiquidaCarne;
+import br.com.argus.model.ObservacaoAluno;
 import br.com.argus.model.Professor;
 import br.com.argus.model.Resp_Financeiro;
 import br.com.argus.model.SuperUsuario;
 import br.com.argus.model.Turma;
 import br.com.argus.model.Secretario;
+import br.com.argus.model.VinculoAlunoTurma;
 import java.util.List;
 
 /**
@@ -72,6 +87,12 @@ public class Facade implements IFacade{
     private ISuperUsuarioBusiness superUsuarioBusiness;
     private ITurmaBisiness turmaBisiness;
     private ISecretarioBusiness secretarioBusiness;
+    private ICarnePagamentoBusiness carnePagamentoBusiness;
+    private IFaltaBusiness faltaBusiness;
+    private ILiquidaCarneBusiness liquidaCarneBusiness;
+    private IObservacaoAlunoBusiness observacaoAlunoBusiness;
+    private IVinculoAlunoTurmaBusiness vinculoAlunoTurmaBusiness;
+    
     
     private Facade(){
         usuarioBusiness = new UsuarioBusiness();
@@ -86,6 +107,12 @@ public class Facade implements IFacade{
         superUsuarioBusiness = new SuperUsuarioBusiness();
         turmaBisiness = new TurmaBisiness();
         secretarioBusiness = new SecretarioBusiness();
+        carnePagamentoBusiness = new CarnePagamentoBusiness();
+        faltaBusiness = new FaltaBusiness();
+        liquidaCarneBusiness = new LiquidaCarneBusiness();
+        observacaoAlunoBusiness = new ObservacaoAlunoBusiness();
+        vinculoAlunoTurmaBusiness = new VinculoAlunoTurmaBusiness();
+              
     }
 
 
@@ -135,7 +162,7 @@ public class Facade implements IFacade{
         enderecoBusiness.buscar(Endereco.class, endereco.getId());
     } 
     @Override
-    public List<Endereco> buscarTodosEnderecos(Endereco endereco) throws BussinesException {
+    public List<Endereco> buscarTodosEnderecos() throws BussinesException {
             return enderecoBusiness.buscarTodos();
     }
     
@@ -158,7 +185,7 @@ public class Facade implements IFacade{
         contatoBusiness.buscar(Contato.class, contato.getId());
     }
     @Override
-    public List<Contato> buscarTodosContatos(Contato contato) throws BussinesException {
+    public List<Contato> buscarTodosContatos() throws BussinesException {
         return contatoBusiness.buscarTodos();
     }
 
@@ -181,7 +208,7 @@ public class Facade implements IFacade{
         alunoBusiness.buscar(Aluno.class, aluno.getId());
     }
     @Override
-    public List<Aluno> buscarTodosAlunos(Aluno aluno) throws BussinesException {
+    public List<Aluno> buscarTodosAlunos() throws BussinesException {
         return alunoBusiness.buscarTodos();
     }
     
@@ -204,7 +231,7 @@ public class Facade implements IFacade{
         coordenadorBusiness.buscar(Coordenador.class, coordenador.getId());
     }
     @Override
-    public List<Coordenador> buscarTodosCoordenadores(Coordenador coordenador) throws BussinesException {
+    public List<Coordenador> buscarTodosCoordenadores() throws BussinesException {
        return coordenadorBusiness.buscarTodos();
     }
 
@@ -227,7 +254,7 @@ public class Facade implements IFacade{
         diretorBusiness.buscar(Diretor.class, diretor.getId());
     }
     @Override
-    public List<Diretor> buscarTodosDiretores(Diretor diretor) throws BussinesException {
+    public List<Diretor> buscarTodosDiretores() throws BussinesException {
         return diretorBusiness.buscarTodos();
     }
 
@@ -250,7 +277,7 @@ public class Facade implements IFacade{
         disciplinaBusiness.buscar(Disciplina.class, disciplina.getId());
     }
     @Override
-    public List<Disciplina> buscarTodosDisciplinas(Disciplina disciplina) throws BussinesException {
+    public List<Disciplina> buscarTodosDisciplinas() throws BussinesException {
         return disciplinaBusiness.buscarTodos();
     }
 
@@ -273,7 +300,7 @@ public class Facade implements IFacade{
         professorBusiness.buscar(Professor.class, professor.getId());
     }
     @Override
-    public List<Professor> buscarTodosProfessores(Professor professor) throws BussinesException {
+    public List<Professor> buscarTodosProfessores() throws BussinesException {
         return professorBusiness.buscarTodos();
     }
     
@@ -296,7 +323,7 @@ public class Facade implements IFacade{
         res_FinBusiness.buscar(Resp_Financeiro.class, resp_Financeiro.getId());
     }
     @Override
-    public List<Resp_Financeiro> buscarTodosResp_FinS(Resp_Financeiro resp_Financeiro) throws BussinesException {
+    public List<Resp_Financeiro> buscarTodosResp_FinS() throws BussinesException {
         return res_FinBusiness.buscarTodos();
     }
 
@@ -319,7 +346,7 @@ public class Facade implements IFacade{
         secretarioBusiness.buscar(Secretario.class, secretario.getId());
     }
     @Override
-    public List<Secretario> buscarTodosSecretario(Secretario secretario) throws BussinesException {
+    public List<Secretario> buscarTodosSecretario() throws BussinesException {
         return secretarioBusiness.buscarTodos();
     }
 
@@ -343,7 +370,7 @@ public class Facade implements IFacade{
     }
 
     @Override
-    public List<SuperUsuario> buscarTodosSuperUsuarioS(SuperUsuario superUsuario) throws BussinesException {
+    public List<SuperUsuario> buscarTodosSuperUsuarioS() throws BussinesException {
         return superUsuarioBusiness.buscarTodos();
     }
 
@@ -367,13 +394,125 @@ public class Facade implements IFacade{
     }
 
     @Override
-    public List<Turma> buscarTodosTurma(Turma turma) throws BussinesException {
+    public List<Turma> buscarTodosTurma() throws BussinesException {
         return turmaBisiness.buscarTodos();
     }
     
+    //  Carne Pagamento
+    @Override
+    public void inserirOuAtualizarCarnePag(Carne_Pagamento carne_Pagamento) throws BussinesException {
+        carnePagamentoBusiness.criarOuAtualizar(carne_Pagamento);
+    }
+    @Override
+    public void desabilitarCarnePag(Carne_Pagamento carne_Pagamento) throws BussinesException {
+         carnePagamentoBusiness.desabilitar(carne_Pagamento);
+    }
+    @Override
+    public void deletarCarnePag(Carne_Pagamento carne_Pagamento) throws BussinesException {
+        carnePagamentoBusiness.deletar(carne_Pagamento);
+    }
+    @Override
+    public void buscarCarnePag(Carne_Pagamento carne_Pagamento) throws BussinesException {
+         carnePagamentoBusiness.buscar(Carne_Pagamento.class, carne_Pagamento.getId());
+    }
+    @Override
+    public List<Carne_Pagamento> buscarTodosCarnePag() throws BussinesException {
+        return  carnePagamentoBusiness.buscarTodos();
+    }
     
+    
+    //  Falta
+    @Override
+    public void inserirOuAtualizarFalta(Falta falta) throws BussinesException {
+        faltaBusiness.criarOuAtualizar(falta);
+    }
+    @Override
+    public void desabilitarFalta(Falta falta) throws BussinesException {
+        faltaBusiness.desabilitar(falta);
+    }
+    @Override
+    public void deletarFalta(Falta falta) throws BussinesException {
+        faltaBusiness.deletar(falta);
+    }
+    @Override
+    public void buscarFalta(Falta falta) throws BussinesException {
+      faltaBusiness.buscar(Falta.class, falta.getId());
+    }
+    @Override
+    public List<Falta> buscarTodosFalta() throws BussinesException {
+       return faltaBusiness.buscarTodos();
+    }
+
+    
+    //  Liquida Carne
+    @Override
+    public void inserirOuAtualizarLiquidaCarne(LiquidaCarne liquidaCarne) throws BussinesException {
+        liquidaCarneBusiness.criarOuAtualizar(liquidaCarne);
+    }
+    @Override
+    public void desabilitarLiquidaCarne(LiquidaCarne liquidaCarne) throws BussinesException {
+        liquidaCarneBusiness.desabilitar(liquidaCarne);
+    }
+    @Override
+    public void deletarLiquidaCarne(LiquidaCarne liquidaCarne) throws BussinesException {
+       liquidaCarneBusiness.deletar(liquidaCarne);
+    }
+    @Override
+    public void buscarLiquidaCarne(LiquidaCarne liquidaCarne) throws BussinesException {
+        liquidaCarneBusiness.buscar(LiquidaCarne.class,liquidaCarne.getId());
+    }
+    @Override
+    public List<LiquidaCarne> buscarTodosLiquidaCarne() throws BussinesException {
+        return liquidaCarneBusiness.buscarTodos();
+    }
+
+    
+    //  Observacao Aluno
+    @Override
+    public void inserirOuAtualizarObsAluno(ObservacaoAluno observacaoAluno) throws BussinesException {
+       observacaoAlunoBusiness.criarOuAtualizar(observacaoAluno);
+    }
+    @Override
+    public void desabilitarObsAluno(ObservacaoAluno observacaoAluno) throws BussinesException {
+        observacaoAlunoBusiness.desabilitar(observacaoAluno);
+    }
+    @Override
+    public void deletarObsAluno(ObservacaoAluno observacaoAluno) throws BussinesException {
+       observacaoAlunoBusiness.deletar(observacaoAluno);
+    }
+    @Override
+    public void buscarObsAluno(ObservacaoAluno observacaoAluno) throws BussinesException {
+      observacaoAlunoBusiness.buscar(ObservacaoAluno.class, observacaoAluno.getId());
+    }
+    @Override
+    public List<ObservacaoAluno> buscarTodosObsAluno() throws BussinesException {
+      return observacaoAlunoBusiness.buscarTodos();
+    }
 
     
     
+    // Vinculo Aluno turma
+    @Override
+    public void inserirOuAtualizarVincAlunoTurma(VinculoAlunoTurma vinculoAlunoTurma) throws BussinesException {
+        vinculoAlunoTurmaBusiness.criarOuAtualizar(vinculoAlunoTurma);
+    }
+    @Override
+    public void desabilitarVincAlunoTurma(VinculoAlunoTurma vinculoAlunoTurma) throws BussinesException {
+        vinculoAlunoTurmaBusiness.desabilitar(vinculoAlunoTurma);
+    }
+    @Override
+    public void deletarVincAlunoTurma(VinculoAlunoTurma vinculoAlunoTurma) throws BussinesException {
+        vinculoAlunoTurmaBusiness.deletar(vinculoAlunoTurma);
+    }
+    @Override
+    public void buscarVincAlunoTurma(VinculoAlunoTurma vinculoAlunoTurma) throws BussinesException {
+        vinculoAlunoTurmaBusiness.buscar(VinculoAlunoTurma.class, vinculoAlunoTurma.getId());
+    }
+    @Override
+    public List<VinculoAlunoTurma> buscarTodosVincAlunoTurma() throws BussinesException {
+        return vinculoAlunoTurmaBusiness.buscarTodos();
+    }
+    
+
     
 }

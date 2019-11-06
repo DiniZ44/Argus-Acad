@@ -5,16 +5,18 @@
  */
 package br.com.argus.business;
 
-import br.com.argus.exceptions.BussinesException;
-import br.com.argus.model.Aluno;
-import java.util.List;
+import br.com.argus.exceptions.ValidacaoException;
+import br.com.argus.model.Falta;
 
 /**
  *
  * @author santo
  */
-public interface IAlunoBusiness extends IBusiness<Aluno>{
-    
-       // public List<Aluno> buscarAlunosTabela(String string) throws BussinesException; 
+public class FaltaBusiness extends Business<Falta> implements IFaltaBusiness{
+
+    @Override
+    public void isValid(Falta t) throws ValidacaoException {
+        
+    }
     
 }

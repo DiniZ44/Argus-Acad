@@ -5,16 +5,12 @@
  */
 package br.com.argus.business;
 
-import br.com.argus.exceptions.BussinesException;
-import br.com.argus.model.Aluno;
-import java.util.List;
+import br.com.argus.model.VinculoAlunoTurma;
 
 /**
  *
  * @author santo
  */
-public interface IAlunoBusiness extends IBusiness<Aluno>{
-    
-       // public List<Aluno> buscarAlunosTabela(String string) throws BussinesException; 
+public interface IVinculoAlunoTurmaBusiness extends IBusiness<VinculoAlunoTurma>{
     
 }

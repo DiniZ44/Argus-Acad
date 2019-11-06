@@ -13,5 +13,6 @@ public class SQLUtil {
     
     public static final String BUSCAR_LOGIN = "select u from Usuario u where u.login = :login and u.senha = :senha";
     public static final String BUSCAR_TODOS_USUARIOS = "select u from Usuario";
+    public static final String BUSCAR_ALUNOS_TABLE = "select pf from PessoaFisicaView pf inner join Endereco e on pf.endereco.id = e.id where lower(str(pf.nome)) like :busca or pf.cpf = :busca";
     
 }

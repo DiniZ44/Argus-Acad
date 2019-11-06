@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 
 import javafx.scene.control.TextField;
 
@@ -33,7 +34,7 @@ public class Cadastrar_AlunoController implements Initializable{
     private TextField nome_aluno;
 
     @FXML
-    private TextField data_nasc;
+    private DatePicker data_nasc;
 
     @FXML
     private TextField pai;
@@ -126,7 +127,7 @@ public class Cadastrar_AlunoController implements Initializable{
         aluno = new Aluno();
         aluno.setEndereco(endereco);
         aluno.setContato(contato);
-        //aluno.setData_nascimento(data_nasc.getText());
+        aluno.setData_nascimento(data_nasc.getValue());
         aluno.setCpf(cpf_Aluno.getText());
         aluno.setMae(mae.getText());
         aluno.setNaturalidade(naturalidade.getText() );

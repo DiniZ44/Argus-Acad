@@ -5,7 +5,11 @@
  */
 package br.com.argus.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -21,4 +25,29 @@ public class LiquidaCarne extends Entidade{
     
     public static final long serialVersionUID = 1L;
     protected static final String SEQUENCE_ENTIDADE = "liquidaCarne_sequence";
+    
+    @Column(nullable = true)
+    private boolean pago;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "carne_id")
+    private Carne_Pagamento carne_Pagamento;
+
+    public boolean isPago() {
+        return pago;
+    }
+
+    public void setPago(boolean pago) {
+        this.pago = pago;
+    }
+
+    public Carne_Pagamento getCarne_Pagamento() {
+        return carne_Pagamento;
+    }
+
+    public void setCarne_Pagamento(Carne_Pagamento carne_Pagamento) {
+        this.carne_Pagamento = carne_Pagamento;
+    }
+    
+    
 }

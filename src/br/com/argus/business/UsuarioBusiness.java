@@ -60,5 +60,16 @@ public class UsuarioBusiness extends Business<Usuario> implements IUsuarioBusine
             throw new BussinesException(e.getMessage());
         }
     }
+
+    @Override
+    public Usuario buscarTipo(String tipocargo) throws BussinesException {
+         try { 
+        Usuario user = usuarioDAO.buscarTipo(tipocargo);
+            return user;
+        } catch (DAOException e) {
+            e.printStackTrace();
+            throw new BussinesException(e.getMessage());
+        }
+    }
     
 }

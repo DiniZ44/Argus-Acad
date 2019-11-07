@@ -37,6 +37,7 @@ public interface IFacade {
     //  Usuario
     public Usuario buscarLoginUsuario(String login, String senha) throws BussinesException;
     public List<Usuario> buscarTodosUsuarios(String string) throws BussinesException;
+    public Usuario buscarTipo(String tipocargo) throws BussinesException;
     public void inserirOuAtualizar(Usuario usuario) throws BussinesException;
     public void desabilitarUsuario(Usuario usuario) throws BussinesException;
     public void deletarUsuario (Usuario usuario) throws BussinesException;

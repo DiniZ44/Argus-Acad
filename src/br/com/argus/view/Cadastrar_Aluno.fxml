@@ -125,12 +125,6 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="cpf_responsavel" layoutX="318.0" layoutY="594.0" opacity="0.7" prefHeight="25.0" prefWidth="151.0" promptText="   .   .   - " />
-      <Label layoutX="322.0" layoutY="555.0" prefHeight="25.0" prefWidth="133.0" text="CPF do Responsável">
-         <font>
-            <Font name="Arial" size="12.0" />
-         </font>
-      </Label>
       <Button fx:id="voltar" layoutX="40.0" layoutY="735.0" mnemonicParsing="false" onAction="#voltar" opacity="0.7" prefHeight="39.0" prefWidth="185.0" style="-fx-background-color: #DCDCDC;">
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
@@ -146,8 +140,8 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="naturalidade" layoutX="33.0" layoutY="668.0" opacity="0.7" prefHeight="25.0" prefWidth="199.0" />
-      <Label layoutX="36.0" layoutY="633.0" prefHeight="25.0" prefWidth="133.0" text="naturalidade">
+      <TextField fx:id="naturalidade" layoutX="270.0" layoutY="594.0" opacity="0.7" prefHeight="25.0" prefWidth="199.0" />
+      <Label layoutX="273.0" layoutY="555.0" prefHeight="25.0" prefWidth="133.0" text="naturalidade">
          <font>
             <Font name="Arial" size="12.0" />
          </font>

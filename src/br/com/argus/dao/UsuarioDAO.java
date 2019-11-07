@@ -61,6 +61,26 @@ public class UsuarioDAO extends Dao<Usuario> implements IUsuarioDAO {
         }
     }
 
+    @Override
+    public Usuario buscarTipo(String tipocargo) throws DAOException {
+        try {
+            TypedQuery<Usuario> typedQuery = entityManager().createQuery(SQLUtil.BUSCAR_TIPO_USUARIO, class1);
+            typedQuery.setParameter("tipocargo", tipocargo);
+
+            return typedQuery.getSingleResult();
+            
+        } catch (NoResultException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            throw new DAOException("Não foi encontrado Usuario");
+            
+        }catch(Exception e){
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            throw new DAOException("Erro de busca no "+ class1.getSimpleName()+ " " +e.getMessage());
+        }
+    }
+
 
 
 

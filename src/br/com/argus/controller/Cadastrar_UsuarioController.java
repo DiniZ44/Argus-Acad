@@ -1,5 +1,6 @@
 package br.com.argus.controller;
 
+import br.com.argus.app.App;
 import br.com.argus.enuns.TipoCargo;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
@@ -9,6 +10,7 @@ import br.com.argus.model.Secretario;
 import br.com.argus.model.SuperUsuario;
 import br.com.argus.model.Usuario;
 import br.com.argus.view.Mensagem;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,7 @@ public class Cadastrar_UsuarioController implements Initializable{
     private Diretor diretor, NovoDiretor;
     private Secretario secretario, NovoSecretario;
     private Coordenador coordenador, NovoCoordenador;
+    public static final String CADASTRO_USUARIO = "/br/com/argus/view/Cadastrar_Usuario.fxml" ;
     
     private List<TipoCargo> cargos = new ArrayList<>();
     private ObservableList<TipoCargo> observable ; 
@@ -60,8 +63,8 @@ public class Cadastrar_UsuarioController implements Initializable{
     }
 
     @FXML
-    void voltar(ActionEvent event) {
-        
+    void voltar(ActionEvent event) throws IOException {
+        App.genericaStage(CADASTRO_USUARIO).close();
     }
 
     public Usuario getUsuario() {

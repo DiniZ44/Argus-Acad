@@ -1,6 +1,7 @@
 package br.com.argus.controller;
 
 import br.com.argus.app.App;
+import br.com.argus.enuns.TipoCargo;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Usuario;
 import br.com.argus.view.Mensagem;
@@ -23,8 +24,8 @@ import javafx.stage.Stage;
 public class LoginController implements Initializable {
 
     public static String user_Login_Logado, user_Senha_Logado;;
-    
     private static Usuario usuario;
+    private DashboardController dashboardController;
     private Facade facade = Facade.getInstance();
 
     @FXML
@@ -53,6 +54,8 @@ public class LoginController implements Initializable {
         App.stagePrincipal().setTitle("Tela Inicial");
         App.stageLogin().close();
        }
+       
+       dashboardController.isUsuario();
 //        if(efetuarLogin()){
 //        App a = new App();
 //        try {
@@ -95,7 +98,6 @@ public class LoginController implements Initializable {
             user_Senha_Logado = senha_passField.getText();
             this.login_field.clear();
             this.senha_passField.clear();
-            Mensagem.getInstance().mostrarMensagem("LOGIN", "Usuario Logado com sucesso", Alert.AlertType.INFORMATION);
 
             return true;
             
@@ -103,8 +105,66 @@ public class LoginController implements Initializable {
             e.printStackTrace();
             return false;
         }
+
         
-        
+    }
+    
+    boolean isCoordenacao(){
+        try {
+            usuario = facade.buscarTipo("COORDENAÇÃO_PEDAGOGA");
+             if (usuario == null){
+                Mensagem.getInstance().mostrarMensagem("TIPO USUARIO", "Usuario não encontrado", Alert.AlertType.ERROR);
+                return false;
+            } 
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    
+    boolean isDiretoria(){
+        try {
+            usuario = facade.buscarTipo("DIRETORIA");
+             if (usuario == null){
+                Mensagem.getInstance().mostrarMensagem("TIPO USUARIO", "Usuario não encontrado", Alert.AlertType.ERROR);
+                return false;
+            } 
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        }
+    
+    
+    boolean isSecretaria(){
+        try {
+            usuario = facade.buscarTipo("SECRETARIA");
+             if (usuario == null){
+                Mensagem.getInstance().mostrarMensagem("TIPO USUARIO", "Usuario não encontrado", Alert.AlertType.ERROR);
+                return false;
+            } 
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    boolean isADM(){
+        try {
+            usuario = facade.buscarTipo("SUPER_USUARIO");
+             if (usuario == null){
+                Mensagem.getInstance().mostrarMensagem("TIPO USUARIO", "Usuario não encontrado", Alert.AlertType.ERROR);
+                return false;
+            } 
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
     
     public TextField getLogin_field() {
@@ -127,4 +187,13 @@ public class LoginController implements Initializable {
         return sair_button;
     }
 
+    /**
+     *
+     * @return
+     */
+    public Usuario getUsuario() {
+        return usuario;
+    }
+    
+    
 }

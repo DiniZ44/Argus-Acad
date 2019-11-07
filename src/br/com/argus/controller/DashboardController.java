@@ -1,6 +1,9 @@
 package br.com.argus.controller;
 
 import br.com.argus.app.App;
+import br.com.argus.model.Diretor;
+import br.com.argus.model.Secretario;
+import br.com.argus.model.SuperUsuario;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -29,7 +33,7 @@ public class DashboardController implements Initializable{
     public static final String VER_TURMA = "/br/com/argus/view/Ver_Turma.fxml" ;
     public static final String VER_USUARIO = "/br/com/argus/view/Ver_Usuarios.fxml" ;
     
-    public Ver_UsuariosController controller;
+    private LoginController loginController;
 
     //  DASHBOARD
     @FXML
@@ -67,6 +71,9 @@ public class DashboardController implements Initializable{
     
     @FXML
     private AnchorPane anchor_pane;
+    
+    @FXML
+    private Label label_usuario;
     
     @FXML
     void abir_config(ActionEvent event) {
@@ -121,7 +128,19 @@ public class DashboardController implements Initializable{
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       
+    }
+    
+    void isUsuario(){
+        
+        if(loginController.isADM()){
+            label_usuario.setText("Adminstrador");
+        }else if(loginController.isCoordenacao()){
+            label_usuario.setText("Coordenador Pedagogo");
+        }else if(loginController.isDiretoria()){
+            label_usuario.setText("Diretor(a)");
+        }else if(loginController.isSecretaria()){
+            label_usuario.setText("Secretario(a)");
+        }
     }
 
     public Button getAluno() {
@@ -219,6 +238,16 @@ public class DashboardController implements Initializable{
     public void setAnchor_pane(AnchorPane anchor_pane) {
         this.anchor_pane = anchor_pane;
     }
+
+    public Label getLabel_usuario() {
+        return label_usuario;
+    }
+
+    public void setLabel_usuario(Label label_usuario) {
+        this.label_usuario = label_usuario;
+    }
+    
+    
     
     
     

@@ -1,10 +1,13 @@
 package br.com.argus.controller;
 
+import br.com.argus.app.App;
+
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Disciplina;
 import br.com.argus.model.Professor;
 import br.com.argus.view.Mensagem;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -19,6 +22,7 @@ import javafx.scene.control.TextField;
 
 public class Cadastrar_DisciplinaController implements Initializable{
     
+    public static final String CADASTRO_DISCIPLINA = "/br/com/argus/view/Cadastrar_Disciplina.fxml" ;
     private Professor professor;
     private Disciplina disciplina;
 
@@ -46,8 +50,8 @@ public class Cadastrar_DisciplinaController implements Initializable{
     }
 
     @FXML
-    void voltar(ActionEvent event) {
-
+    void voltar(ActionEvent event) throws IOException {
+        App.genericaStage(CADASTRO_DISCIPLINA).close();
     }
 
     public Button getSalvar_button() {

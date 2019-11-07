@@ -1,11 +1,13 @@
 package br.com.argus.controller;
 
+import br.com.argus.app.App;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Aluno;
 import br.com.argus.model.Disciplina;
 import br.com.argus.model.Turma;
 import br.com.argus.view.Mensagem;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -17,7 +19,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 public class Cadastrar_TurmaController implements Initializable{
-    
+    public static final String CADASTRO_TURMA = "/br/com/argus/view/Cadastrar_Turma.fxml" ;
     private Disciplina disciplina;
     private Turma turma;
     private Aluno aluno;
@@ -43,8 +45,8 @@ public class Cadastrar_TurmaController implements Initializable{
     }
     
     @FXML
-    void voltar(ActionEvent event) {
-
+    void voltar(ActionEvent event) throws IOException {
+        App.genericaStage(CADASTRO_TURMA).close();
     }
 
     @Override

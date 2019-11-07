@@ -1,5 +1,7 @@
 package br.com.argus.controller;
 
+import br.com.argus.app.App;
+
 import br.com.argus.enuns.TipoEstadoUF;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
@@ -8,6 +10,7 @@ import br.com.argus.model.Contato;
 import br.com.argus.model.Endereco;
 import br.com.argus.model.Resp_Financeiro;
 import br.com.argus.view.Mensagem;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -21,6 +24,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 public class Cadastrar_AlunoController implements Initializable{
+    
+    public static final String CADASTRO_ALUNO ="/br/com/argus/view/Cadastrar_Aluno.fxml" ;
     
     Endereco endereco;
     Contato contato;
@@ -74,9 +79,6 @@ public class Cadastrar_AlunoController implements Initializable{
 
     @FXML
     private TextField responsavel;
-
-    @FXML
-    private TextField cpf_responsavel;
     
     
     @FXML
@@ -95,8 +97,8 @@ public class Cadastrar_AlunoController implements Initializable{
     }
 
     @FXML
-    void voltar(ActionEvent event) {
-
+    void voltar(ActionEvent event) throws IOException {
+        App.genericaStage(CADASTRO_ALUNO).close();
     }
 
     @Override
@@ -121,7 +123,6 @@ public class Cadastrar_AlunoController implements Initializable{
         contato.setTelefone(tel_field.getText());
         
         financeiro = new Resp_Financeiro();
-        financeiro.setCpf(cpf_responsavel.getText());
         financeiro.setNome(responsavel.getText());
         
         aluno = new Aluno();
@@ -152,7 +153,6 @@ public class Cadastrar_AlunoController implements Initializable{
     
     void limparCampos(){
     cpf_Aluno.clear();
-    cpf_responsavel.clear();
     mae.clear();
     naturalidade.clear();
     nome_aluno.clear();

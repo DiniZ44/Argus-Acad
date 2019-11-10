@@ -9,9 +9,10 @@ import java.sql.Time;
 import java.time.LocalTime;
 import javax.persistence.AttributeConverter;
 
+
 /**
  *
- * @author santo
+ * @author Hakkinen
  */
 public class ConverterLocalTime implements AttributeConverter<LocalTime, Time>{
 

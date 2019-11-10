@@ -5,9 +5,10 @@
  */
 package br.com.argus.util;
 
+
 /**
  *
- * @author santo
+ * @author Hakkinen
  */
 public class SQLUtil {
     

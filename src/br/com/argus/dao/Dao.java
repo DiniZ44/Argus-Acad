@@ -132,11 +132,11 @@ public abstract class Dao <T extends Entidade> implements IDao<T>{
             List<T> listT = null;
             
             try {
+                //listT = em.createQuery("from "+class1.getName() + "entidade e where e.status = true").getResultList();
                 listT = em.createQuery("from "+ class1.getName()).getResultList();
             } catch (Exception e) {
-                
-                e.printStackTrace();
                 System.err.println(e.getMessage());
+                e.printStackTrace();
                 throw new DAOException("Erro ao buscar a lista " +class1.getSimpleName());
             }finally{
             

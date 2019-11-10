@@ -105,7 +105,7 @@ public class Cadastrar_ProfessorController implements Initializable{
         contato.setEmail(email.getText());
         contato.setTelefone(tel_field.getText());
         
-              professor = new Professor();
+        professor = new Professor();
         professor.setEndereco(endereco);
         professor.setContato(contato);
         professor.setData_nascimento(data_nasc.getValue());
@@ -142,7 +142,7 @@ public class Cadastrar_ProfessorController implements Initializable{
     email.clear();
     tel_field.clear();
     numCasa.clear();
-    
+    data_nasc.getEditor().clear();
     }
 
 }

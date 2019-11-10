@@ -5,21 +5,24 @@ import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Aluno;
 import br.com.argus.model.Contato;
-import br.com.argus.model.Endereco;
 import br.com.argus.model.Resp_Financeiro;
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class Ver_AlunosController {
+public class Ver_AlunosController  implements Initializable{
     
     public static final String CADASTRO_ALUNO ="/br/com/argus/view/Cadastrar_Aluno.fxml" ;
     
@@ -28,6 +31,7 @@ public class Ver_AlunosController {
     private List<Resp_Financeiro> responsaveis;
     private Contato contato;
     private Resp_Financeiro resp_Financeiro;
+    private Facade facada;
     
     @FXML
     private TableView<Aluno> tabela_aluno;
@@ -36,22 +40,22 @@ public class Ver_AlunosController {
     private TableColumn<Aluno, String> table_name;
 
     @FXML
-    private TableColumn<Aluno, String> table_cpf;
+    private TableColumn<Aluno,String> table_cpf;
 
     @FXML
-    private TableColumn<Aluno, String> table_mae;
+    private TableColumn<Aluno, String>table_mae;
 
     @FXML
     private TableColumn<Aluno, String> table_pai;
 
     @FXML
-    private TableColumn<Aluno, LocalDate> table_date;
+    private TableColumn<Aluno,LocalDate> table_date;
 
     @FXML
-    private TableColumn<Aluno, Contato> table_contato;
+    private TableColumn<Aluno,String> table_contato;
 
     @FXML
-    private TableColumn<Aluno, Resp_Financeiro> table_resp;
+    private TableColumn<Aluno,String> table_resp;
 
     @FXML
     private TextField pesquisa;
@@ -72,24 +76,44 @@ public class Ver_AlunosController {
 
     @FXML
     void buscar_aluno(ActionEvent event) {
-       
-        try {
-            alunos = Facade.getInstance().buscarTodosAlunos();
-            tabela_aluno.getItems().setAll(alunos);
-        } catch (BussinesException ex) {
-            
-        }
+
 
     }
    
     
     @FXML
-    void adcionar_aluno(ActionEvent event) throws IOException {
+    void adcionar_aluno(ActionEvent event) throws IOException, BussinesException {
+
         App.genericaStage(CADASTRO_ALUNO).show();
+      
+    }
+    
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+        try {
+            atualizar_tabela(facada.getInstance().buscarTodosAlunos());
+        } catch (BussinesException ex) {
+            ex.printStackTrace();
+        }
     }
 
 
     
+    void atualizar_tabela(List<Aluno> alunoList){
+        table_name.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        table_cpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+        table_contato.setCellValueFactory(new PropertyValueFactory("contato"));
+        table_mae.setCellValueFactory(new PropertyValueFactory<>("mae"));
+        table_pai.setCellValueFactory(new PropertyValueFactory<>("pai"));
+        table_resp.setCellValueFactory(new PropertyValueFactory("responsavel_financeiro"));
+        table_date.setCellValueFactory(new PropertyValueFactory("data_nascimento"));
+       
+       tabela_aluno.getItems().setAll(alunoList);
+        
+    
+    }
     
   
  

@@ -55,7 +55,7 @@ public class LoginController implements Initializable {
         App.stageLogin().close();
        }
        
-       dashboardController.isUsuario();
+//       dashboardController.isUsuario();
 //        if(efetuarLogin()){
 //        App a = new App();
 //        try {

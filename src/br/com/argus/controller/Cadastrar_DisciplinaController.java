@@ -10,8 +10,6 @@ import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,6 +23,7 @@ public class Cadastrar_DisciplinaController implements Initializable{
     public static final String CADASTRO_DISCIPLINA = "/br/com/argus/view/Cadastrar_Disciplina.fxml" ;
     private Professor professor;
     private Disciplina disciplina;
+    Ver_DisciplinasController ver_DisciplinasController;
 
     @FXML
     private Button salvar_button;
@@ -39,7 +38,7 @@ public class Cadastrar_DisciplinaController implements Initializable{
     private TextField carga_horario;
 
     @FXML
-    private ComboBox<?> professor_cbox;
+    private ComboBox<Professor> professor_cbox;
 
     @FXML
     private Button voltar;
@@ -52,6 +51,23 @@ public class Cadastrar_DisciplinaController implements Initializable{
     @FXML
     void voltar(ActionEvent event) throws IOException {
         App.genericaStage(CADASTRO_DISCIPLINA).close();
+    }
+    
+    void Cadastrar(){
+        try {
+            //Facade.getInstance().buscarProfessor(professor);
+            disciplina = new Disciplina();
+            disciplina.setNome(nome.getText());
+            //disciplina.setProfessor(professor);
+            disciplina.setCodigo( codigo.getText());
+            disciplina.setCarga_horaria(carga_horario.getText());
+            Facade.getInstance().inserirOuAtualizarDisciplina(disciplina);
+            limpar();
+            Mensagem.getInstance().mostrarMensagem("Cadastro Disciplina", "Cadastro Efetuado com Sucesso", Alert.AlertType.INFORMATION);
+        } catch (BussinesException ex) {
+             Mensagem.getInstance().mostrarMensagem("Cadastro Disciplina", "Erro ao Cadastrar, por favor tente novamente!", Alert.AlertType.ERROR);
+        }
+        
     }
 
     public Button getSalvar_button() {
@@ -90,7 +106,7 @@ public class Cadastrar_DisciplinaController implements Initializable{
         return professor_cbox;
     }
 
-    public void setProfessor_cbox(ComboBox<?> professor_cbox) {
+    public void setProfessor_cbox(ComboBox<Professor> professor_cbox) {
         this.professor_cbox = professor_cbox;
     }
 
@@ -105,24 +121,10 @@ public class Cadastrar_DisciplinaController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+
     }
     
-    void Cadastrar(){
-        try {
-            Facade.getInstance().buscarProfessor(professor);
-            disciplina = new Disciplina();
-            disciplina.setNome(nome.getText());
-            //disciplina.setProfessor(professor);
-            disciplina.setCodigo( codigo.getText());
-            disciplina.setCarga_horaria(this.carga_horario.getText());
-            Facade.getInstance().inserirOuAtualizarDisciplina(disciplina);
-            Mensagem.getInstance().mostrarMensagem("Cadastro Disciplina", "Cadastro Efetuado com Sucesso", Alert.AlertType.INFORMATION);
-        } catch (BussinesException ex) {
-            Logger.getLogger(Cadastrar_DisciplinaController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
+
     
     void CarregarProfessor(){
         

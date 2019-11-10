@@ -2,9 +2,13 @@ package br.com.argus.controller;
 
 
 import br.com.argus.app.App;
+import br.com.argus.exceptions.BussinesException;
+import br.com.argus.facade.Facade;
+import br.com.argus.model.Usuario;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +21,9 @@ import javafx.scene.control.Alert;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -29,22 +35,25 @@ public class Ver_UsuariosController implements Initializable{
 //    DashboardController dashboardController;
     
     @FXML
-    private TableColumn<?, ?> table_name;
+    private TableView<Usuario> table_usuario;
+        
+    @FXML
+    private TableColumn<Usuario, String> table_name;
 
     @FXML
-    private TableColumn<?, ?> table_login;
+    private TableColumn<Usuario, String> table_login;
 
     @FXML
-    private TableColumn<?, ?> table_senha;
+    private TableColumn<Usuario, String>table_senha;
 
     @FXML
-    private TableColumn<?, ?> table_cpf;
+    private TableColumn<Usuario, String>table_cpf;
 
     @FXML
-    private TableColumn<?, ?> table_cargo;
+    private TableColumn<Usuario, String> table_cargo;
 
     @FXML
-    private TableColumn<?, ?> table_acesso;
+    private TableColumn<Usuario, String> table_acesso;
 
     @FXML
     private TextField pesquisa;
@@ -76,12 +85,23 @@ public class Ver_UsuariosController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        try {
-//            cadastrar_usuario = FXMLLoader.load(getClass().getResource(CADASTRO_USUARIO1));
-//        } catch (IOException ex) {
-//            Mensagem.getInstance().mostrarMensagem("Erro Carregar Tela", "Erro ao carregar os componentes gráficos "+ex.getMessage(), Alert.AlertType.ERROR);
-//            Logger.getLogger(Ver_UsuariosController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        try {
+            carregarTabela(Facade.getInstance().buscarTodosUsers());
+        } catch (BussinesException ex) {
+            Mensagem.getInstance().mostrarMensagem("Erro Carregar Tela", "Erro ao carregar os componentes gráficos "+ex.getMessage(), Alert.AlertType.ERROR);
+            ex.printStackTrace();
+        }
     }
-
+    
+    void carregarTabela(List<Usuario> usuarios ) {
+        
+        //table_acesso.setCellValueFactory(new PropertyValueFactory<>("tipo_acesso"));
+        table_cargo.setCellValueFactory(new PropertyValueFactory<>("tipoCargo"));
+        table_cpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+        table_login.setCellValueFactory(new PropertyValueFactory<>("login"));
+        table_name.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        table_senha.setCellValueFactory(new PropertyValueFactory<>("senha"));
+        
+        table_usuario.getItems().setAll(usuarios);
+    }
 }

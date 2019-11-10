@@ -42,6 +42,7 @@ public interface IFacade {
     public void desabilitarUsuario(Usuario usuario) throws BussinesException;
     public void deletarUsuario (Usuario usuario) throws BussinesException;
     public void buscarUsuario (Usuario usuario) throws BussinesException;
+    public List<Usuario> buscarTodosUsers() throws BussinesException;
     
     
     //  Endereco

@@ -146,7 +146,10 @@ public class Facade implements IFacade{
     public Usuario buscarTipo(String tipocargo) throws BussinesException {
         return usuarioBusiness.buscarTipo(tipocargo);
     }
-    
+    @Override
+    public List<Usuario> buscarTodosUsers() throws BussinesException {
+        return usuarioBusiness.buscarTodos();
+    }
     
     
     //  Endereco
@@ -517,6 +520,8 @@ public class Facade implements IFacade{
     public List<VinculoAlunoTurma> buscarTodosVincAlunoTurma() throws BussinesException {
         return vinculoAlunoTurmaBusiness.buscarTodos();
     }
+
+
 
 
     

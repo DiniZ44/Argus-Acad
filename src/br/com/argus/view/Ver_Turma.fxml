@@ -25,7 +25,7 @@
             <RowConstraints maxHeight="523.0" minHeight="10.0" prefHeight="517.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <TableView opacity="0.8" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+            <TableView fx:id="turma_table" opacity="0.8" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
                   <TableColumn fx:id="table_name" prefWidth="246.0" style="-fx-background-color: A9A9A9;" text="Nome" />
                   <TableColumn fx:id="table_nota" minWidth="0.0" prefWidth="105.0" style="-fx-background-color: A9A9A9;" text="Nota" />

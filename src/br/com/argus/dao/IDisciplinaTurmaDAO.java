@@ -5,15 +5,13 @@
  */
 package br.com.argus.dao;
 
-import br.com.argus.exceptions.DAOException;
-import br.com.argus.model.Aluno;
-import java.util.List;
+
+import br.com.argus.model.DisciplinaTurma;
 
 /**
  *
- * @author santo
+ * @author Hakkinen
  */
-public interface IAlunoDAO extends IDao<Aluno>{
+public interface IDisciplinaTurmaDAO extends IDao<DisciplinaTurma>{
     
-    public List<Aluno> buscarALL() throws DAOException;
 }

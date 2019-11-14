@@ -10,6 +10,7 @@ import br.com.argus.model.Usuario;
 import br.com.argus.util.SQLUtil;
 import java.util.List;
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -63,20 +64,20 @@ public class UsuarioDAO extends Dao<Usuario> implements IUsuarioDAO {
 
     @Override
     public Usuario buscarTipo(String tipocargo) throws DAOException {
+  
         try {
-            TypedQuery<Usuario> typedQuery = entityManager().createQuery(SQLUtil.BUSCAR_TIPO_USUARIO, class1);
-            typedQuery.setParameter("tipocargo", tipocargo);
+            Query q = entityManager().createQuery(SQLUtil.BUSCAR_TIPO_USUARIO+tipocargo+"'");
 
-            return typedQuery.getSingleResult();
+           Usuario usuario =(Usuario) q.getSingleResult() ;
+            usuario.getNome();
+           return usuario;
             
         } catch (NoResultException e) {
             e.printStackTrace();
-            System.err.println(e.getMessage());
-            throw new DAOException("Não foi encontrado Usuario");
+            return null;
             
         }catch(Exception e){
             e.printStackTrace();
-            System.err.println(e.getMessage());
             throw new DAOException("Erro de busca no "+ class1.getSimpleName()+ " " +e.getMessage());
         }
     }

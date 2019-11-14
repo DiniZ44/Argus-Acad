@@ -5,15 +5,16 @@
  */
 package br.com.argus.dao;
 
-import br.com.argus.exceptions.DAOException;
-import br.com.argus.model.Professor;
+import br.com.argus.model.DisciplinaTurma;
 
 /**
  *
- * @author santo
+ * @author Hakkinen
  */
-public interface IProfessorDAO extends IDao<Professor>{
+public class DisciplinaTurmaDAO extends Dao<DisciplinaTurma> implements IDisciplinaTurmaDAO{
     
-    public Professor buscarProf (String pesquisa) throws DAOException;
+    public DisciplinaTurmaDAO() {
+        super(DisciplinaTurma.class);
+    }
     
 }

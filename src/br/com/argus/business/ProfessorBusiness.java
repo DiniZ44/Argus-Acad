@@ -7,8 +7,12 @@ package br.com.argus.business;
 
 import br.com.argus.dao.IProfessorDAO;
 import br.com.argus.dao.ProfessorDAO;
+import br.com.argus.exceptions.BussinesException;
+import br.com.argus.exceptions.DAOException;
 import br.com.argus.exceptions.ValidacaoException;
 import br.com.argus.model.Professor;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,6 +30,18 @@ public class ProfessorBusiness extends Business<Professor> implements IProfessor
     @Override
     public void isValid(Professor t) throws ValidacaoException {
         
+    }
+
+    @Override
+    public Professor buscarProf(String pesquisa) throws BussinesException {
+        try {
+            Professor prof = iProfessorDAO.buscarProf(pesquisa);
+            return prof;
+        } catch (DAOException ex) {
+            ex.printStackTrace();
+            throw new BussinesException(ex.getMessage());
+        }
+
     }
     
 }

@@ -7,8 +7,13 @@ package br.com.argus.business;
 
 import br.com.argus.dao.AlunoDAO;
 import br.com.argus.dao.IAlunoDAO;
+import br.com.argus.exceptions.BussinesException;
+import br.com.argus.exceptions.DAOException;
 import br.com.argus.exceptions.ValidacaoException;
 import br.com.argus.model.Aluno;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -42,5 +47,12 @@ public class AlunoBusiness extends Business<Aluno> implements IAlunoBusiness{
         throw new ValidacaoException("Campo Pai não pode está vazio");
         }
     }
-    
+
+    @Override
+    public List<Aluno> buscarALL() throws Exception {
+        return alunoDAO.buscarALL();
+    }
+
 }
+
+

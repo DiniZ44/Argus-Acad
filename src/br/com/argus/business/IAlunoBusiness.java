@@ -16,5 +16,5 @@ import java.util.List;
 public interface IAlunoBusiness extends IBusiness<Aluno>{
     
        // public List<Aluno> buscarAlunosTabela(String string) throws BussinesException; 
-    
+        public List<Aluno> buscarALL() throws Exception;
 }

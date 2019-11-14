@@ -5,6 +5,7 @@
  */
 package br.com.argus.business;
 
+import br.com.argus.exceptions.BussinesException;
 import br.com.argus.model.Professor;
 
 /**
@@ -13,4 +14,5 @@ import br.com.argus.model.Professor;
  */
 public interface IProfessorBusiness extends IBusiness<Professor>{
     
+    public Professor buscarProf (String pesquisa) throws BussinesException;
 }

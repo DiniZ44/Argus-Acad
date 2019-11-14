@@ -11,6 +11,7 @@ import br.com.argus.facade.Facade;
 import br.com.argus.facade.IFacade;
 import br.com.argus.model.Aluno;
 import br.com.argus.model.Contato;
+import br.com.argus.model.Diretor;
 import br.com.argus.model.Endereco;
 import br.com.argus.model.Resp_Financeiro;
 import br.com.argus.model.SuperUsuario;
@@ -31,11 +32,6 @@ import javafx.stage.WindowEvent;
  * @author santo
  */
 public class App extends Application {
-    
-//    private static Scene sceneLogin, sceneHome;
-//    private static Stage stage;
-//    public final static String Tela_Login = "login";
-//    public final static String Tela_Home = "home";
     
     public static final String LOGIN = "/br/com/argus/view/Login.fxml";
     public static final String HOME = "/br/com/argus/view/Dashboard.fxml";
@@ -87,7 +83,7 @@ public class App extends Application {
 //        aluno.setPai("BergPai");
 //        aluno.setMae("BergMae");
 //        aluno.setNome("Berg");
-//        aluno.setData_nascimento("21/10/2019");
+//
 //        
 //        facade.inserirOuAtualizarAluno(aluno);
 //        
@@ -96,10 +92,10 @@ public class App extends Application {
 //        superUsuario.setLogin("admin");
 //        superUsuario.setSenha("admin");
 //        superUsuario.setNome("Adminstrador");
-//        superUsuario.setCpf("00000000001");
+//        superUsuario.setCpf("001");
 //        superUsuario.setTipoCargo(TipoCargo.SUPER_USUARIO);
 //        facade.inserirOuAtualizar(superUsuario);
-//       
+       
         launch(args);
        
     }
@@ -111,7 +107,7 @@ public class App extends Application {
       STAGE.initModality(Modality.WINDOW_MODAL);
       
       stageLogin().setResizable(false);
-      stageLogin().setTitle("Login Argus Acad");
+      stageLogin().setTitle("Login Argus Acadêmico");
       stageLogin().show();
       
     }
@@ -144,71 +140,6 @@ public class App extends Application {
 		return STAGE;
 	}
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//    @Override
-//    public void start(Stage primayStage){
-//        try {
-//            
-//           Pane telaLogin = FXMLLoader.load(getClass().getResource("/br/com/argus/view/Login.fxml"));
-//           
-//           sceneLogin = new Scene(telaLogin);
-//        
-//            primayStage.setScene(sceneLogin);
-//            primayStage.centerOnScreen();
-//            primayStage.show();
-//            setStage(stage);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }    
-//    }
-
- 
-    
-//    public void startA(Stage primayStage){
-//        try {
-//            
-//           Pane telaHome = FXMLLoader.load(getClass().getResource("/br/com/argus/view/Dashboard.fxml"));
-//           
-//           sceneHome = new Scene(telaHome);
-//        
-//            primayStage.setScene(sceneHome);
-//            primayStage.centerOnScreen();
-//            primayStage.show();
-//            setStage(stage);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }    
-//    }
-    
-//    public static void setStage(Stage Sstage){
-//         stage = Sstage;
-//    }
-//    
-//    public static Stage getStage (){
-//        return stage;
-//    }
-//    
-//    public static void MudarTela (String tela){
-//        if(tela.equals("home")){
-//            stage.setScene(sceneHome);
-//            stage.setResizable(false);
-//        }else{
-//            stage.setScene(sceneLogin);
-//            stage.setResizable(false);
-//          
-//        }
-//    }
   
     /**
      * @param args the command line arguments

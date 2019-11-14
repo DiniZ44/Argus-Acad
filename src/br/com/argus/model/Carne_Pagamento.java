@@ -33,7 +33,6 @@ public class Carne_Pagamento extends Entidade{
     private LocalDate data;
     
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "responsavel_id")
     private Resp_Financeiro resp_Financeiro;
 
     public double getValor() {

@@ -56,8 +56,14 @@ public class Contato extends Entidade{
 
     @Override
     public String toString() {
-        return "Contato{" + "telefone=" + telefone + ", email=" + email + ", celular=" + celular + '}';
+        return "" + telefone ;
     }
+
+//    @Override
+//    public String toString() {
+//        return "Contato{" + "telefone=" + telefone + ", email=" + email + ", celular=" + celular + '}';
+//    }
+    
     
     
 }

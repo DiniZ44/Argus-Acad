@@ -33,7 +33,6 @@ public class Professor extends Entidade{
     private String naturalidade;
     
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "endereco_id")
     private Endereco endereco;
     
     @Column(nullable = false)
@@ -43,7 +42,6 @@ public class Professor extends Entidade{
     private String cpf;
     
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "contato_id")
     private Contato contato;
 
     @Override

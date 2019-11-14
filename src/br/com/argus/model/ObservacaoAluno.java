@@ -10,6 +10,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -32,15 +33,12 @@ public class ObservacaoAluno extends Entidade{
     @Column
     private String descricao;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "vinculoAluno_id")
+    @ManyToOne(cascade = CascadeType.ALL)
     private VinculoAlunoTurma vinculoAlunoTurma;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "secretario_id")
-    private Secretario secretario;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Coordenador coordenador;
 
-   
     
     public LocalDate getData() {
         return data;
@@ -65,14 +63,5 @@ public class ObservacaoAluno extends Entidade{
     public void setVinculoAlunoTurma(VinculoAlunoTurma vinculoAlunoTurma) {
         this.vinculoAlunoTurma = vinculoAlunoTurma;
     }
-
-    public Secretario getSecretario() {
-        return secretario;
-    }
-
-    public void setSecretario(Secretario secretario) {
-        this.secretario = secretario;
-    }
-    
     
 }

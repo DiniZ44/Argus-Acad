@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -38,8 +39,7 @@ public class Aluno extends Entidade{
     @Column(nullable = false, length = 20)
     private String naturalidade;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "resp_fin_id")    
+    @ManyToOne(cascade = CascadeType.ALL) 
     private Resp_Financeiro responsavel_financeiro;
     
     @Column(nullable = false, length = 20)
@@ -48,8 +48,7 @@ public class Aluno extends Entidade{
     @Column(nullable = false, length = 20)
     private String mae;
    
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "endereco_id")
+    @ManyToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
     
     @Column
@@ -58,8 +57,7 @@ public class Aluno extends Entidade{
     @Column(nullable = false, unique = true, length = 11)
     private String cpf;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "contato_id")
+    @ManyToOne(cascade = CascadeType.ALL)
     private Contato contato;
     
     

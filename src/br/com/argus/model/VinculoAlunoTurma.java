@@ -50,10 +50,6 @@ public class VinculoAlunoTurma extends Entidade{
     @Enumerated(EnumType.STRING)
     private SituacaoAluno situacaoAluno;
    
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "turma_id")
-    private Turma turma;
-
     
     public double getNota1() {
         return nota1;
@@ -111,14 +107,5 @@ public class VinculoAlunoTurma extends Entidade{
         this.situacaoAluno = situacaoAluno;
     }
 
-    public Turma getTurma() {
-        return turma;
-    }
-
-    public void setTurma(Turma turma) {
-        this.turma = turma;
-    }
-    
-    
     
 }

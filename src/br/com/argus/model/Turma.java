@@ -32,17 +32,14 @@ public class Turma extends Entidade{
     @Column(nullable = false, length = 20)
     private String nome;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn
-    private Aluno aluno;
+    @Column(length = 20)
+    private int anoLetivo;
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Disciplina disciplina;
     
-//    @Column(nullable = false, length = 5)
-//    private String nota;
-//    
+   
     @Enumerated(EnumType.STRING)
     private TipoSituacao statusAluno;
 
@@ -54,14 +51,6 @@ public class Turma extends Entidade{
         this.nome = nome;
     }
 
-    
-    public Aluno getAluno() {
-        return aluno;
-    }
-
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
-    }
 
     public Disciplina getDisciplina() {
         return disciplina;
@@ -85,11 +74,6 @@ public class Turma extends Entidade{
 
     public void setStatusAluno(TipoSituacao statusAluno) {
         this.statusAluno = statusAluno;
-    }
-
-    @Override
-    public String toString() {
-        return "Turma{" + "aluno=" + aluno + ", disciplina=" + disciplina +", statusAluno=" + statusAluno + '}';
     }
     
     

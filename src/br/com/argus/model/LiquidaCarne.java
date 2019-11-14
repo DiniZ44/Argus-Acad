@@ -30,7 +30,6 @@ public class LiquidaCarne extends Entidade{
     private boolean pago;
     
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "carne_id")
     private Carne_Pagamento carne_Pagamento;
 
     public boolean isPago() {

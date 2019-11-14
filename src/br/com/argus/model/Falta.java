@@ -36,7 +36,7 @@ public class Falta extends Entidade{
     private String justificativa;
    
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "vinculoAluno_id")
+
     private VinculoAlunoTurma vinculoAlunoTurma;
 
     

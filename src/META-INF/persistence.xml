@@ -1,36 +1,43 @@
-<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
-             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
-             version="2.1">
-
-    <persistence-unit name="postgresql" transaction-type="RESOURCE_LOCAL">
-    	<class>br.com.argus.model.Usuario</class>
-        <class>br.com.argus.model.Aluno</class>
-        <class>br.com.argus.model.Contato</class>
-        <class>br.com.argus.model.Coordenador</class>
-     	<class>br.com.argus.model.Diretor</class>
-        <class>br.com.argus.model.Disciplina</class>
-        <class>br.com.argus.model.Endereco</class>
-        <class>br.com.argus.model.Entidade</class>
-        <class>br.com.argus.model.Professor</class>
-        <class>br.com.argus.model.Resp_Financeiro</class>
-        <class>br.com.argus.model.Secretario</class>
-        <class>br.com.argus.model.SuperUsuario</class>
-        <class>br.com.argus.model.Turma</class>
-        
-        <properties>
-            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Projeto_PBD" /> <!-- BD Mane -->
-            <property name="javax.persistence.jdbc.user" value="postgres" /> <!--DB User -->
-            <property name="javax.persistence.jdbc.password" value="12345" /> <!--DB Password -->
-	    <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/> <!-- DB Dialect -->
-            <property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create / create-drop / update -->
-            <property name="hibernate.hbm2ddl.import_files" value="META-INF/sql/querys-iniciais.sql"/>
-            <property name="hibernate.show_sql" value="true" /> <!-- Show SQL in console -->
-            <property name="hibernate.format_sql" value="true" /> <!-- Show SQL formatted -->
-        </properties>
-
-    </persistence-unit>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="postgresql" transaction-type="RESOURCE_LOCAL">
+    <class>br.com.argus.model.Usuario</class>
+    <class>br.com.argus.model.Aluno</class>
+    <class>br.com.argus.model.Contato</class>
+    <class>br.com.argus.model.Coordenador</class>
+    <class>br.com.argus.model.Diretor</class>
+    <class>br.com.argus.model.Disciplina</class>
+    <class>br.com.argus.model.Endereco</class>
+    <class>br.com.argus.model.Entidade</class>
+    <class>br.com.argus.model.Professor</class>
+    <class>br.com.argus.model.Resp_Financeiro</class>
+    <class>br.com.argus.model.Secretario</class>
+    <class>br.com.argus.model.SuperUsuario</class>
+    <class>br.com.argus.model.Turma</class>
+    <class>br.com.argus.model.Carne_Pagamento</class>
+    <class>br.com.argus.model.DisciplinaTurma</class>
+    <class>br.com.argus.model.Falta</class>
+    <class>br.com.argus.model.LiquidaCarne</class>
+    <class>br.com.argus.model.ObservacaoAluno</class>
+    <class>br.com.argus.model.VinculoAlunoTurma</class>
+    <properties>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <!-- DB Driver -->
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Projeto_PBD"/>
+      <!-- BD Mane -->
+      <property name="javax.persistence.jdbc.user" value="postgres"/>
+      <!--DB User -->
+      <property name="javax.persistence.jdbc.password" value="12345"/>
+      <!--DB Password -->
+      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+      <!-- DB Dialect -->
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <!-- create / create-drop / update -->
+      <property name="hibernate.hbm2ddl.import_files" value="META-INF/sql/querys-iniciais.sql"/>
+      <property name="hibernate.show_sql" value="true"/>
+      <!-- Show SQL in console -->
+      <property name="hibernate.format_sql" value="true"/>
+      <!-- Show SQL formatted -->
+    </properties>
+  </persistence-unit>
 </persistence>

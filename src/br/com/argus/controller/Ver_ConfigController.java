@@ -7,18 +7,31 @@ package br.com.argus.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
  * FXML Controller class
  *
- * @author santo
+ * @author Hakkinen
  */
-public class ResponsavelCadastroController implements Initializable {
+public class Ver_ConfigController implements Initializable {
 
     /**
      * Initializes the controller class.
      */
+    
+    @FXML
+    void ConfigurarValorCarne(ActionEvent event) {
+
+    }
+
+    @FXML
+    void configurarAnoLetivo(ActionEvent event) {
+
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

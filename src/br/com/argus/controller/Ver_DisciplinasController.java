@@ -21,6 +21,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Ver_DisciplinasController implements Initializable{
     public static final String CADASTRO_DISCIPLINA = "/br/com/argus/view/Cadastrar_Disciplina.fxml" ;
+    public static final String VER_DISCIPLINAS ="/br/com/argus/view/Ver_Disciplinas.fxml" ;
    
     @FXML
     private TableView<Disciplina> disciplinas_table;
@@ -40,14 +41,6 @@ public class Ver_DisciplinasController implements Initializable{
     @FXML
     private TextField pesquisa;
 
-    @FXML
-    private Button buscar;
-
-    @FXML
-    private Button add;
-
-    @FXML
-    private Button atualizar;
 
     @FXML
     void adcionar_disciplina(ActionEvent event) throws IOException {
@@ -55,8 +48,8 @@ public class Ver_DisciplinasController implements Initializable{
     }
 
     @FXML
-    void atualizar_disciplina(ActionEvent event) {
-
+    void sicronizar(ActionEvent event) throws IOException {
+        App.genericaStage(VER_DISCIPLINAS);
     }
 
     @FXML

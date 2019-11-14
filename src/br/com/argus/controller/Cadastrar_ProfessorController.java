@@ -27,9 +27,6 @@ public class Cadastrar_ProfessorController implements Initializable{
     private Contato contato;
 
     @FXML
-    private Button salvar_button;
-
-    @FXML
     private TextField nome;
 
     @FXML
@@ -87,7 +84,7 @@ public class Cadastrar_ProfessorController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       
+       carregarCombo();
     }
     
     void cadastrar(){
@@ -117,7 +114,6 @@ public class Cadastrar_ProfessorController implements Initializable{
                 Facade.getInstance().inserirOuAtualizarProfessor(professor);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Professor", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
-                //carregarCombo();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Professor", "Erro ao cadastrar Professor", Alert.AlertType.ERROR);
             }
@@ -143,6 +139,7 @@ public class Cadastrar_ProfessorController implements Initializable{
     tel_field.clear();
     numCasa.clear();
     data_nasc.getEditor().clear();
+    uf_cbox.getEditor().clear();
     }
 
 }

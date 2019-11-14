@@ -4,6 +4,7 @@ package br.com.argus.controller;
 import br.com.argus.app.App;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
+import br.com.argus.model.Entidade;
 import br.com.argus.model.Usuario;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
@@ -30,6 +31,7 @@ import javafx.scene.layout.Pane;
 public class Ver_UsuariosController implements Initializable{
     
     public static final String CADASTRO_USUARIO1 = "/br/com/argus/view/Cadastrar_Usuario.fxml" ;
+        public static final String VER_USUARIO = "/br/com/argus/view/Ver_Usuarios.fxml" ;
 //    private Pane cadastrar_usuario;
 //    
 //    DashboardController dashboardController;
@@ -53,7 +55,7 @@ public class Ver_UsuariosController implements Initializable{
     private TableColumn<Usuario, String> table_cargo;
 
     @FXML
-    private TableColumn<Usuario, String> table_acesso;
+    private TableColumn<Entidade, String> table_reset;
 
     @FXML
     private TextField pesquisa;
@@ -73,9 +75,10 @@ public class Ver_UsuariosController implements Initializable{
         App.genericaStage(CADASTRO_USUARIO1).show();
     }
 
+  
     @FXML
-    void atualizar_user(ActionEvent event) {
-
+    void sicronizar(ActionEvent event) throws IOException {
+        App.genericaStage(VER_USUARIO);
     }
 
     @FXML
@@ -95,7 +98,7 @@ public class Ver_UsuariosController implements Initializable{
     
     void carregarTabela(List<Usuario> usuarios ) {
         
-        //table_acesso.setCellValueFactory(new PropertyValueFactory<>("tipo_acesso"));
+        table_reset.setCellValueFactory(new PropertyValueFactory<>("status"));
         table_cargo.setCellValueFactory(new PropertyValueFactory<>("tipoCargo"));
         table_cpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
         table_login.setCellValueFactory(new PropertyValueFactory<>("login"));

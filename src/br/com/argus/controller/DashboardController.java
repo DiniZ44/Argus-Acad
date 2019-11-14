@@ -1,9 +1,14 @@
 package br.com.argus.controller;
 
 import br.com.argus.app.App;
+import br.com.argus.facade.Facade;
+import br.com.argus.model.Coordenador;
 import br.com.argus.model.Diretor;
 import br.com.argus.model.Secretario;
 import br.com.argus.model.SuperUsuario;
+import br.com.argus.model.Usuario;
+import br.com.argus.util.SQLUtil;
+import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -32,9 +38,12 @@ public class DashboardController implements Initializable{
     public static final String VER_PROFESSORES = "/br/com/argus/view/Ver_Professores.fxml" ;
     public static final String VER_TURMA = "/br/com/argus/view/Ver_Turma.fxml" ;
     public static final String VER_USUARIO = "/br/com/argus/view/Ver_Usuarios.fxml" ;
+    public static final String VER_FINANÇAS = "/br/com/argus/view/Ver_Configuracao.fxml" ;
+    public static final String VER_CONFIG = "/br/com/argus/view/Ver_Financas.fxml" ;
     
     private LoginController loginController;
-
+    
+    
     //  DASHBOARD
     @FXML
     private Button aluno;
@@ -76,8 +85,9 @@ public class DashboardController implements Initializable{
     private Label label_usuario;
     
     @FXML
-    void abir_config(ActionEvent event) {
-        
+    void abir_config(ActionEvent event) throws IOException {
+        getAnchor_pane().getChildren().clear();
+        getAnchor_pane().getChildren().add(FXMLLoader.load(getClass().getResource(VER_CONFIG)));
     }
 
     @FXML
@@ -94,6 +104,8 @@ public class DashboardController implements Initializable{
 
     @FXML
     void abrir_financas(ActionEvent event) throws IOException {
+        getAnchor_pane().getChildren().clear();
+        getAnchor_pane().getChildren().add(FXMLLoader.load(getClass().getResource(VER_FINANÇAS)));
     }
 
     @FXML
@@ -128,19 +140,12 @@ public class DashboardController implements Initializable{
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        tipoUsuario();
     }
     
-    void isUsuario(){
-        
-        if(loginController.isADM()){
-            label_usuario.setText("Adminstrador");
-        }else if(loginController.isCoordenacao()){
-            label_usuario.setText("Coordenador Pedagogo");
-        }else if(loginController.isDiretoria()){
-            label_usuario.setText("Diretor(a)");
-        }else if(loginController.isSecretaria()){
-            label_usuario.setText("Secretario(a)");
-        }
+    void tipoUsuario(){
+    
+        label_usuario.setText(SQLUtil.TIPO);
     }
 
     public Button getAluno() {

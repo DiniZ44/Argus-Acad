@@ -25,6 +25,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class Ver_AlunosController  implements Initializable{
     
     public static final String CADASTRO_ALUNO ="/br/com/argus/view/Cadastrar_Aluno.fxml" ;
+    public static final String VER_ALUNOS = "/br/com/argus/view/Ver_Alunos.fxml" ;
     
     private Aluno aluno;
     private List<Aluno> alunos;
@@ -44,9 +45,6 @@ public class Ver_AlunosController  implements Initializable{
 
     @FXML
     private TableColumn<Aluno, String>table_mae;
-
-    @FXML
-    private TableColumn<Aluno, String> table_pai;
 
     @FXML
     private TableColumn<Aluno,LocalDate> table_date;
@@ -70,8 +68,8 @@ public class Ver_AlunosController  implements Initializable{
     private Button atualizar;
 
     @FXML
-    void atualizar_aluno(ActionEvent event) {
-
+    void sicronizar(ActionEvent event) throws IOException {
+        App.genericaStage(VER_ALUNOS);
     }
 
     @FXML
@@ -83,7 +81,7 @@ public class Ver_AlunosController  implements Initializable{
     
     @FXML
     void adcionar_aluno(ActionEvent event) throws IOException, BussinesException {
-
+        
         App.genericaStage(CADASTRO_ALUNO).show();
       
     }
@@ -94,7 +92,7 @@ public class Ver_AlunosController  implements Initializable{
         
         try {
             atualizar_tabela(facada.getInstance().buscarTodosAlunos());
-        } catch (BussinesException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
@@ -106,7 +104,6 @@ public class Ver_AlunosController  implements Initializable{
         table_cpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
         table_contato.setCellValueFactory(new PropertyValueFactory("contato"));
         table_mae.setCellValueFactory(new PropertyValueFactory<>("mae"));
-        table_pai.setCellValueFactory(new PropertyValueFactory<>("pai"));
         table_resp.setCellValueFactory(new PropertyValueFactory("responsavel_financeiro"));
         table_date.setCellValueFactory(new PropertyValueFactory("data_nascimento"));
        

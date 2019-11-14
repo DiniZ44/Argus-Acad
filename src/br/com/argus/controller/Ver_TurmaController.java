@@ -8,12 +8,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -22,6 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class Ver_TurmaController implements Initializable{
     
     public static final String CADASTRO_TURMA = "/br/com/argus/view/Cadastrar_Turma.fxml" ;
+    public static final String VER_TURMA = "/br/com/argus/view/Ver_Turma.fxml" ;
     
     @FXML
     private TableView<Turma> turma_table;
@@ -30,28 +28,11 @@ public class Ver_TurmaController implements Initializable{
     private TableColumn<Turma, String> table_name;
 
     @FXML
-    private TableColumn<Turma, String>table_nota;
-
-    @FXML
-    private TableColumn<Turma, String>table_alunos;
-
-    @FXML
     private TableColumn<Turma, String> table_disciplinas;
-
-    @FXML
-    private TableColumn<Turma, String> table_status_aluno;
 
     @FXML
     private TextField pesquisa;
 
-    @FXML
-    private Button buscar;
-
-    @FXML
-    private Button add;
-
-    @FXML
-    private Button atualizar;
 
     @FXML
     void adcionar_Turma(ActionEvent event) throws IOException {
@@ -59,8 +40,8 @@ public class Ver_TurmaController implements Initializable{
     }
 
     @FXML
-    void atualizar_turma(ActionEvent event) {
-
+    void sicronizar(ActionEvent event) throws IOException {
+        App.genericaStage(VER_TURMA);
     }
 
     @FXML
@@ -78,10 +59,7 @@ public class Ver_TurmaController implements Initializable{
     }
     void carregarTabela(List<Turma> turmas){
     table_name.setCellValueFactory(new PropertyValueFactory<>("nome"));
-    // table_nota.setCellValueFactory(new PropertyValueFactory<>("nota"));   
-     table_alunos.setCellValueFactory(new PropertyValueFactory<>("aluno"));
-      table_disciplinas.setCellValueFactory(new PropertyValueFactory<>("disciplina")); 
-      table_status_aluno.setCellValueFactory(new PropertyValueFactory<>("statusAluno")); 
+    table_disciplinas.setCellValueFactory(new PropertyValueFactory<>("disciplina")); 
         
      turma_table.getItems().setAll(turmas);
     }

@@ -24,6 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Ver_ProfessoresController implements Initializable{
     public static final String CADASTRO_PROFESSOR = "/br/com/argus/view/Cadastrar_Professor.fxml" ;
+    public static final String VER_PROFESSORES = "/br/com/argus/view/Ver_Professores.fxml" ;
     
     @FXML
     private TableView<Professor> professor_table;   
@@ -40,25 +41,8 @@ public class Ver_ProfessoresController implements Initializable{
     private TableColumn<Professor, Contato> table_contato;
 
     @FXML
-    private TableColumn<Professor, String> table_naturalidade;
-
-    @FXML
-    private TableColumn<Professor, String>  table_turma;
-
-    @FXML
-    private TableColumn<Professor, String> table_dsiciplinas;
-
-    @FXML
     private TextField pesquisa;
 
-    @FXML
-    private Button buscar;
-
-    @FXML
-    private Button add;
-
-    @FXML
-    private Button atualizar;
 
      @FXML
     void adcionar_professor(ActionEvent event) throws IOException {
@@ -66,8 +50,8 @@ public class Ver_ProfessoresController implements Initializable{
     }
 
     @FXML
-    void atualizar_professor(ActionEvent event) {
-
+    void sicronizar(ActionEvent event) throws IOException {
+        App.genericaStage(VER_PROFESSORES);
     }
 
     @FXML
@@ -88,9 +72,6 @@ public class Ver_ProfessoresController implements Initializable{
     table_cpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
     table_date.setCellValueFactory(new PropertyValueFactory<>("data_nascimento"));
     table_contato.setCellValueFactory(new PropertyValueFactory<>("contato"));
-    table_naturalidade.setCellValueFactory(new PropertyValueFactory<>("naturalidade"));
-    //table_turma.setCellValueFactory(new PropertyValueFactory<>("nome"));
-    //table_dsiciplinas.setCellValueFactory(new PropertyValueFactory<>("nome"));
     
     professor_table.getItems().setAll(professores);
     }

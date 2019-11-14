@@ -12,8 +12,12 @@ import br.com.argus.model.Resp_Financeiro;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -22,18 +26,25 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 public class Cadastrar_AlunoController implements Initializable{
     
     public static final String CADASTRO_ALUNO ="/br/com/argus/view/Cadastrar_Aluno.fxml" ;
+    private static final String CADASTRO_RESP = "/br/com/argus/view/Cadastrar_Resp.fxml";
+    
+//    private List ufs = new ArrayList(Arrays.asList(new String[]{TipoEstadoUF.ACRE.toString(), TipoEstadoUF.ALAGOAS.toString(), TipoEstadoUF.AMAPA.toString(), 
+//    TipoEstadoUF.AMAZONAS.toString(), TipoEstadoUF.BAHIA.toString(), TipoEstadoUF.CEARA.toString(), TipoEstadoUF.DISTRITO_FERERAL.toString(), TipoEstadoUF.ESPIRITO_SANTO.toString(), TipoEstadoUF.GOIAS.toString(),
+//    TipoEstadoUF.MARANAO.toString(), TipoEstadoUF.MATO_GROSSO.toString(), TipoEstadoUF.MATO_GROSSO_DO_SUL.toString(), TipoEstadoUF.MINAS_GERAIS.toString(), TipoEstadoUF.PARA.toString(), TipoEstadoUF.PARAIBA.toString(),
+//    TipoEstadoUF.PARANA.toString(), TipoEstadoUF.PERNAMBUCO.toString(), TipoEstadoUF.PIAUL.toString(), TipoEstadoUF.RIO_DE_JANEIRO.toString(), TipoEstadoUF.RIO_GRANDE_DO_NORTE.toString(), 
+//    TipoEstadoUF.RIO_GRANDE_DO_SUL.toString(), TipoEstadoUF.RONDONIA.toString(), TipoEstadoUF.RORAIMA.toString(), TipoEstadoUF.SANTA_CATARINA.toString(), TipoEstadoUF.SAO_PAULO.toString(), TipoEstadoUF.SERGIPE.toString(),
+//    TipoEstadoUF.TONANTINS.toString()}));
     
     Endereco endereco;
     Contato contato;
     Resp_Financeiro financeiro;
     Aluno aluno;
 
-    @FXML
-    private Button salvar_button;
 
     @FXML
     private TextField nome_aluno;
@@ -83,16 +94,14 @@ public class Cadastrar_AlunoController implements Initializable{
     
     @FXML
     private TextField email;
-
-    @FXML
-    private Button voltar;
     
         @FXML
     private TextField naturalidade;
+    @FXML
+    private ComboBox<Resp_Financeiro> reps_combo;
 
     @FXML
-    void salvar(ActionEvent event) {
-       // carregarCombo();
+    void salvar(ActionEvent event) throws IOException {
         cadastrar();
     }
 
@@ -100,13 +109,37 @@ public class Cadastrar_AlunoController implements Initializable{
     void voltar(ActionEvent event) throws IOException {
         App.genericaStage(CADASTRO_ALUNO).close();
     }
+    
+    @FXML
+    void add_resp(ActionEvent event) throws IOException {
+        App.genericaStage(CADASTRO_RESP).show();
+    }
+    
+
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+       carregarCombo();
+       
+        // Pressionar Tecla tabela
+       reps_combo.setOnKeyPressed(new EventHandler<KeyEvent>(){
+           @Override
+           public void handle(KeyEvent event) {
+              
+              
+           }
+    
+    });
+ 
+       
+       
+       
+       
        
     }
     
-    void cadastrar(){
+    void cadastrar() throws IOException{
         
         endereco = new Endereco();
         endereco.setBairro(bairro_field.getText());
@@ -122,8 +155,6 @@ public class Cadastrar_AlunoController implements Initializable{
         contato.setEmail(email.getText());
         contato.setTelefone(tel_field.getText());
         
-        financeiro = new Resp_Financeiro();
-        financeiro.setNome(responsavel.getText());
         
         aluno = new Aluno();
         aluno.setEndereco(endereco);
@@ -138,11 +169,11 @@ public class Cadastrar_AlunoController implements Initializable{
         
             try {
                 Facade.getInstance().inserirOuAtualizarAluno(aluno);
-                Mensagem.getInstance().mostrarMensagem("Cadastro Aluno", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
+                Mensagem.getInstance().mostrarMensagem("Cadastro", "Cadastro feito com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
                 //carregarCombo();
             } catch (BussinesException ex) {
-                Mensagem.getInstance().mostrarMensagem("Cadastro Aluno", "Erro ao cadastrar Aluno", Alert.AlertType.ERROR);
+               Mensagem.getInstance().mostrarMensagem("Cadastro", "Erro ao cadastrar ", Alert.AlertType.ERROR);
             }
     }
 
@@ -168,6 +199,9 @@ public class Cadastrar_AlunoController implements Initializable{
     tel_field.clear();
     numCasa.clear();
     data_nasc.getEditor().clear();
+    uf_cbox.getEditor().clear();
     }
+    
+    
 
 }

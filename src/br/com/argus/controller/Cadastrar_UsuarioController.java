@@ -13,6 +13,7 @@ import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -36,9 +37,8 @@ public class Cadastrar_UsuarioController implements Initializable{
     private Coordenador coordenador, NovoCoordenador;
     public static final String CADASTRO_USUARIO = "/br/com/argus/view/Cadastrar_Usuario.fxml" ;
     
-    private List<TipoCargo> cargos = new ArrayList<>();
-    private ObservableList<TipoCargo> observable ; 
-    
+    //private List cargos = new ArrayList(Arrays.asList(new String[]{TipoCargo.COORDENAÇÃO_PEDAGOGA.toString(),TipoCargo.DIRETORIA.toString(),TipoCargo.SECRETARIA.toString(), TipoCargo.SUPER_USUARIO.toString()}));
+
     @FXML
     private TextField nome;
 
@@ -46,7 +46,7 @@ public class Cadastrar_UsuarioController implements Initializable{
     private TextField cpf;
 
     @FXML
-    private ComboBox<TipoCargo> tipo_cargo;
+    private ComboBox<TipoCargo> tipo_ComboBox;
 
     @FXML
     private Button salvar;
@@ -68,7 +68,7 @@ public class Cadastrar_UsuarioController implements Initializable{
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //carregar_comboBox();
+      carregarCampo();
     }
     public Usuario getUsuario() {
         return usuario;
@@ -95,11 +95,11 @@ public class Cadastrar_UsuarioController implements Initializable{
     }
 
     public ComboBox<TipoCargo> getTipo_cargo() {
-        return tipo_cargo;
+        return tipo_ComboBox;
     }
 
     public void setTipo_cargo(ComboBox<TipoCargo> tipo_cargo) {
-        this.tipo_cargo = tipo_cargo;
+        this.tipo_ComboBox = tipo_cargo;
     }
 
     public Button getSalvar() {
@@ -126,10 +126,16 @@ public class Cadastrar_UsuarioController implements Initializable{
         this.voltar = voltar;
     }
     
+    
+    
+    
 
 
     
     public void Cadastrar(){
+        
+            
+         if(getTipo_cargo().getValue().equals(TipoCargo.SUPER_USUARIO)){
         
         superUsuario = new SuperUsuario();
         superUsuario.setNome(nome.getText());
@@ -146,96 +152,71 @@ public class Cadastrar_UsuarioController implements Initializable{
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
             }
-//        else if(getTipo_cargo().getValue().equals(TipoCargo.SUPER_USUARIO)){
-//        
-//        superUsuario = new SuperUsuario();
-//        superUsuario.setNome(nome.getText());
-//        superUsuario.setCpf(cpf.getText());
-//        superUsuario.setLogin(login.getText());
-//        superUsuario.setSenha(cpf.getText());
-//        superUsuario.setTipoCargo(TipoCargo.SUPER_USUARIO);
-//        
-//            try {
-//                Facade.getInstance().inserirOuAtualizar(superUsuario);
-//                Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
-//                limparCampos();
-//               // carregar_comboBox();
-//            } catch (BussinesException ex) {
-//                Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
-//            }
-//        }
-//        
-//        else if(getTipo_cargo().getValue().equals(TipoCargo.COORDENAÇÃO_PEDAGOGA)){
-//        coordenador = new Coordenador();
-//        coordenador.setNome(nome.getText());
-//        coordenador.setCpf(cpf.getText());
-//        coordenador.setLogin(login.getText());
-//        coordenador.setSenha(cpf.getText());
-//        coordenador.setTipoCargo(TipoCargo.COORDENAÇÃO_PEDAGOGA);
-//        
-//             try {
-//                Facade.getInstance().inserirOuAtualizar(coordenador);
-//                Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
-//                limparCampos();
-//                carregar_comboBox();
-//            } catch (BussinesException ex) {
-//                Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
-//            }
-//        }
-//        
-//        else if(getTipo_cargo().getValue().equals(TipoCargo.DIRETORIA)){
-//        diretor = new Diretor();
-//        diretor.setNome(nome.getText());
-//        diretor.setCpf(cpf.getText());
-//        diretor.setLogin(login.getText());
-//        diretor.setSenha(cpf.getText());
-//        diretor.setTipoCargo(TipoCargo.DIRETORIA);
-//        
-//             try {
-//                Facade.getInstance().inserirOuAtualizar(diretor);
-//                Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
-//                limparCampos();
-//                carregar_comboBox();
-//            } catch (BussinesException ex) {
-//                Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
-//            }
-//        }
-//        
-//        else if (getTipo_cargo().getValue().equals(TipoCargo.SECRETARIA)){
-//        secretario = new Secretario();
-//        secretario.setNome(nome.getText());
-//        secretario.setCpf(cpf.getText());
-//        secretario.setLogin(login.getText());
-//        secretario.setSenha(cpf.getText());
-//        secretario.setTipoCargo(TipoCargo.SECRETARIA);
-//        
-//             try {
-//                Facade.getInstance().inserirOuAtualizar(secretario);
-//                Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
-//                limparCampos();
-//                carregar_comboBox();
-//            } catch (BussinesException ex) {
-//                Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
-//            }
-//        }
+        }
+        
+        else if(getTipo_cargo().getValue().equals(TipoCargo.COORDENAÇÃO_PEDAGOGA)){
+        coordenador = new Coordenador();
+        coordenador.setNome(nome.getText());
+        coordenador.setCpf(cpf.getText());
+        coordenador.setLogin(login.getText());
+        coordenador.setSenha(cpf.getText());
+        coordenador.setTipoCargo(TipoCargo.COORDENAÇÃO_PEDAGOGA);
+        
+             try {
+                Facade.getInstance().inserirOuAtualizar(coordenador);
+                Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
+                limparCampos();
+                //carregar_comboBox();
+            } catch (BussinesException ex) {
+                Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
+            }
+        }
+        
+        else if(getTipo_cargo().getValue().equals(TipoCargo.DIRETORIA)){
+        diretor = new Diretor();
+        diretor.setNome(nome.getText());
+        diretor.setCpf(cpf.getText());
+        diretor.setLogin(login.getText());
+        diretor.setSenha(cpf.getText());
+        diretor.setTipoCargo(TipoCargo.DIRETORIA);
+        
+             try {
+                Facade.getInstance().inserirOuAtualizar(diretor);
+                Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
+                limparCampos();
+               // carregar_comboBox();
+            } catch (BussinesException ex) {
+                Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
+            }
+        }
+        
+        else if (getTipo_cargo().getValue().equals(TipoCargo.SECRETARIA)){
+        secretario = new Secretario();
+        secretario.setNome(nome.getText());
+        secretario.setCpf(cpf.getText());
+        secretario.setLogin(login.getText());
+        secretario.setSenha(cpf.getText());
+        secretario.setTipoCargo(TipoCargo.SECRETARIA);
+        
+             try {
+                Facade.getInstance().inserirOuAtualizar(secretario);
+                Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
+                limparCampos();
+            } catch (BussinesException ex) {
+                Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
+            }
+        }
     }
     
-
-    public void carregar_comboBox(){
-        
-        cargos.add(TipoCargo.DIRETORIA);
-        cargos.add(TipoCargo.COORDENAÇÃO_PEDAGOGA);
-        cargos.add(TipoCargo.SECRETARIA);
-        cargos.add(TipoCargo.SUPER_USUARIO);
-        
-        observable = FXCollections.observableArrayList(cargos);
-        tipo_cargo.setItems(observable);
-    }
-    
-    public void limparCampos(){
+     void limparCampos(){
         nome.clear();
         cpf.clear();
         login.clear();
+        tipo_ComboBox.getEditor().clear();
+    }
+    
+    void carregarCampo(){
+        tipo_ComboBox.getItems().setAll(TipoCargo.values());
     }
     
 //    public void Atualizar (Usuario u){

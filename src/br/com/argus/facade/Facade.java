@@ -11,6 +11,7 @@ import br.com.argus.business.ContatoBusiness;
 import br.com.argus.business.CoordenadorBusinees;
 import br.com.argus.business.DiretorBusiness;
 import br.com.argus.business.DisciplinaBusiness;
+import br.com.argus.business.DisciplinaTurmaBussiness;
 import br.com.argus.business.EnderecoBusiness;
 import br.com.argus.business.FaltaBusiness;
 import br.com.argus.business.IAlunoBusiness;
@@ -19,6 +20,7 @@ import br.com.argus.business.IContatoBusiness;
 import br.com.argus.business.ICoordenadorBusiness;
 import br.com.argus.business.IDiretorBusiness;
 import br.com.argus.business.IDisciplinaBusiness;
+import br.com.argus.business.IDisciplinaTurmaBussiness;
 import br.com.argus.business.IEnderecoBusiness;
 import br.com.argus.business.IFaltaBusiness;
 import br.com.argus.business.ILiquidaCarneBusiness;
@@ -48,6 +50,7 @@ import br.com.argus.model.Usuario;
 import br.com.argus.model.Coordenador;
 import br.com.argus.model.Diretor;
 import br.com.argus.model.Disciplina;
+import br.com.argus.model.DisciplinaTurma;
 import br.com.argus.model.Falta;
 import br.com.argus.model.LiquidaCarne;
 import br.com.argus.model.ObservacaoAluno;
@@ -92,6 +95,7 @@ public class Facade implements IFacade{
     private ILiquidaCarneBusiness liquidaCarneBusiness;
     private IObservacaoAlunoBusiness observacaoAlunoBusiness;
     private IVinculoAlunoTurmaBusiness vinculoAlunoTurmaBusiness;
+    private IDisciplinaTurmaBussiness disciplinaTurmaBussiness;
     
     
     private Facade(){
@@ -112,6 +116,7 @@ public class Facade implements IFacade{
         liquidaCarneBusiness = new LiquidaCarneBusiness();
         observacaoAlunoBusiness = new ObservacaoAlunoBusiness();
         vinculoAlunoTurmaBusiness = new VinculoAlunoTurmaBusiness();
+        disciplinaTurmaBussiness = new DisciplinaTurmaBussiness();
               
     }
 
@@ -216,8 +221,8 @@ public class Facade implements IFacade{
         alunoBusiness.buscar(Aluno.class, aluno.getId());
     }
     @Override
-    public List<Aluno> buscarTodosAlunos() throws BussinesException {
-        return alunoBusiness.buscarTodos();
+    public List<Aluno> buscarTodosAlunos() throws Exception {
+        return alunoBusiness.buscarALL();
     }
     
     
@@ -311,6 +316,11 @@ public class Facade implements IFacade{
     public List<Professor> buscarTodosProfessores() throws BussinesException {
         return professorBusiness.buscarTodos();
     }
+    @Override
+    public Professor buscarProf(String pesquisa) throws BussinesException {
+        return professorBusiness.buscarProf(pesquisa);
+    }
+
     
     
     //  Responsavel Financeiro
@@ -520,6 +530,33 @@ public class Facade implements IFacade{
     public List<VinculoAlunoTurma> buscarTodosVincAlunoTurma() throws BussinesException {
         return vinculoAlunoTurmaBusiness.buscarTodos();
     }
+    
+    // Disciplina Turma Business
+    @Override
+    public void inserirOuAtualizarDisciplinaTurma(DisciplinaTurma disciplinaTurma) throws BussinesException {
+        disciplinaTurmaBussiness.criarOuAtualizar(disciplinaTurma);
+    }
+
+    @Override
+    public void desabilitarDisciplinaTurma(DisciplinaTurma disciplinaTurma) throws BussinesException {
+       disciplinaTurmaBussiness.desabilitar(disciplinaTurma);
+    }
+
+    @Override
+    public void deletarDisciplinaTurma(DisciplinaTurma disciplinaTurma) throws BussinesException {
+        disciplinaTurmaBussiness.deletar(disciplinaTurma);
+    }
+
+    @Override
+    public void buscarDisciplinaTurma(DisciplinaTurma disciplinaTurma) throws BussinesException {
+        disciplinaTurmaBussiness.buscar(DisciplinaTurma.class, disciplinaTurma.getId());
+    }
+
+    @Override
+    public List<DisciplinaTurma> buscarTodosDisciplinaTurma() throws BussinesException {
+        return disciplinaTurmaBussiness.buscarTodos();
+    }
+
 
 
 

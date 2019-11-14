@@ -15,6 +15,7 @@ import br.com.argus.model.Usuario;
 import br.com.argus.model.Coordenador;
 import br.com.argus.model.Diretor;
 import br.com.argus.model.Disciplina;
+import br.com.argus.model.DisciplinaTurma;
 import br.com.argus.model.Falta;
 import br.com.argus.model.LiquidaCarne;
 import br.com.argus.model.ObservacaoAluno;
@@ -66,7 +67,7 @@ public interface IFacade {
     public void desabilitarAluno(Aluno aluno) throws BussinesException;
     public void deletarAluno (Aluno aluno) throws BussinesException;
     public void buscarAluno (Aluno aluno) throws BussinesException;
-    public List<Aluno> buscarTodosAlunos () throws BussinesException;
+    public List<Aluno> buscarTodosAlunos () throws Exception;
     
     
     //  Cooordenador
@@ -99,6 +100,7 @@ public interface IFacade {
     public void deletarProfessor(Professor professor) throws BussinesException;
     public void buscarProfessor(Professor professor) throws BussinesException;
     public List<Professor> buscarTodosProfessores () throws BussinesException;
+   public Professor buscarProf (String pesquisa) throws BussinesException;
     
     
     //  Responsalvel Financeiro
@@ -173,4 +175,13 @@ public interface IFacade {
     public void deletarVincAlunoTurma(VinculoAlunoTurma vinculoAlunoTurma) throws BussinesException;
     public void buscarVincAlunoTurma(VinculoAlunoTurma vinculoAlunoTurma) throws BussinesException;
     public List<VinculoAlunoTurma> buscarTodosVincAlunoTurma () throws BussinesException;
+    
+    // DisciplinaTurma
+    
+    public void inserirOuAtualizarDisciplinaTurma(DisciplinaTurma disciplinaTurma) throws BussinesException;
+    public void desabilitarDisciplinaTurma (DisciplinaTurma disciplinaTurma) throws BussinesException;
+    public void deletarDisciplinaTurma(DisciplinaTurma disciplinaTurma) throws BussinesException;
+    public void buscarDisciplinaTurma(DisciplinaTurma disciplinaTurma) throws BussinesException;
+    public List<DisciplinaTurma> buscarTodosDisciplinaTurma () throws BussinesException;
+    
 }

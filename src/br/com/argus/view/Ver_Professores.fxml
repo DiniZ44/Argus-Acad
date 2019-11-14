@@ -27,13 +27,10 @@
          <children>
             <TableView fx:id="professor_table" opacity="0.8" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn fx:id="table_name" prefWidth="178.0" style="-fx-background-color: A9A9A9;" text="Nome" />
-                  <TableColumn fx:id="table_cpf" minWidth="0.0" prefWidth="83.0" style="-fx-background-color: A9A9A9;" text="CPF" />
-                  <TableColumn fx:id="table_date" prefWidth="151.0" style="-fx-background-color: A9A9A9;" text="Data Nasc." />
-                  <TableColumn fx:id="table_contato" prefWidth="139.0" style="-fx-background-color: A9A9A9;" text="Contato" />
-                  <TableColumn fx:id="table_naturalidade" prefWidth="129.0" style="-fx-background-color: A9A9A9;" text="Naturalidade" />
-                  <TableColumn fx:id="table_turma" prefWidth="127.0" style="-fx-background-color: A9A9A9;" text="Turma" />
-                  <TableColumn fx:id="table_dsiciplinas" prefWidth="160.0" style="-fx-background-color: A9A9A9;" text="Disciplinas" />
+                  <TableColumn fx:id="table_name" prefWidth="362.0" style="-fx-background-color: A9A9A9;" text="Nome" />
+                  <TableColumn fx:id="table_cpf" minWidth="0.0" prefWidth="255.0" style="-fx-background-color: A9A9A9;" text="CPF" />
+                  <TableColumn fx:id="table_date" prefWidth="167.0" style="-fx-background-color: A9A9A9;" text="Data Nascimento" />
+                  <TableColumn fx:id="table_contato" prefWidth="183.0" style="-fx-background-color: A9A9A9;" text="Contato" />
                </columns>
             </TableView>
             <Pane prefHeight="200.0" prefWidth="200.0">
@@ -64,17 +61,17 @@
                         <Font name="Arial Black" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="atualizar" layoutX="453.0" layoutY="9.0" mnemonicParsing="false" onAction="#atualizar_professor" opacity="0.7" prefHeight="39.0" prefWidth="210.0" style="-fx-background-color: #DCDCDC;" text="Atualizar Professor">
-                     <font>
-                        <Font name="Arial Black" size="14.0" />
-                     </font>
+                  <Button layoutX="438.0" layoutY="8.0" mnemonicParsing="false" onAction="#sicronizar" opacity="0.7" prefHeight="39.0" prefWidth="210.0" style="-fx-background-color: #DCDCDC;" text="Sicronizar">
                      <graphic>
                         <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../res/user.png" />
+                              <Image url="@../../../../res/cloud%20update.png" />
                            </image>
                         </ImageView>
                      </graphic>
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
                   </Button>
                </children>
             </Pane>

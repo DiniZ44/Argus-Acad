@@ -100,7 +100,7 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <ComboBox fx:id="uf_cbox" layoutX="508.0" layoutY="428.0" opacity="0.7" prefHeight="25.0" prefWidth="57.0" />
+      <ComboBox fx:id="uf_cbox" layoutX="508.0" layoutY="428.0" opacity="0.7" prefHeight="25.0" prefWidth="57.0" promptText="UF" />
       <TextField fx:id="tel_field" layoutX="175.0" layoutY="504.0" opacity="0.7" prefHeight="25.0" prefWidth="163.0" promptText="(00) 00000-0000" />
       <Label layoutX="175.0" layoutY="471.0" prefHeight="25.0" prefWidth="48.0" text="Telefone">
          <font>
@@ -119,8 +119,7 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="responsavel" layoutX="36.0" layoutY="594.0" opacity="0.7" prefHeight="25.0" prefWidth="193.0" />
-      <Label layoutX="36.0" layoutY="561.0" prefHeight="25.0" prefWidth="133.0" text="Responsável Financeiro">
+      <Label layoutX="677.0" layoutY="459.0" prefHeight="25.0" prefWidth="133.0" text="Responsável Financeiro">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
@@ -134,18 +133,28 @@
             </ImageView>
          </graphic>
       </Button>
-      <TextField fx:id="email" layoutX="506.0" layoutY="594.0" opacity="0.7" prefHeight="25.0" prefWidth="199.0" promptText="eexemple@gmail.com" />
-      <Label layoutX="506.0" layoutY="555.0" prefHeight="25.0" prefWidth="133.0" text="e-mail">
+      <TextField fx:id="email" layoutX="671.0" layoutY="372.0" opacity="0.7" prefHeight="25.0" prefWidth="199.0" promptText="eexemple@gmail.com" />
+      <Label layoutX="671.0" layoutY="333.0" prefHeight="25.0" prefWidth="133.0" text="e-mail">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="naturalidade" layoutX="270.0" layoutY="594.0" opacity="0.7" prefHeight="25.0" prefWidth="199.0" />
-      <Label layoutX="273.0" layoutY="555.0" prefHeight="25.0" prefWidth="133.0" text="naturalidade">
+      <TextField fx:id="naturalidade" layoutX="668.0" layoutY="243.0" opacity="0.7" prefHeight="25.0" prefWidth="199.0" promptText="País" />
+      <Label layoutX="671.0" layoutY="204.0" prefHeight="25.0" prefWidth="133.0" text="naturalidade">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
       <DatePicker fx:id="data_nasc" layoutX="36.0" layoutY="240.0" opacity="0.7" prefHeight="25.0" prefWidth="122.0" promptText="  /  /   " />
+      <ComboBox fx:id="reps_combo" editable="true" layoutX="677.0" layoutY="504.0" onAction="#acaoCombo" opacity="0.7" prefWidth="150.0" />
+      <Button fx:id="voltar1" layoutX="847.0" layoutY="497.0" mnemonicParsing="false" onAction="#add_resp" opacity="0.7" prefHeight="25.0" prefWidth="17.0" style="-fx-background-color: #DCDCDC;">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../res/more.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

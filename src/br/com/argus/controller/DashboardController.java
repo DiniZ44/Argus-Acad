@@ -1,6 +1,7 @@
 package br.com.argus.controller;
 
 import br.com.argus.app.App;
+import br.com.argus.enuns.TipoCargo;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Coordenador;
 import br.com.argus.model.Diretor;
@@ -141,11 +142,32 @@ public class DashboardController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tipoUsuario();
+        acessoTipo();
     }
     
     void tipoUsuario(){
     
         label_usuario.setText(SQLUtil.TIPO);
+    }
+    
+    void acessoTipo(){
+        if(SQLUtil.TIPO.equalsIgnoreCase(TipoCargo.COORDENAÇÃO_PEDAGOGA.toString())){
+            pane_adm.setVisible(false);
+            turma_button.setVisible(false);
+            disciplinas_button.setVisible(false);
+            prof_button.setVisible(false);
+            finan_button.setVisible(false);
+        }else if(SQLUtil.TIPO.equalsIgnoreCase(TipoCargo.DIRETORIA.toString())){
+            pane_adm.setVisible(false);
+        }else if (SQLUtil.TIPO.equalsIgnoreCase(TipoCargo.SECRETARIA.toString())){
+            pane_adm.setVisible(false);
+            turma_button.setVisible(false);
+            prof_button.setVisible(false);
+            aluno.setVisible(false);
+            finan_button.setVisible(false);
+        }else{
+            
+        }
     }
 
     public Button getAluno() {

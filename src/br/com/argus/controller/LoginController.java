@@ -92,7 +92,7 @@ public class LoginController implements Initializable {
             
             
             if (usuario == null){
-                Mensagem.getInstance().mostrarMensagem("LOGIN", "Usuario não encontrado", Alert.AlertType.ERROR);
+                Mensagem.getInstance().mostrarMensagem("LOGIN", "Senha ou Email incorretos, Por favor verifique novamente seus dados", Alert.AlertType.ERROR);
                 return false;
             }
             

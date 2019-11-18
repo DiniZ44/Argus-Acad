@@ -83,6 +83,13 @@ public class Disciplina extends Entidade{
     public void setStatusAluno(TipoSituacao statusAluno) {
         this.statusAluno = statusAluno;
     }
+
+    @Override
+    public String toString() {
+        return "" + nome;
+    }
+
+
     
     
     

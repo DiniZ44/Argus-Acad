@@ -144,5 +144,6 @@ public abstract class Dao <T extends Entidade> implements IDao<T>{
             }
             return  listT;
         }
+        
 	
 	}

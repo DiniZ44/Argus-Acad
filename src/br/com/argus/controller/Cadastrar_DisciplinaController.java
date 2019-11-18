@@ -6,10 +6,14 @@ import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Disciplina;
 import br.com.argus.model.Professor;
+import br.com.argus.util.MaskField;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,6 +26,7 @@ public class Cadastrar_DisciplinaController implements Initializable{
     
     public static final String CADASTRO_DISCIPLINA = "/br/com/argus/view/Cadastrar_Disciplina.fxml" ;
     private Professor professor;
+    private List<Professor> professores;
     private Disciplina disciplina;
     Ver_DisciplinasController ver_DisciplinasController;
 
@@ -55,10 +60,11 @@ public class Cadastrar_DisciplinaController implements Initializable{
     
     void Cadastrar(){
         try {
-            //Facade.getInstance().buscarProfessor(professor);
+
             disciplina = new Disciplina();
             disciplina.setNome(nome.getText());
-            //disciplina.setProfessor(professor);
+            professor = professor_cbox.getValue();
+            disciplina.setProfessor(professor);
             disciplina.setCodigo( codigo.getText());
             disciplina.setCarga_horaria(carga_horario.getText());
             Facade.getInstance().inserirOuAtualizarDisciplina(disciplina);
@@ -121,13 +127,19 @@ public class Cadastrar_DisciplinaController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        try {
+            CarregarProfessor();
+        } catch (BussinesException ex) {
+            ex.printStackTrace();
+        }
     }
     
 
     
-    void CarregarProfessor(){
-        
+    void CarregarProfessor() throws BussinesException{
+        professores = Facade.getInstance().buscarTodosProfessores();
+        MaskField.numericField(codigo);
+        professor_cbox.getItems().setAll(professores);
        
     }
     

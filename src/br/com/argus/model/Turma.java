@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -33,9 +34,9 @@ public class Turma extends Entidade{
     private String nome;
     
     @Column(length = 20)
-    private int anoLetivo;
+    private String anoLetivo;
     
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn
     private Disciplina disciplina;
     
@@ -58,11 +59,11 @@ public class Turma extends Entidade{
         this.disciplina = disciplina;
     }
 
-    public int getAnoLetivo() {
+    public String getAnoLetivo() {
         return anoLetivo;
     }
 
-    public void setAnoLetivo(int anoLetivo) {
+    public void setAnoLetivo(String anoLetivo) {
         this.anoLetivo = anoLetivo;
     }
 

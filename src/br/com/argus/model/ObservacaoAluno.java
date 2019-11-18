@@ -33,10 +33,10 @@ public class ObservacaoAluno extends Entidade{
     @Column
     private String descricao;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private VinculoAlunoTurma vinculoAlunoTurma;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Coordenador coordenador;
 
     

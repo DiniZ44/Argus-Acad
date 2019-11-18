@@ -63,8 +63,6 @@ public class Cadastrar_ProfessorController implements Initializable{
     @FXML
     private TextField celular_field;
 
-    @FXML
-    private Button voltar;
     
     @FXML
     private TextField email;

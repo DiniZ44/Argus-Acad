@@ -10,10 +10,14 @@ import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Disciplina;
 import br.com.argus.model.Professor;
+import br.com.argus.util.MaskField;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,6 +36,7 @@ public class Alterar_DisciplinaController implements Initializable {
     public static final String ALTERAR_DISCIPLINA = "/br/com/argus/view/Alterar_Disciplina.fxml" ;
     private Professor professor;
     private Disciplina disciplina;
+    private List<Professor> professores;
     Ver_DisciplinasController ver_DisciplinasController;
 
     @FXML
@@ -53,7 +58,7 @@ public class Alterar_DisciplinaController implements Initializable {
     private Button voltar;
 
     @FXML
-    void salvar(ActionEvent event) {
+    void salvar(ActionEvent event) throws IOException {
         Cadastrar();
     }
 
@@ -62,7 +67,7 @@ public class Alterar_DisciplinaController implements Initializable {
         App.genericaStage(ALTERAR_DISCIPLINA).close();
     }
     
-    void Cadastrar(){
+    void Cadastrar() throws IOException{
         try {
             //Facade.getInstance().buscarProfessor(professor);
             disciplina = ver_DisciplinasController.getD();
@@ -70,8 +75,11 @@ public class Alterar_DisciplinaController implements Initializable {
             //disciplina.setProfessor(professor);
             disciplina.setCodigo( codigo.getText());
             disciplina.setCarga_horaria(carga_horario.getText());
+            professor = professor_cbox.getValue();
+            disciplina.setProfessor(professor);
             Facade.getInstance().inserirOuAtualizarDisciplina(disciplina);
             limpar();
+            App.genericaStage(ALTERAR_DISCIPLINA).close();
             Mensagem.getInstance().mostrarMensagem("Cadastro Disciplina", "Cadastro Efetuado com Sucesso", Alert.AlertType.INFORMATION);
         } catch (BussinesException ex) {
              Mensagem.getInstance().mostrarMensagem("Cadastro Disciplina", "Erro ao Cadastrar, por favor tente novamente!", Alert.AlertType.ERROR);
@@ -131,8 +139,19 @@ public class Alterar_DisciplinaController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initDisciplinas();
+        try {
+            CarregarProfessor();
+        } catch (BussinesException ex) {
+            ex.printStackTrace();
+        }
     }
     
+        void CarregarProfessor() throws BussinesException{
+        professores = Facade.getInstance().buscarTodosProfessores();
+            MaskField.numericField(codigo);
+        professor_cbox.getItems().setAll(professores);
+       
+    }
 
     void initDisciplinas(){
         disciplina = ver_DisciplinasController.getD();
@@ -140,10 +159,6 @@ public class Alterar_DisciplinaController implements Initializable {
         //disciplina.setProfessor(professor);
         codigo.setText(disciplina.getCodigo());
         carga_horario.setText(disciplina.getCarga_horaria());
-    }
-    void CarregarProfessor(){
-        
-       
     }
     
     void limpar(){

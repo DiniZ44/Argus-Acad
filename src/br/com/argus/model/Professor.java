@@ -46,7 +46,7 @@ public class Professor extends Entidade{
 
     @Override
     public String toString() {
-        return "Professor{" + "nome=" + nome + ", naturalidade=" + naturalidade + ", endereco=" + endereco + ", data_nascimento=" + data_nascimento + ", cpf=" + cpf + ", contato=" + contato + '}';
+        return "" +nome;
     }
 
     public String getNome() {

@@ -9,6 +9,7 @@ import br.com.argus.model.Diretor;
 import br.com.argus.model.Secretario;
 import br.com.argus.model.SuperUsuario;
 import br.com.argus.model.Usuario;
+import br.com.argus.util.MaskField;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
@@ -214,6 +215,7 @@ public class Cadastrar_UsuarioController implements Initializable{
     
     void carregarCampo(){
         tipo_ComboBox.getItems().setAll(TipoCargo.values());
+        MaskField.cpfField(cpf);
     }
     
 //    void initPerson(){

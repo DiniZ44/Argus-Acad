@@ -10,6 +10,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -32,7 +33,7 @@ public class Carne_Pagamento extends Entidade{
     @Column(nullable = false, length = 9)
     private LocalDate data;
     
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Resp_Financeiro resp_Financeiro;
 
     public double getValor() {

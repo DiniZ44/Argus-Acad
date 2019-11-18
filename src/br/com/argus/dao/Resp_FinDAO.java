@@ -26,9 +26,9 @@ public class Resp_FinDAO extends Dao<Resp_Financeiro> implements IResp_FinDAO{
     public Resp_Financeiro buscarRep (String pesquisa) throws DAOException {
         try {
 
-            Query q = entityManager().createQuery(SQLUtil.PESQUISA_PROFESSOR+ pesquisa +"'");
+            Query q = entityManager().createQuery(SQLUtil.PESQUISA_RES_FINANCEIRO+ pesquisa +"'");
            Resp_Financeiro responsavel =(Resp_Financeiro) q.getSingleResult() ;
-            responsavel.getNome();
+           responsavel.getNome();
            return responsavel;
             
         } catch (NoResultException e) {

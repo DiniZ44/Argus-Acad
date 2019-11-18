@@ -9,6 +9,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -29,7 +30,7 @@ public class LiquidaCarne extends Entidade{
     @Column(nullable = true)
     private boolean pago;
     
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Carne_Pagamento carne_Pagamento;
 
     public boolean isPago() {

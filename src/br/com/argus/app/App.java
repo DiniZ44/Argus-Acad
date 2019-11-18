@@ -91,10 +91,10 @@ public class App extends Application {
 //        superUsuario.setLogin("admin");
 //        superUsuario.setSenha("admin");
 //        superUsuario.setNome("Adminstrador");
-//        superUsuario.setCpf("001");
+//        superUsuario.setCpf("0000001");
 //        superUsuario.setTipoCargo(TipoCargo.SUPER_USUARIO);
 //        facade.inserirOuAtualizar(superUsuario);
-       
+//       
         launch(args);
        
     }

@@ -41,12 +41,6 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="38.0" layoutY="321.0" prefHeight="25.0" prefWidth="93.0" text="Alunos">
-         <font>
-            <Font name="Arial" size="12.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="alunos_cbox" layoutX="38.0" layoutY="354.0" opacity="0.7" prefHeight="25.0" prefWidth="303.0" />
       <Button fx:id="voltar" layoutX="40.0" layoutY="735.0" mnemonicParsing="false" onAction="#voltar" opacity="0.7" prefHeight="39.0" prefWidth="185.0" style="-fx-background-color: #DCDCDC;">
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
@@ -56,12 +50,12 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="38.0" layoutY="425.0" prefHeight="25.0" prefWidth="93.0" text="Disciplina">
+      <Label layoutX="36.0" layoutY="327.0" prefHeight="25.0" prefWidth="93.0" text="Disciplina">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <ComboBox fx:id="disciplina_cbox1" layoutX="38.0" layoutY="458.0" opacity="0.7" prefHeight="25.0" prefWidth="303.0" />
+      <ComboBox fx:id="disciplina_cbox1" layoutX="36.0" layoutY="360.0" opacity="0.7" prefHeight="25.0" prefWidth="303.0" />
       <TextField fx:id="anoLetivo" layoutX="38.0" layoutY="270.0" opacity="0.7" prefHeight="25.0" prefWidth="303.0" promptText="Apenas Numeros" />
       <Label layoutX="38.0" layoutY="237.0" prefHeight="25.0" prefWidth="68.0" text="Ano Letivo">
          <font>

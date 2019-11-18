@@ -42,7 +42,7 @@ public class Aluno extends Entidade{
     @Column(nullable = false, length = 50)
     private String naturalidade;
     
-    @ManyToOne(cascade = CascadeType.ALL) 
+    @ManyToOne
     private Resp_Financeiro responsavel_financeiro;
     
     @Column(nullable = false, length = 50)
@@ -51,7 +51,7 @@ public class Aluno extends Entidade{
     @Column(nullable = false, length = 50)
     private String mae;
    
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Endereco endereco;
     
     @Column
@@ -60,7 +60,7 @@ public class Aluno extends Entidade{
     @Column(nullable = false, unique = true, length = 15)
     private String cpf;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Contato contato;
     
     

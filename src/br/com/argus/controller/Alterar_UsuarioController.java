@@ -14,6 +14,7 @@ import br.com.argus.model.Diretor;
 import br.com.argus.model.Secretario;
 import br.com.argus.model.SuperUsuario;
 import br.com.argus.model.Usuario;
+import br.com.argus.util.MaskField;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
@@ -62,7 +63,7 @@ public class Alterar_UsuarioController implements Initializable {
     private Button voltar;
 
     @FXML
-    void salvarUsuario(ActionEvent event) {
+    void salvarUsuario(ActionEvent event) throws IOException {
         Cadastrar();
     }
 
@@ -132,7 +133,7 @@ public class Alterar_UsuarioController implements Initializable {
         this.voltar = voltar;
     }
     
-    public void Cadastrar(){
+    public void Cadastrar() throws IOException{
         
             
          if(getTipo_cargo().getValue().equals(TipoCargo.SUPER_USUARIO)){
@@ -148,6 +149,7 @@ public class Alterar_UsuarioController implements Initializable {
                 Facade.getInstance().inserirOuAtualizar(superUsuario);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
+                App.genericaStage(ALTERAR_USUARIO).close();
                // carregar_comboBox();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
@@ -166,6 +168,7 @@ public class Alterar_UsuarioController implements Initializable {
                 Facade.getInstance().inserirOuAtualizar(coordenador);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
+                App.genericaStage(ALTERAR_USUARIO).close();
                 //carregar_comboBox();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
@@ -184,6 +187,7 @@ public class Alterar_UsuarioController implements Initializable {
                 Facade.getInstance().inserirOuAtualizar(diretor);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
+                App.genericaStage(ALTERAR_USUARIO).close();
                // carregar_comboBox();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
@@ -202,6 +206,7 @@ public class Alterar_UsuarioController implements Initializable {
                 Facade.getInstance().inserirOuAtualizar(secretario);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
+                App.genericaStage(ALTERAR_USUARIO).close();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
             }
@@ -217,6 +222,7 @@ public class Alterar_UsuarioController implements Initializable {
     
     void carregarCampo(){
         tipo_ComboBox.getItems().setAll(TipoCargo.values());
+        MaskField.cpfField(cpf);
     }
     
     void initPerson(){

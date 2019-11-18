@@ -3,41 +3,38 @@ package br.com.argus.controller;
 import br.com.argus.app.App;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
-import br.com.argus.model.Aluno;
 import br.com.argus.model.Disciplina;
 import br.com.argus.model.Turma;
+import br.com.argus.util.MaskField;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 public class Cadastrar_TurmaController implements Initializable{
     public static final String CADASTRO_TURMA = "/br/com/argus/view/Cadastrar_Turma.fxml" ;
-    private Disciplina disciplina;
+    private static Disciplina disciplina;
+    private List<Disciplina> disciplinas;
     private Turma turma;
-    private Aluno aluno;
-
-    @FXML
-    private Button salvar_button;
+    
 
     @FXML
     private TextField nome;
 
-    @FXML
-    private ComboBox<?> alunos_cbox;
 
     @FXML
-    private Button voltar;
-
-    @FXML
-    private ComboBox<?> disciplina_cbox1;
+    private ComboBox<Disciplina> disciplina_cbox1;
     
     @FXML
     private TextField anoLetivo;
@@ -54,16 +51,20 @@ public class Cadastrar_TurmaController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-      
+        try {
+            carregaeDisciplinas();
+        } catch (BussinesException ex) {
+            ex.printStackTrace();
+        }
     }
     
     void cadastrar(){
         turma = new Turma();
-     //   turma.setAluno(aluno);
-       // turma.setDisciplina(disciplina);
+       disciplina = disciplina_cbox1.getValue();
+        System.out.println(disciplina);
+       turma.setDisciplina(disciplina);
        turma.setNome(nome.getText());
-       turma.setAnoLetivo(anoLetivo.getAnchor());
-       //turma.setNota(nota.get;
+       turma.setAnoLetivo(anoLetivo.getText());
        
                   try {
                 Facade.getInstance().inserirOuAtualizarTurma(turma);
@@ -82,7 +83,11 @@ public class Cadastrar_TurmaController implements Initializable{
     
     }
     
-    void carregarCombo(){
+
     
+    void carregaeDisciplinas() throws BussinesException{
+       disciplinas = Facade.getInstance().buscarTodosDisciplinas();
+        MaskField.numericField(anoLetivo);
+       disciplina_cbox1.getItems().setAll(disciplinas);
     }
 }

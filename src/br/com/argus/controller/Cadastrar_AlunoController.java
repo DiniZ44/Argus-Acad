@@ -35,6 +35,7 @@ public class Cadastrar_AlunoController implements Initializable{
     
     public static final String CADASTRO_ALUNO ="/br/com/argus/view/Cadastrar_Aluno.fxml" ;
     private static final String CADASTRO_RESP = "/br/com/argus/view/Cadastrar_Resp.fxml";
+    public List<Resp_Financeiro> responsaveis;
     
 //    private List ufs = new ArrayList(Arrays.asList(new String[]{TipoEstadoUF.ACRE.toString(), TipoEstadoUF.ALAGOAS.toString(), TipoEstadoUF.AMAPA.toString(), 
 //    TipoEstadoUF.AMAZONAS.toString(), TipoEstadoUF.BAHIA.toString(), TipoEstadoUF.CEARA.toString(), TipoEstadoUF.DISTRITO_FERERAL.toString(), TipoEstadoUF.ESPIRITO_SANTO.toString(), TipoEstadoUF.GOIAS.toString(),
@@ -119,32 +120,14 @@ public class Cadastrar_AlunoController implements Initializable{
         App.genericaStage(CADASTRO_RESP).show();
     }
     
-
-    
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
        carregarCombo();
-       
-//        // Pressionar Tecla tabela
-//       reps_combo.setOnKeyPressed(new EventHandler<KeyEvent>(){
-//           @Override
-//           public void handle(KeyEvent event) {
-//               try {
-//                   Facade.getInstance().buscarRep(reps_combo.getPromptText());
-//               } catch (BussinesException ex) {
-//                   ex.printStackTrace();
-//               }
-//              
-//           }
-//    
-//    }
-//       );
- 
-       
-       
-       
-       
+        try {
+            buscarResp_Financeiros();
+        } catch (BussinesException ex) {
+            ex.printStackTrace();
+        }
        
     }
     
@@ -174,6 +157,9 @@ public class Cadastrar_AlunoController implements Initializable{
         aluno.setNaturalidade(naturalidade.getText() );
         aluno.setNome(nome_aluno.getText());
         aluno.setPai(pai.getText());
+        aluno.setResponsavel_financeiro(financeiro);
+        
+        financeiro = reps_combo.getValue();
         aluno.setResponsavel_financeiro(financeiro);
         
             try {
@@ -222,6 +208,11 @@ public class Cadastrar_AlunoController implements Initializable{
     uf_cbox.getEditor().clear();
     
 
+    }
+    
+    void buscarResp_Financeiros() throws BussinesException{
+        responsaveis = Facade.getInstance().buscarTodosResp_FinS();
+        reps_combo.getItems().setAll(responsaveis);
     }
 
     public TextField getNome_aluno() {

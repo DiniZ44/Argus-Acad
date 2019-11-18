@@ -83,7 +83,7 @@ public class Alterar_ProfessorController implements Initializable {
     private TextField naturalidade;
 
     @FXML
-    void salvar(ActionEvent event) {
+    void salvar(ActionEvent event) throws IOException {
         cadastrar();
     }
 
@@ -98,7 +98,7 @@ public class Alterar_ProfessorController implements Initializable {
        initProfessor();
     }
     
-    void cadastrar(){
+    void cadastrar() throws IOException{
         professor = professoresController.getP();
         
         endereco = professor.getEndereco();
@@ -126,6 +126,7 @@ public class Alterar_ProfessorController implements Initializable {
                 Facade.getInstance().inserirOuAtualizarProfessor(professor);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Professor", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
+                 App.genericaStage(ALTERAR_PROFESSOR).close();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Professor", "Erro ao cadastrar Professor", Alert.AlertType.ERROR);
             }

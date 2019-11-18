@@ -17,7 +17,10 @@ import br.com.argus.util.MaskField;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,6 +40,7 @@ public class Alterar_AlunoController implements Initializable {
     public static final String ALTERAR_ALUNO ="/br/com/argus/view/Alterar_Aluno.fxml" ;
     private static final String CADASTRO_RESP = "/br/com/argus/view/Cadastrar_Resp.fxml";
     private Ver_AlunosController alunosController;
+    public List<Resp_Financeiro> responsaveis;
     
 //    private List ufs = new ArrayList(Arrays.asList(new String[]{TipoEstadoUF.ACRE.toString(), TipoEstadoUF.ALAGOAS.toString(), TipoEstadoUF.AMAPA.toString(), 
 //    TipoEstadoUF.AMAZONAS.toString(), TipoEstadoUF.BAHIA.toString(), TipoEstadoUF.CEARA.toString(), TipoEstadoUF.DISTRITO_FERERAL.toString(), TipoEstadoUF.ESPIRITO_SANTO.toString(), TipoEstadoUF.GOIAS.toString(),
@@ -128,21 +132,12 @@ public class Alterar_AlunoController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
        carregarCombo();
        initAluno();
-       
-//        // Pressionar Tecla tabela
-//       reps_combo.setOnKeyPressed(new EventHandler<KeyEvent>(){
-//           @Override
-//           public void handle(KeyEvent event) {
-//               try {
-//                   Facade.getInstance().buscarRep(reps_combo.getPromptText());
-//               } catch (BussinesException ex) {
-//                   ex.printStackTrace();
-//               }
-//              
-//           }
-//    
-//    }
-//       );
+        try {
+            buscarResp_Financeiros();
+            
+        } catch (BussinesException ex) {
+            Logger.getLogger(Alterar_AlunoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
  
        
        
@@ -179,16 +174,25 @@ public class Alterar_AlunoController implements Initializable {
         aluno.setNaturalidade(naturalidade.getText() );
         aluno.setNome(nome_aluno.getText());
         aluno.setPai(pai.getText());
+        financeiro = reps_combo.getValue();
         aluno.setResponsavel_financeiro(financeiro);
         
             try {
                 Facade.getInstance().inserirOuAtualizarAluno(aluno);
                 Mensagem.getInstance().mostrarMensagem("Cadastro", "Cadastro feito com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
+                App.genericaStage(ALTERAR_ALUNO).close();
                 //carregarCombo();
             } catch (BussinesException ex) {
                Mensagem.getInstance().mostrarMensagem("Cadastro", "Erro ao cadastrar ", Alert.AlertType.ERROR);
             }
+    }
+        
+    
+    void buscarResp_Financeiros() throws BussinesException{
+        responsaveis = Facade.getInstance().buscarTodosResp_FinS();
+         
+        reps_combo.getItems().setAll(responsaveis);
     }
 
     

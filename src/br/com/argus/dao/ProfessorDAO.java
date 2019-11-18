@@ -22,23 +22,6 @@ public class ProfessorDAO extends Dao<Professor> implements IProfessorDAO{
         super(Professor.class);
     }
 
-    @Override
-    public Professor buscarProf(String pesquisa) throws DAOException {
-        try {
 
-            Query q = entityManager().createQuery(SQLUtil.PESQUISA_PROFESSOR+ pesquisa +"'");
-           Professor professor =(Professor) q.getSingleResult() ;
-            professor.getNome();
-           return professor;
-            
-        } catch (NoResultException e) {
-            e.printStackTrace();
-            return null;
-            
-        }catch(Exception e){
-            e.printStackTrace();
-            throw new DAOException("Erro de busca no "+ class1.getSimpleName()+ " " +e.getMessage());
-        }
-    }
     
 }

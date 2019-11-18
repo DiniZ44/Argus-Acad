@@ -9,6 +9,7 @@ import br.com.argus.model.Aluno;
 import br.com.argus.model.Contato;
 import br.com.argus.model.Endereco;
 import br.com.argus.model.Resp_Financeiro;
+import br.com.argus.util.MaskField;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -95,8 +98,9 @@ public class Cadastrar_AlunoController implements Initializable{
     @FXML
     private TextField email;
     
-        @FXML
+    @FXML
     private TextField naturalidade;
+    
     @FXML
     private ComboBox<Resp_Financeiro> reps_combo;
 
@@ -122,15 +126,20 @@ public class Cadastrar_AlunoController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
        carregarCombo();
        
-        // Pressionar Tecla tabela
-       reps_combo.setOnKeyPressed(new EventHandler<KeyEvent>(){
-           @Override
-           public void handle(KeyEvent event) {
-              
-              
-           }
-    
-    });
+//        // Pressionar Tecla tabela
+//       reps_combo.setOnKeyPressed(new EventHandler<KeyEvent>(){
+//           @Override
+//           public void handle(KeyEvent event) {
+//               try {
+//                   Facade.getInstance().buscarRep(reps_combo.getPromptText());
+//               } catch (BussinesException ex) {
+//                   ex.printStackTrace();
+//               }
+//              
+//           }
+//    
+//    }
+//       );
  
        
        
@@ -180,10 +189,21 @@ public class Cadastrar_AlunoController implements Initializable{
     
     void carregarCombo(){
         uf_cbox.getItems().setAll(TipoEstadoUF.values());
+        
+        MaskField.cpfField(cpf_Aluno);
+        MaskField.foneField(tel_field);
+        MaskField.foneField(celular_field);
+        MaskField.cepField(cep_field);
+        cpf_Aluno.clear();
+        cep_field.clear();
+
+      celular_field.clear();
+
+      tel_field.clear();
     }
     
     void limparCampos(){
-    cpf_Aluno.clear();
+   cpf_Aluno.clear();
     mae.clear();
     naturalidade.clear();
     nome_aluno.clear();
@@ -200,7 +220,155 @@ public class Cadastrar_AlunoController implements Initializable{
     numCasa.clear();
     data_nasc.getEditor().clear();
     uf_cbox.getEditor().clear();
+    
+
     }
+
+    public TextField getNome_aluno() {
+        return nome_aluno;
+    }
+
+    public void setNome_aluno(TextField nome_aluno) {
+        this.nome_aluno = nome_aluno;
+    }
+
+    public DatePicker getData_nasc() {
+        return data_nasc;
+    }
+
+    public void setData_nasc(DatePicker data_nasc) {
+        this.data_nasc = data_nasc;
+    }
+
+    public TextField getPai() {
+        return pai;
+    }
+
+    public void setPai(TextField pai) {
+        this.pai = pai;
+    }
+
+    public TextField getCpf_Aluno() {
+        return cpf_Aluno;
+    }
+
+    public void setCpf_Aluno(TextField cpf_Aluno) {
+        this.cpf_Aluno = cpf_Aluno;
+    }
+
+    public TextField getLogradouro() {
+        return logradouro;
+    }
+
+    public void setLogradouro(TextField logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public TextField getBairro_field() {
+        return bairro_field;
+    }
+
+    public void setBairro_field(TextField bairro_field) {
+        this.bairro_field = bairro_field;
+    }
+
+    public TextField getCep_field() {
+        return cep_field;
+    }
+
+    public void setCep_field(TextField cep_field) {
+        this.cep_field = cep_field;
+    }
+
+    public TextField getNumCasa() {
+        return numCasa;
+    }
+
+    public void setNumCasa(TextField numCasa) {
+        this.numCasa = numCasa;
+    }
+
+    public TextField getCamplemento() {
+        return camplemento;
+    }
+
+    public void setCamplemento(TextField camplemento) {
+        this.camplemento = camplemento;
+    }
+
+    public TextField getCidade_field() {
+        return cidade_field;
+    }
+
+    public void setCidade_field(TextField cidade_field) {
+        this.cidade_field = cidade_field;
+    }
+
+    public ComboBox<TipoEstadoUF> getUf_cbox() {
+        return uf_cbox;
+    }
+
+    public void setUf_cbox(ComboBox<TipoEstadoUF> uf_cbox) {
+        this.uf_cbox = uf_cbox;
+    }
+
+    public TextField getTel_field() {
+        return tel_field;
+    }
+
+    public void setTel_field(TextField tel_field) {
+        this.tel_field = tel_field;
+    }
+
+    public TextField getCelular_field() {
+        return celular_field;
+    }
+
+    public void setCelular_field(TextField celular_field) {
+        this.celular_field = celular_field;
+    }
+
+    public TextField getMae() {
+        return mae;
+    }
+
+    public void setMae(TextField mae) {
+        this.mae = mae;
+    }
+
+    public TextField getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(TextField responsavel) {
+        this.responsavel = responsavel;
+    }
+
+    public TextField getEmail() {
+        return email;
+    }
+
+    public void setEmail(TextField email) {
+        this.email = email;
+    }
+
+    public TextField getNaturalidade() {
+        return naturalidade;
+    }
+
+    public void setNaturalidade(TextField naturalidade) {
+        this.naturalidade = naturalidade;
+    }
+
+    public ComboBox<Resp_Financeiro> getReps_combo() {
+        return reps_combo;
+    }
+
+    public void setReps_combo(ComboBox<Resp_Financeiro> reps_combo) {
+        this.reps_combo = reps_combo;
+    }
+    
+    
     
     
 

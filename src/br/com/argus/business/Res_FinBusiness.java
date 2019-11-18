@@ -9,6 +9,10 @@ import br.com.argus.exceptions.ValidacaoException;
 import br.com.argus.model.Resp_Financeiro;
 import br.com.argus.dao.IResp_FinDAO;
 import br.com.argus.dao.Resp_FinDAO;
+import br.com.argus.exceptions.BussinesException;
+import br.com.argus.exceptions.DAOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,6 +25,19 @@ public class Res_FinBusiness extends Business<Resp_Financeiro> implements IRes_F
     iResp_FinDAO = new Resp_FinDAO();
         init(iResp_FinDAO);
     }
+    
+    @Override
+    public Resp_Financeiro buscarRep (String pesquisa) throws BussinesException {
+        Resp_Financeiro prof;
+        try {
+            prof = iResp_FinDAO.buscarRep(pesquisa);
+            return prof;
+        } catch (DAOException ex) {
+            ex.printStackTrace();
+            throw new BussinesException(ex.getMessage());
+        }
+        }
+
     
     
             

@@ -5,7 +5,12 @@
  */
 package br.com.argus.dao;
 
+import br.com.argus.exceptions.DAOException;
+import br.com.argus.model.Professor;
 import br.com.argus.model.Resp_Financeiro;
+import br.com.argus.util.SQLUtil;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
 
 /**
  *
@@ -15,6 +20,25 @@ public class Resp_FinDAO extends Dao<Resp_Financeiro> implements IResp_FinDAO{
     
     public Resp_FinDAO() {
         super(Resp_Financeiro.class);
+    }
+    
+        @Override
+    public Resp_Financeiro buscarRep (String pesquisa) throws DAOException {
+        try {
+
+            Query q = entityManager().createQuery(SQLUtil.PESQUISA_PROFESSOR+ pesquisa +"'");
+           Resp_Financeiro responsavel =(Resp_Financeiro) q.getSingleResult() ;
+            responsavel.getNome();
+           return responsavel;
+            
+        } catch (NoResultException e) {
+            e.printStackTrace();
+            return null;
+            
+        }catch(Exception e){
+            e.printStackTrace();
+            throw new DAOException("Erro de busca no "+ class1.getSimpleName()+ " " +e.getMessage());
+        }
     }
     
 }

@@ -5,6 +5,7 @@
  */
 package br.com.argus.dao;
 
+import br.com.argus.exceptions.DAOException;
 import br.com.argus.model.Resp_Financeiro;
 
 /**
@@ -12,5 +13,7 @@ import br.com.argus.model.Resp_Financeiro;
  * @author santo
  */
 public interface IResp_FinDAO extends IDao<Resp_Financeiro>{
+    
+    public Resp_Financeiro buscarRep (String pesquisa) throws DAOException;
     
 }

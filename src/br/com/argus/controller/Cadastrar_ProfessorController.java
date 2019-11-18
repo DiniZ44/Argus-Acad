@@ -7,6 +7,7 @@ import br.com.argus.facade.Facade;
 import br.com.argus.model.Contato;
 import br.com.argus.model.Endereco;
 import br.com.argus.model.Professor;
+import br.com.argus.util.MaskField;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
@@ -123,6 +124,10 @@ public class Cadastrar_ProfessorController implements Initializable{
     void carregarCombo(){
     
         uf_cbox.getItems().setAll(TipoEstadoUF.values());
+        MaskField.cepField(cep_field);
+        MaskField.cpfField(cpf);
+        MaskField.foneField(tel_field);
+        MaskField.foneField(celular_field);
     }
     
     void limparCampos(){

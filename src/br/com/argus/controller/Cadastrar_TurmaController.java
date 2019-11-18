@@ -38,6 +38,9 @@ public class Cadastrar_TurmaController implements Initializable{
 
     @FXML
     private ComboBox<?> disciplina_cbox1;
+    
+    @FXML
+    private TextField anoLetivo;
 
     @FXML
     void salvar(ActionEvent event) {
@@ -59,6 +62,7 @@ public class Cadastrar_TurmaController implements Initializable{
      //   turma.setAluno(aluno);
        // turma.setDisciplina(disciplina);
        turma.setNome(nome.getText());
+       turma.setAnoLetivo(anoLetivo.getAnchor());
        //turma.setNota(nota.get;
        
                   try {
@@ -74,6 +78,7 @@ public class Cadastrar_TurmaController implements Initializable{
     
     void limpar(){
         nome.clear();
+        anoLetivo.clear();
     
     }
     

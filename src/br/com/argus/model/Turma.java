@@ -39,9 +39,7 @@ public class Turma extends Entidade{
     @JoinColumn
     private Disciplina disciplina;
     
-   
-    @Enumerated(EnumType.STRING)
-    private TipoSituacao statusAluno;
+  
 
     public String getNome() {
         return nome;
@@ -60,21 +58,16 @@ public class Turma extends Entidade{
         this.disciplina = disciplina;
     }
 
-//    public String getNota() {
-//        return nota;
-//    }
-//
-//    public void setNota(String nota) {
-//        this.nota = nota;
-//    }
-
-    public TipoSituacao getStatusAluno() {
-        return statusAluno;
+    public int getAnoLetivo() {
+        return anoLetivo;
     }
 
-    public void setStatusAluno(TipoSituacao statusAluno) {
-        this.statusAluno = statusAluno;
+    public void setAnoLetivo(int anoLetivo) {
+        this.anoLetivo = anoLetivo;
     }
+
+    
+
     
     
 }

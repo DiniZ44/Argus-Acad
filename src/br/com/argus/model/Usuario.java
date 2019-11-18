@@ -28,7 +28,7 @@ public abstract class Usuario extends Entidade{
     
     public static final long serialVersionUID = 1L;
     protected static final String SEQUENCE_ENTIDADE = "usuario_sequence";
-
+    
     
     @Column(nullable = false, length = 100)
     private String nome;
@@ -36,10 +36,10 @@ public abstract class Usuario extends Entidade{
     @Column(nullable = false, length = 50)
     private String login;
     
-    @Column(nullable = false, length = 11)
+    @Column(nullable = false, length = 15)
     private String senha;
     
-    @Column(nullable = false, unique = true, length = 11)
+    @Column(nullable = false, unique = true, length = 15)
     private String cpf;
     
     @Enumerated(EnumType.STRING)

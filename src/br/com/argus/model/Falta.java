@@ -36,7 +36,6 @@ public class Falta extends Entidade{
     private String justificativa;
    
     @OneToOne(cascade = CascadeType.ALL)
-
     private VinculoAlunoTurma vinculoAlunoTurma;
 
     

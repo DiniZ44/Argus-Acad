@@ -33,19 +33,22 @@ public class Aluno extends Entidade{
     public static final long serialVersionUID = 1L;
     protected static final String SEQUENCE_ENTIDADE = "aluno_sequence";
     
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 150)
     private String nome;
     
-    @Column(nullable = false, length = 20)
+    @Column(length = 50)
+    private String Matricula;
+    
+    @Column(nullable = false, length = 50)
     private String naturalidade;
     
     @ManyToOne(cascade = CascadeType.ALL) 
     private Resp_Financeiro responsavel_financeiro;
     
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 50)
     private String pai;
     
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 50)
     private String mae;
    
     @ManyToOne(cascade = CascadeType.ALL)
@@ -54,7 +57,7 @@ public class Aluno extends Entidade{
     @Column
     private LocalDate data_nascimento;
     
-    @Column(nullable = false, unique = true, length = 11)
+    @Column(nullable = false, unique = true, length = 15)
     private String cpf;
     
     @ManyToOne(cascade = CascadeType.ALL)
@@ -133,6 +136,15 @@ public class Aluno extends Entidade{
     public void setContato(Contato contato) {
         this.contato = contato;
     }
+
+    public String getMatricula() {
+        return Matricula;
+    }
+
+    public void setMatricula(String Matricula) {
+        this.Matricula = Matricula;
+    }
+    
     
     
 }

@@ -32,16 +32,6 @@ public class ProfessorBusiness extends Business<Professor> implements IProfessor
         
     }
 
-    @Override
-    public Professor buscarProf(String pesquisa) throws BussinesException {
-        try {
-            Professor prof = iProfessorDAO.buscarProf(pesquisa);
-            return prof;
-        } catch (DAOException ex) {
-            ex.printStackTrace();
-            throw new BussinesException(ex.getMessage());
-        }
 
-    }
     
 }

@@ -38,7 +38,7 @@ public class Professor extends Entidade{
     @Column(nullable = false)
     private LocalDate data_nascimento;
     
-    @Column(nullable = false, unique = true, length = 11)
+    @Column(nullable = false, unique = true, length = 15)
     private String cpf;
     
     @OneToOne(cascade = CascadeType.ALL)

@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,17 +26,18 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class Ver_UsuariosController implements Initializable{
     
     public static final String CADASTRO_USUARIO1 = "/br/com/argus/view/Cadastrar_Usuario.fxml" ;
-        public static final String VER_USUARIO = "/br/com/argus/view/Ver_Usuarios.fxml" ;
-//    private Pane cadastrar_usuario;
-//    
-//    DashboardController dashboardController;
-    
+    public static final String VER_USUARIO = "/br/com/argus/view/Ver_Usuarios.fxml" ;
+    public static final String ALTERAR_USUARIO ="/br/com/argus/view/Alterar_Usuario.fxml" ;
+    private Cadastrar_UsuarioController usuarioController;
+    private static Usuario u;
+
     @FXML
     private TableView<Usuario> table_usuario;
         
@@ -78,7 +80,12 @@ public class Ver_UsuariosController implements Initializable{
   
     @FXML
     void sicronizar(ActionEvent event) throws IOException {
-        App.genericaStage(VER_USUARIO);
+               try {
+            carregarTabela(Facade.getInstance().buscarTodosUsers());
+        } catch (BussinesException ex) {
+            Mensagem.getInstance().mostrarMensagem("Erro Carregar Tela", "Erro ao carregar os componentes gráficos "+ex.getMessage(), Alert.AlertType.ERROR);
+            ex.printStackTrace();
+        }
     }
 
     @FXML
@@ -94,6 +101,31 @@ public class Ver_UsuariosController implements Initializable{
             Mensagem.getInstance().mostrarMensagem("Erro Carregar Tela", "Erro ao carregar os componentes gráficos "+ex.getMessage(), Alert.AlertType.ERROR);
             ex.printStackTrace();
         }
+        
+        table_usuario.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    if(event.getClickCount() == 2){
+                        if(table_usuario.getSelectionModel().getSelectedItem() != null){
+                            u = table_usuario.getSelectionModel().getSelectedItem();
+                            App.genericaStage(ALTERAR_USUARIO).show();
+                        }else{
+                            Mensagem.getInstance().confirmar("Atenção", "Selecione o usuario", Alert.AlertType.WARNING);
+                        }
+                   
+                }
+                    
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                        }
+
+            }
+        
+        
+        });
+        
+        
     }
     
     void carregarTabela(List<Usuario> usuarios ) {
@@ -107,4 +139,24 @@ public class Ver_UsuariosController implements Initializable{
         
         table_usuario.getItems().setAll(usuarios);
     }
+    
+
+    public TableView<Usuario> getTable_usuario() {
+        return table_usuario;
+    }
+
+    public void setTable_usuario(TableView<Usuario> table_usuario) {
+        this.table_usuario = table_usuario;
+    }
+
+    public static Usuario getU() {
+        return u;
+    }
+
+    public static void setU(Usuario u) {
+        Ver_UsuariosController.u = u;
+    }
+
+    
+
 }

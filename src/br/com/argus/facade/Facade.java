@@ -42,6 +42,7 @@ import br.com.argus.business.TurmaBisiness;
 import br.com.argus.business.UsuarioBusiness;
 import br.com.argus.business.VinculoAlunoTurmaBusiness;
 import br.com.argus.exceptions.BussinesException;
+import br.com.argus.exceptions.DAOException;
 import br.com.argus.model.Aluno;
 import br.com.argus.model.Carne_Pagamento;
 import br.com.argus.model.Contato;
@@ -61,6 +62,8 @@ import br.com.argus.model.Turma;
 import br.com.argus.model.Secretario;
 import br.com.argus.model.VinculoAlunoTurma;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -316,10 +319,8 @@ public class Facade implements IFacade{
     public List<Professor> buscarTodosProfessores() throws BussinesException {
         return professorBusiness.buscarTodos();
     }
-    @Override
-    public Professor buscarProf(String pesquisa) throws BussinesException {
-        return professorBusiness.buscarProf(pesquisa);
-    }
+ 
+ 
 
     
     
@@ -343,6 +344,18 @@ public class Facade implements IFacade{
     @Override
     public List<Resp_Financeiro> buscarTodosResp_FinS() throws BussinesException {
         return res_FinBusiness.buscarTodos();
+    }
+
+    /**
+     *
+     * @param pesquisa
+     * @return
+     * @throws DAOException
+     * @throws BussinesException
+     */
+    @Override
+       public Resp_Financeiro buscarRep (String pesquisa) throws  BussinesException {
+            return res_FinBusiness.buscarRep(pesquisa);
     }
 
     

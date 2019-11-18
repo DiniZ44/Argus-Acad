@@ -30,11 +30,12 @@ import javafx.scene.control.TextField;
 
 public class Cadastrar_UsuarioController implements Initializable{
     
-    private Usuario usuario, NovoUsuario;
-    private SuperUsuario superUsuario, NovoSuperUsuario;
-    private Diretor diretor, NovoDiretor;
-    private Secretario secretario, NovoSecretario;
-    private Coordenador coordenador, NovoCoordenador;
+    private static Usuario usuario;
+    private SuperUsuario superUsuario;
+    private Diretor diretor;
+    private Secretario secretario ;
+    private Coordenador coordenador;
+    private Ver_UsuariosController usuariosController;
     public static final String CADASTRO_USUARIO = "/br/com/argus/view/Cadastrar_Usuario.fxml" ;
     
     //private List cargos = new ArrayList(Arrays.asList(new String[]{TipoCargo.COORDENAÇÃO_PEDAGOGA.toString(),TipoCargo.DIRETORIA.toString(),TipoCargo.SECRETARIA.toString(), TipoCargo.SUPER_USUARIO.toString()}));
@@ -69,6 +70,8 @@ public class Cadastrar_UsuarioController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
       carregarCampo();
+//      initPerson();
+
     }
     public Usuario getUsuario() {
         return usuario;
@@ -125,12 +128,6 @@ public class Cadastrar_UsuarioController implements Initializable{
     public void setVoltar(Button voltar) {
         this.voltar = voltar;
     }
-    
-    
-    
-    
-
-
     
     public void Cadastrar(){
         
@@ -218,6 +215,15 @@ public class Cadastrar_UsuarioController implements Initializable{
     void carregarCampo(){
         tipo_ComboBox.getItems().setAll(TipoCargo.values());
     }
+    
+//    void initPerson(){
+//        usuario = usuariosController.getU();
+//        nome.setText(usuario.getNome());
+//        cpf.setText(usuario.getCpf());
+//        login.setText(usuario.getLogin());
+//        tipo_ComboBox.setValue(usuario.getTipoCargo());
+//        usuario.setId(usuario.getId());
+//    }
     
 //    public void Atualizar (Usuario u){
 //        if(u instanceof SuperUsuario){

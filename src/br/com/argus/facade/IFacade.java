@@ -100,7 +100,7 @@ public interface IFacade {
     public void deletarProfessor(Professor professor) throws BussinesException;
     public void buscarProfessor(Professor professor) throws BussinesException;
     public List<Professor> buscarTodosProfessores () throws BussinesException;
-   public Professor buscarProf (String pesquisa) throws BussinesException;
+   
     
     
     //  Responsalvel Financeiro
@@ -109,6 +109,7 @@ public interface IFacade {
     public void deletarResp_Fin(Resp_Financeiro resp_Financeiro) throws BussinesException;
     public void buscarResp_Fin(Resp_Financeiro resp_Financeiro) throws BussinesException;
     public List<Resp_Financeiro> buscarTodosResp_FinS() throws BussinesException;
+    public Resp_Financeiro buscarRep (String pesquisa) throws BussinesException;
     
     
     //  Secretario    

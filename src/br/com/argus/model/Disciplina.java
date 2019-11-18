@@ -5,9 +5,12 @@
  */
 package br.com.argus.model;
 
+import br.com.argus.enuns.TipoSituacao;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -37,6 +40,9 @@ public class Disciplina extends Entidade{
     
     @Column(nullable = false, length = 5)
     private String carga_horaria;
+    
+    @Enumerated(EnumType.STRING)
+    private TipoSituacao statusAluno;
 
     public String getCodigo() {
         return codigo;
@@ -69,6 +75,15 @@ public class Disciplina extends Entidade{
     public void setCarga_horaria(String carga_horaria) {
         this.carga_horaria = carga_horaria;
     }
+
+    public TipoSituacao getStatusAluno() {
+        return statusAluno;
+    }
+
+    public void setStatusAluno(TipoSituacao statusAluno) {
+        this.statusAluno = statusAluno;
+    }
+    
     
     
 }

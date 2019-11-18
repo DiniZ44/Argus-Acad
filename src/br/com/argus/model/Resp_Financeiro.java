@@ -22,10 +22,10 @@ public class Resp_Financeiro extends Entidade{
     private static final long serialVersionUID = 1L;
     protected static final String SEQUENCE_ENTIDADE = "resp_fin_sequence";
     
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 100)
     private String nome;
     
-    @Column(nullable = false, unique = true, length = 11)
+    @Column(nullable = false, unique = true, length = 15)
     private String cpf;
 
 

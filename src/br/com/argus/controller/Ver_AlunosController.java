@@ -6,6 +6,8 @@ import br.com.argus.facade.Facade;
 import br.com.argus.model.Aluno;
 import br.com.argus.model.Contato;
 import br.com.argus.model.Resp_Financeiro;
+import br.com.argus.model.Usuario;
+import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -14,25 +16,26 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class Ver_AlunosController  implements Initializable{
     
     public static final String CADASTRO_ALUNO ="/br/com/argus/view/Cadastrar_Aluno.fxml" ;
     public static final String VER_ALUNOS = "/br/com/argus/view/Ver_Alunos.fxml" ;
+    public static final String ALTERAR_ALUNO ="/br/com/argus/view/Alterar_Aluno.fxml" ;
     
-    private Aluno aluno;
-    private List<Aluno> alunos;
-    private List<Resp_Financeiro> responsaveis;
-    private Contato contato;
-    private Resp_Financeiro resp_Financeiro;
     private Facade facada;
+    private Cadastrar_AlunoController alunoController;
+    private static Aluno a;
     
     @FXML
     private TableView<Aluno> tabela_aluno;
@@ -58,23 +61,20 @@ public class Ver_AlunosController  implements Initializable{
     @FXML
     private TextField pesquisa;
 
-    @FXML
-    private Button buscar;
-
-    @FXML
-    private Button add;
-
-    @FXML
-    private Button atualizar;
 
     @FXML
     void sicronizar(ActionEvent event) throws IOException {
-        App.genericaStage(VER_ALUNOS);
+        try {
+            atualizar_tabela(facada.getInstance().buscarTodosAlunos());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     @FXML
     void buscar_aluno(ActionEvent event) {
-
+        
+        
 
     }
    
@@ -95,6 +95,36 @@ public class Ver_AlunosController  implements Initializable{
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        
+        // ----------------------------------------------------------------------
+        tabela_aluno.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    if(event.getClickCount() == 2){
+                        if(tabela_aluno.getSelectionModel().getSelectedItem() != null){
+                            a = tabela_aluno.getSelectionModel().getSelectedItem();
+                            App.genericaStage(ALTERAR_ALUNO).show();
+                        }else{
+                            Mensagem.getInstance().confirmar("Atenção", "Selecione o usuario", Alert.AlertType.WARNING);
+                        }
+                   
+                }
+                    
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                        }
+
+            }
+        
+        
+        });
+    // ----------------------------------------------------------------------
+    
+    
+    
+    
+    
     }
 
 
@@ -111,6 +141,15 @@ public class Ver_AlunosController  implements Initializable{
         
     
     }
+
+    public static Aluno getA() {
+        return a;
+    }
+
+    public static void setA(Aluno a) {
+        Ver_AlunosController.a = a;
+    }
+
     
   
  

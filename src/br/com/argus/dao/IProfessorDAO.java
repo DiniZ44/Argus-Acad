@@ -14,6 +14,6 @@ import br.com.argus.model.Professor;
  */
 public interface IProfessorDAO extends IDao<Professor>{
     
-    public Professor buscarProf (String pesquisa) throws DAOException;
+    
     
 }

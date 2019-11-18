@@ -27,8 +27,9 @@
          <children>
             <TableView fx:id="turma_table" opacity="0.8" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn fx:id="table_name" prefWidth="266.0" style="-fx-background-color: A9A9A9;" text="Nome" />
-                  <TableColumn fx:id="table_disciplinas" prefWidth="701.0" style="-fx-background-color: A9A9A9;" text="Disciplinas" />
+                  <TableColumn fx:id="table_name" prefWidth="354.0" style="-fx-background-color: A9A9A9;" text="Nome" />
+                  <TableColumn fx:id="table_anoLetivo" prefWidth="85.0" style="-fx-background-color: A9A9A9;" text="Ano Letivo" />
+                  <TableColumn fx:id="table_disciplinas" prefWidth="528.0" style="-fx-background-color: A9A9A9;" text="Disciplinas" />
                </columns>
             </TableView>
             <Pane prefHeight="200.0" prefWidth="200.0">

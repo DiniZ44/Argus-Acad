@@ -17,7 +17,6 @@ import br.com.argus.model.Resp_Financeiro;
 import br.com.argus.model.SuperUsuario;
 import br.com.argus.model.Usuario;
 import java.io.IOException;
-import java.time.LocalDate;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

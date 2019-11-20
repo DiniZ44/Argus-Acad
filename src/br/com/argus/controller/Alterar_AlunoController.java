@@ -65,9 +65,6 @@ public class Alterar_AlunoController implements Initializable {
     private TextField pai;
 
     @FXML
-    private TextField cpf_Aluno;
-
-    @FXML
     private TextField logradouro;
 
     @FXML
@@ -169,7 +166,6 @@ public class Alterar_AlunoController implements Initializable {
         aluno.setEndereco(endereco);
         aluno.setContato(contato);
         aluno.setData_nascimento(data_nasc.getValue());
-        aluno.setCpf(cpf_Aluno.getText());
         aluno.setMae(mae.getText());
         aluno.setNaturalidade(naturalidade.getText() );
         aluno.setNome(nome_aluno.getText());
@@ -198,12 +194,10 @@ public class Alterar_AlunoController implements Initializable {
     
     void carregarCombo(){
         uf_cbox.getItems().setAll(TipoEstadoUF.values());
-        
-        MaskField.cpfField(cpf_Aluno);
+       
         MaskField.foneField(tel_field);
         MaskField.foneField(celular_field);
         MaskField.cepField(cep_field);
-        cpf_Aluno.clear();
         cep_field.clear();
 
       celular_field.clear();
@@ -212,12 +206,10 @@ public class Alterar_AlunoController implements Initializable {
     }
     
     void limparCampos(){
-   cpf_Aluno.clear();
     mae.clear();
     naturalidade.clear();
     nome_aluno.clear();
     pai.clear();
-    responsavel.clear();
     logradouro.clear();
     camplemento.clear();
     cidade_field.clear();
@@ -252,7 +244,6 @@ public class Alterar_AlunoController implements Initializable {
         
         
         data_nasc.setValue(aluno.getData_nascimento());
-        cpf_Aluno.setText(aluno.getCpf());
         mae.setText(aluno.getMae());
         naturalidade.setText(aluno.getNaturalidade());
         nome_aluno.setText(aluno.getNome());
@@ -283,14 +274,6 @@ public class Alterar_AlunoController implements Initializable {
 
     public void setPai(TextField pai) {
         this.pai = pai;
-    }
-
-    public TextField getCpf_Aluno() {
-        return cpf_Aluno;
-    }
-
-    public void setCpf_Aluno(TextField cpf_Aluno) {
-        this.cpf_Aluno = cpf_Aluno;
     }
 
     public TextField getLogradouro() {

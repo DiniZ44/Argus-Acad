@@ -44,7 +44,7 @@ public class Ver_AlunosController  implements Initializable{
     private TableColumn<Aluno, String> table_name;
 
     @FXML
-    private TableColumn<Aluno,String> table_cpf;
+    private TableColumn<?, ?> table_turma;
 
     @FXML
     private TableColumn<Aluno, String>table_mae;
@@ -131,7 +131,7 @@ public class Ver_AlunosController  implements Initializable{
     
     void atualizar_tabela(List<Aluno> alunoList){
         table_name.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        table_cpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+        //table_turma.setCellValueFactory(new PropertyValueFactory<>(""));
         table_contato.setCellValueFactory(new PropertyValueFactory("contato"));
         table_mae.setCellValueFactory(new PropertyValueFactory<>("mae"));
         table_resp.setCellValueFactory(new PropertyValueFactory("responsavel_financeiro"));

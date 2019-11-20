@@ -12,6 +12,8 @@ import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -143,6 +145,24 @@ public class Cadastrar_ProfessorController implements Initializable{
     numCasa.clear();
     data_nasc.getEditor().clear();
     uf_cbox.getEditor().clear();
+    }
+    
+    boolean verificarCPF (){
+        
+        try {
+            Professor prof = Facade.getInstance().buscarCPF_Professor(cpf.getText());
+            if(prof == null){
+                return true;
+            }else{
+                
+                Mensagem.getInstance().mostrarMensagem("Campo CPF", "O CPF, ja foi cadastrado no sistema", Alert.AlertType.ERROR);
+                return false;
+            }
+        } catch (BussinesException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+
     }
 
 }

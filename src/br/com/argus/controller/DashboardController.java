@@ -39,8 +39,9 @@ public class DashboardController implements Initializable{
     public static final String VER_PROFESSORES = "/br/com/argus/view/Ver_Professores.fxml" ;
     public static final String VER_TURMA = "/br/com/argus/view/Ver_Turma.fxml" ;
     public static final String VER_USUARIO = "/br/com/argus/view/Ver_Usuarios.fxml" ;
-    public static final String VER_FINANÇAS = "/br/com/argus/view/Ver_Configuracao.fxml" ;
-    public static final String VER_CONFIG = "/br/com/argus/view/Ver_Financas.fxml" ;
+    public static final String VER_FINANÇAS = "/br/com/argus/view/Ver_Financas.fxml" ;
+    public static final String VER_CONFIG = "/br/com/argus/view/Ver_Configuracao.fxml" ;
+    public static final String VER_NOTAS = "/br/com/argus/view/Ver_Notas.fxml" ;
     
     private LoginController loginController;
     
@@ -84,6 +85,9 @@ public class DashboardController implements Initializable{
     
     @FXML
     private Label label_usuario;
+    
+    @FXML
+    private Button notas;
     
     @FXML
     void abir_config(ActionEvent event) throws IOException {
@@ -137,6 +141,11 @@ public class DashboardController implements Initializable{
     void abrir_professor(ActionEvent event) throws IOException {
         getAnchor_pane().getChildren().clear();
         getAnchor_pane().getChildren().add(FXMLLoader.load(getClass().getResource(VER_PROFESSORES)));
+    }
+    @FXML
+    void abrirNotas(ActionEvent event) throws IOException{
+        getAnchor_pane().getChildren().clear();
+        getAnchor_pane().getChildren().add(FXMLLoader.load(getClass().getResource(VER_NOTAS)));
     }
     
     @Override

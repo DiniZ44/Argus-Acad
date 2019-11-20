@@ -7,6 +7,7 @@ package br.com.argus.controller;
 
 import br.com.argus.app.App;
 import br.com.argus.exceptions.BussinesException;
+import br.com.argus.exceptions.DAOException;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Resp_Financeiro;
 import br.com.argus.util.MaskField;
@@ -35,6 +36,7 @@ public class Cadastrar_respController implements Initializable {
     
     private Resp_Financeiro resp_Financeiro;
     private static final String CADASTRO_RESP = "/br/com/argus/view/Cadastrar_Resp.fxml";
+    public static final String CADASTRO_ALUNO ="/br/com/argus/view/Cadastrar_Aluno.fxml" ;
     
     @FXML
     private TextField nome_resp;
@@ -53,12 +55,15 @@ public class Cadastrar_respController implements Initializable {
 
     @FXML
     void salvar(ActionEvent event) throws BussinesException {
-        cadastrar();
+        
+            cadastrar();
+
     }
 
     @FXML
     void voltar(ActionEvent event) throws IOException {
         App.genericaStage(CADASTRO_RESP).close();
+        App.genericaStage(CADASTRO_ALUNO).show();
     }
     @FXML
     void sicronizar(ActionEvent event) throws IOException {
@@ -86,18 +91,28 @@ public class Cadastrar_respController implements Initializable {
         
     }
     
-    void cadastrar() throws BussinesException{
+    void cadastrar(){
+        
         resp_Financeiro = new Resp_Financeiro();
         resp_Financeiro.setNome(nome_resp.getText());
         resp_Financeiro.setCpf(cpf_resp.getText());
         
-        Facade.getInstance().inserirOuAtualizarResp_Fin(resp_Financeiro);
-        limpar();
-        Mensagem.getInstance().mostrarMensagem("Cadastro", "Cadastro feito com sucesso", Alert.AlertType.INFORMATION);
+        try {
+            Facade.getInstance().inserirOuAtualizarResp_Fin(resp_Financeiro);
+            limpar();
+            Mensagem.getInstance().mostrarMensagem("Cadastro", "Cadastro feito com sucesso", Alert.AlertType.INFORMATION);
+        } catch (BussinesException ex) {
+            ex.printStackTrace();
+            Mensagem.getInstance().mostrarMensagem("Cadastro", "Erro ao realizar cadastro", Alert.AlertType.ERROR);
+
+        }
+        
     }
 
     void limpar(){
        nome_resp.clear();
        cpf_resp.clear();}
+    
+    
         
 }

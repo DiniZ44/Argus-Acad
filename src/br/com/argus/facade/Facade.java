@@ -158,6 +158,11 @@ public class Facade implements IFacade{
     public List<Usuario> buscarTodosUsers() throws BussinesException {
         return usuarioBusiness.buscarTodos();
     }
+        @Override
+    public Usuario buscarCPF(String cpf) throws BussinesException {
+        return usuarioBusiness.buscarCPF(cpf);
+    }
+
     
     
     //  Endereco
@@ -319,6 +324,10 @@ public class Facade implements IFacade{
     public List<Professor> buscarTodosProfessores() throws BussinesException {
         return professorBusiness.buscarTodos();
     }
+        @Override
+    public Professor buscarCPF_Professor(String cpf) throws BussinesException {
+        return professorBusiness.buscarCPF(cpf);
+    }
  
  
 
@@ -344,6 +353,10 @@ public class Facade implements IFacade{
     @Override
     public List<Resp_Financeiro> buscarTodosResp_FinS() throws BussinesException {
         return res_FinBusiness.buscarTodos();
+    }
+    @Override
+    public Resp_Financeiro buscarCPF_Responsavel(String cpf) throws DAOException {
+        return res_FinBusiness.buscarCPF(cpf);
     }
 
     /**
@@ -569,6 +582,10 @@ public class Facade implements IFacade{
     public List<DisciplinaTurma> buscarTodosDisciplinaTurma() throws BussinesException {
         return disciplinaTurmaBussiness.buscarTodos();
     }
+
+
+
+
 
 
 

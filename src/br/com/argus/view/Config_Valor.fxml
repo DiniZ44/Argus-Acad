@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="296.0" prefWidth="506.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.argus.controller.Config_BiTriController">
+   <children>
+      <ImageView fitHeight="164.0" fitWidth="305.0" layoutX="101.0" layoutY="54.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../res/ARGUS.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="70.0" layoutY="40.0" prefHeight="47.0" prefWidth="366.0" text="Selecione a configuração de valor do carne">
+         <font>
+            <Font name="Arial Black" size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="120.0" layoutY="241.0" mnemonicParsing="false" onAction="#aplicar" opacity="0.7" prefHeight="41.0" prefWidth="266.0" style="-fx-background-color: A9A9A9;" text="Aplicar ">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../res/settings.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="valor_inicial_EF" layoutX="50.0" layoutY="131.0" opacity="0.7" prefHeight="25.0" prefWidth="102.0" promptText="R$" />
+      <Label layoutX="46.0" layoutY="96.0" prefHeight="25.0" prefWidth="198.0" text="Anos Inicias - Ensino Fundamental">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="valor_final_EF" layoutX="295.0" layoutY="131.0" opacity="0.7" prefHeight="25.0" prefWidth="102.0" promptText="R$" />
+      <Label layoutX="287.0" layoutY="96.0" prefHeight="25.0" prefWidth="198.0" text="Anos Finais- Ensino Fundamental">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="valor_EM" layoutX="193.0" layoutY="188.0" opacity="0.7" prefHeight="25.0" prefWidth="102.0" promptText="R$" />
+      <Label layoutX="203.0" layoutY="163.0" prefHeight="25.0" prefWidth="82.0" text=" Ensino Médio">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="153.0" layoutY="131.0" prefHeight="25.0" prefWidth="50.0" text="* R$ 400">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="397.0" layoutY="131.0" prefHeight="25.0" prefWidth="50.0" text="* R$ 600">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="295.0" layoutY="188.0" prefHeight="25.0" prefWidth="50.0" text="* R$ 800">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="194.0" prefHeight="25.0" prefWidth="74.0" text="* Valor Inicial">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -82,6 +82,26 @@ public class UsuarioDAO extends Dao<Usuario> implements IUsuarioDAO {
         }
     }
 
+    @Override
+    public Usuario buscarCPF(String cpf) throws DAOException {
+            
+        try {
+            TypedQuery<Usuario> typedQuery = entityManager().createQuery(SQLUtil.BUSCAR_CPF_USUARIO, class1);
+            typedQuery.setParameter("cpf", cpf);
+            return typedQuery.getSingleResult();
+            
+        } catch (NoResultException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            throw new DAOException("Não foi encontrado nenhum cpf");
+            
+        }catch(Exception e){
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            throw new DAOException("Erro de busca no "+ class1.getSimpleName()+ " " +e.getMessage());
+        }
+    }
+
 
 
 

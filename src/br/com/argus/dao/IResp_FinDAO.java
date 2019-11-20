@@ -16,4 +16,6 @@ public interface IResp_FinDAO extends IDao<Resp_Financeiro>{
     
     public Resp_Financeiro buscarRep (String pesquisa) throws DAOException;
     
+    public Resp_Financeiro buscarCPF (String cpf) throws DAOException;
+    
 }

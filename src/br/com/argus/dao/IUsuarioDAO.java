@@ -20,4 +20,6 @@ public interface IUsuarioDAO  extends IDao<Usuario>{
     public List<Usuario> buscarTodos(String string) throws DAOException;
     
     public Usuario buscarTipo(String tipocargo) throws DAOException;
+    
+    public Usuario buscarCPF (String cpf) throws DAOException;
 }

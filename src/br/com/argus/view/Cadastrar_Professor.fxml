@@ -71,7 +71,7 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="numCasa" layoutX="358.0" layoutY="352.0" opacity="0.7" prefHeight="25.0" prefWidth="57.0" />
+      <TextField fx:id="numCasa" layoutX="358.0" layoutY="352.0" opacity="0.7" prefHeight="25.0" prefWidth="57.0" promptText="N°" />
       <Label layoutX="358.0" layoutY="319.0" prefHeight="25.0" prefWidth="48.0" text="Número">
          <font>
             <Font name="Arial" size="12.0" />

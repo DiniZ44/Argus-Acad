@@ -44,5 +44,17 @@ public class Res_FinBusiness extends Business<Resp_Financeiro> implements IRes_F
       public void isValid(Resp_Financeiro t) throws ValidacaoException {
        
     }
+
+    @Override
+    public Resp_Financeiro buscarCPF(String cpf) throws DAOException {
+
+        try {
+               Resp_Financeiro responsavel = iResp_FinDAO.buscarRep(cpf);
+            return responsavel;
+        } catch (DAOException ex) {
+            ex.printStackTrace();
+            throw new BussinesException(ex.getMessage());
+        }
+    }
     
 }

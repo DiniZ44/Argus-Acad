@@ -12,6 +12,8 @@ import br.com.argus.exceptions.DAOException;
 import br.com.argus.exceptions.ValidacaoException;
 import br.com.argus.model.Usuario;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -69,6 +71,17 @@ public class UsuarioBusiness extends Business<Usuario> implements IUsuarioBusine
         } catch (DAOException e) {
             e.printStackTrace();
             throw new BussinesException(e.getMessage());
+        }
+    }
+
+    @Override
+    public Usuario buscarCPF(String cpf) throws BussinesException {
+        try {
+            Usuario user = usuarioDAO.buscarCPF(cpf);
+            return user;
+        } catch (DAOException ex) {
+            ex.printStackTrace();
+            throw new BussinesException(ex.getMessage());
         }
     }
     

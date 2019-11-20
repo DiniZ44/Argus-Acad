@@ -14,7 +14,7 @@ import br.com.argus.model.Professor;
  */
 public interface IProfessorBusiness extends IBusiness<Professor>{
     
-
+     public Professor buscarCPF (String cpf) throws BussinesException;
     
     
 }

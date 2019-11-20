@@ -32,6 +32,17 @@ public class ProfessorBusiness extends Business<Professor> implements IProfessor
         
     }
 
+    @Override
+    public Professor buscarCPF(String cpf) throws BussinesException {
+        try {
+            Professor professor = iProfessorDAO.buscarCPF(cpf);
+            return professor;
+        } catch (DAOException ex) {
+            ex.printStackTrace();
+            throw new BussinesException(ex.getMessage());
+        }
+    }
+
 
     
 }

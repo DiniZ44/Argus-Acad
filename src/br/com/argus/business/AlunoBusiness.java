@@ -31,9 +31,6 @@ public class AlunoBusiness extends Business<Aluno> implements IAlunoBusiness{
      
     @Override
     public void isValid(Aluno t) throws ValidacaoException {
-        if(t.getCpf().isEmpty()){
-        throw new ValidacaoException("Campo cpf não pode está vazio");
-        }
         if(t.getMae().isEmpty()){
         throw new ValidacaoException("Campo Mãe não pode está vazio");
         }

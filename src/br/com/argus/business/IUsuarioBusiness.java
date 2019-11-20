@@ -21,4 +21,6 @@ public interface IUsuarioBusiness extends IBusiness<Usuario>{
     public List<Usuario> buscarTodos(String string) throws BussinesException;
     
     public Usuario buscarTipo(String tipocargo) throws BussinesException;
+    
+    public Usuario buscarCPF (String cpf) throws BussinesException;
 }

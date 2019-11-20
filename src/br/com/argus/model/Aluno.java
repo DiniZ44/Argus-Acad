@@ -9,8 +9,6 @@ import java.time.LocalDate;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
@@ -43,6 +41,7 @@ public class Aluno extends Entidade{
     private String naturalidade;
     
     @ManyToOne
+    @JoinColumn
     private Resp_Financeiro responsavel_financeiro;
     
     @Column(nullable = false, length = 50)
@@ -51,16 +50,14 @@ public class Aluno extends Entidade{
     @Column(nullable = false, length = 50)
     private String mae;
    
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
     
     @Column
     private LocalDate data_nascimento;
     
-    @Column(nullable = false, unique = true, length = 15)
-    private String cpf;
     
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Contato contato;
     
     
@@ -121,13 +118,6 @@ public class Aluno extends Entidade{
         this.data_nascimento = data_nascimento;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
 
     public Contato getContato() {
         return contato;

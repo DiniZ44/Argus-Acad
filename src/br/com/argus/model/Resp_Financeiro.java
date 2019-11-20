@@ -47,14 +47,11 @@ public class Resp_Financeiro extends Entidade{
 
     @Override
     public String toString() {
-        return  "" + nome ;
+        return " " + nome;
     }
+
+
+    
     
 
-//    @Override
-//    public String toString() {
-//        return "Resp_Financeiro{" + "nome=" + nome + ", cpf=" + cpf + '}';
-//    }
-    
-    
 }

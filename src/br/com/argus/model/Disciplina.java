@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -34,7 +35,7 @@ public class Disciplina extends Entidade{
     @Column(nullable = false, length = 20)
     private String nome;
     
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn
     private Professor professor;
     

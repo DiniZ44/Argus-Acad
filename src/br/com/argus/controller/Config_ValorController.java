@@ -30,7 +30,7 @@ public class Config_ValorController implements Initializable {
 
     @FXML
     void aplicar(ActionEvent event) {
-
+        
     }
     
     /**

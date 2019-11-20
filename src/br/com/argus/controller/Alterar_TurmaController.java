@@ -45,14 +45,28 @@ public class Alterar_TurmaController implements Initializable {
 
     @FXML
     private TextField nome;
-
+    
+    @FXML
+    private ComboBox<?> alunos_cbox;
 
     @FXML
     private ComboBox<Disciplina> disciplina_cbox1;
     
     @FXML
     private TextField anoLetivo;
+    
+    @FXML
+    private TextField matricula_aluno;
+    
+    @FXML
+    void salvar_aluno(ActionEvent event) {
 
+    }
+
+    @FXML
+    void salvar_disciplina(ActionEvent event) {
+
+    }
 
     @FXML
     void salvar(ActionEvent event) throws IOException {

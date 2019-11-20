@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,15 +5,11 @@
  */
 package br.com.argus.controller;
 
-import br.com.argus.model.DisciplinaTurma;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 /**
@@ -22,39 +17,27 @@ import javafx.scene.control.TextField;
  *
  * @author Hakkinen
  */
-public class Ver_NotasController implements Initializable {
+public class Cadastar_NotaController implements Initializable {
     
-    
     @FXML
-    private TableView<DisciplinaTurma> table_aluno;
+    private TextField nota1;
 
     @FXML
-    private TableColumn<DisciplinaTurma, String> table_name;
+    private TextField nota3;
 
     @FXML
-    private TableColumn<DisciplinaTurma, String> table_anoLetivo;
+    private TextField nota2;
 
     @FXML
-    private TextField pesquisa;
+    private TextField nota4;
 
     @FXML
-    private Button buscar;
-
-    @FXML
-    private Button add;
-
-    @FXML
-    void adcionar_Turma(ActionEvent event) {
+    void salvar(ActionEvent event) {
 
     }
 
     @FXML
-    void buscar_turma(ActionEvent event) {
-
-    }
-
-    @FXML
-    void sicronizar(ActionEvent event) {
+    void voltar(ActionEvent event) {
 
     }
     /**
@@ -63,10 +46,6 @@ public class Ver_NotasController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
-
-    void atualizarTabela(){
-        
-    }
+    }    
     
 }

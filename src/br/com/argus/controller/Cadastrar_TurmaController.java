@@ -38,6 +38,13 @@ public class Cadastrar_TurmaController implements Initializable{
     
     @FXML
     private TextField anoLetivo;
+    
+    @FXML
+    private ComboBox<?> alunos_cbox;
+    
+    
+    @FXML
+    private TextField matricula_aluno;
 
     @FXML
     void salvar(ActionEvent event) {
@@ -47,6 +54,16 @@ public class Cadastrar_TurmaController implements Initializable{
     @FXML
     void voltar(ActionEvent event) throws IOException {
         App.genericaStage(CADASTRO_TURMA).close();
+    }
+    
+    @FXML
+    void salvar_aluno(ActionEvent event) {
+
+    }
+
+    @FXML
+    void salvar_disciplina(ActionEvent event) {
+
     }
 
     @Override

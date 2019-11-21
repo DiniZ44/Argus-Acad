@@ -36,7 +36,6 @@ public class Disciplina extends Entidade{
     private String nome;
     
     @ManyToOne
-    @JoinColumn
     private Professor professor;
     
     @Column(nullable = false, length = 5)

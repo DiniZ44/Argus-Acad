@@ -62,30 +62,12 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Button layoutX="363.0" layoutY="359.0" mnemonicParsing="false" onAction="#salvar_disciplina" opacity="0.7" prefHeight="0.0" prefWidth="68.0" style="-fx-background-color: #DCDCDC;">
-         <graphic>
-            <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../res/savr.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
       <Label layoutX="40.0" layoutY="403.0" prefHeight="25.0" prefWidth="93.0" text="Aluno">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
       <ComboBox fx:id="alunos_cbox" layoutX="40.0" layoutY="436.0" opacity="0.7" prefHeight="25.0" prefWidth="303.0" promptText="Alunos cadastrados" />
-      <Button layoutX="678.0" layoutY="431.0" mnemonicParsing="false" onAction="#salvar_aluno" opacity="0.7" prefHeight="0.0" prefWidth="68.0" style="-fx-background-color: #DCDCDC;">
-         <graphic>
-            <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../res/savr.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
       <TextField fx:id="matricula_aluno" layoutX="363.0" layoutY="435.0" opacity="0.7" prefHeight="25.0" prefWidth="303.0" promptText="Apenas Numeros" />
       <Label layoutX="363.0" layoutY="402.0" prefHeight="25.0" prefWidth="185.0" text="Matricula do Aluno ">
          <font>

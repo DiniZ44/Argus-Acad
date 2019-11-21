@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -49,7 +50,14 @@ public class VinculoAlunoTurma extends Entidade{
     
     @Enumerated(EnumType.STRING)
     private SituacaoAluno situacaoAluno;
-   
+    
+    @ManyToOne
+    private DisciplinaTurma disciplinaTurma;
+    
+    
+    @ManyToOne
+    private Aluno aluno;
+    
     
     public double getNota1() {
         return nota1;
@@ -105,6 +113,14 @@ public class VinculoAlunoTurma extends Entidade{
 
     public void setSituacaoAluno(SituacaoAluno situacaoAluno) {
         this.situacaoAluno = situacaoAluno;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 
     

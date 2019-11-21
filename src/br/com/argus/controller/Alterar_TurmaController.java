@@ -10,7 +10,9 @@ import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Aluno;
 import br.com.argus.model.Disciplina;
+import br.com.argus.model.DisciplinaTurma;
 import br.com.argus.model.Turma;
+import br.com.argus.model.VinculoAlunoTurma;
 import br.com.argus.util.MaskField;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
@@ -39,15 +41,18 @@ public class Alterar_TurmaController implements Initializable {
     public static final String ALTERAR_TURMA ="/br/com/argus/view/Alterar_Turma.fxml" ;
     private Disciplina disciplina;
     private List<Disciplina> disciplinas;
+    private List<VinculoAlunoTurma> vinculosAlunoTurmas;
     private static Turma turma;
+    private static DisciplinaTurma disciplinaTurma, novaDisciplinaTurma;
     private Ver_TurmaController turmaController;
+    private VinculoAlunoTurma vinculoAlunoTurma;
 
 
     @FXML
     private TextField nome;
     
     @FXML
-    private ComboBox<?> alunos_cbox;
+    private ComboBox<VinculoAlunoTurma> alunos_cbox;
 
     @FXML
     private ComboBox<Disciplina> disciplina_cbox1;
@@ -60,12 +65,12 @@ public class Alterar_TurmaController implements Initializable {
     
     @FXML
     void salvar_aluno(ActionEvent event) {
-
+        
     }
 
     @FXML
-    void salvar_disciplina(ActionEvent event) {
-
+    void salvar_disciplina(ActionEvent event) throws IOException {
+        cadastrarDisciplina();
     }
 
     @FXML
@@ -89,14 +94,16 @@ public class Alterar_TurmaController implements Initializable {
     }
     
     void cadastrar() throws IOException{
-        turma = turmaController.getT();
-       turma.setNome(nome.getText());
+        
+        disciplinaTurma = turmaController.getDt();
+        turma.setNome(nome.getText());
         turma.setAnoLetivo(anoLetivo.getText());
+        disciplinaTurma.setTurma(turma);
         disciplina = disciplina_cbox1.getValue();
-        turma.setDisciplina(disciplina);
+        disciplinaTurma.setDisciplina(disciplina);
        
                   try {
-                Facade.getInstance().inserirOuAtualizarTurma(turma);
+                Facade.getInstance().buscarDisciplinaTurma(disciplinaTurma);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Turma", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
                 limpar();
                 App.genericaStage(ALTERAR_TURMA).close();
@@ -107,6 +114,26 @@ public class Alterar_TurmaController implements Initializable {
  
     }
     
+    void cadastrarDisciplina() throws IOException{
+        
+        disciplinaTurma = turmaController.getDt();
+        disciplina = disciplina_cbox1.getValue();
+        novaDisciplinaTurma = new DisciplinaTurma();
+        novaDisciplinaTurma.setTurma(disciplinaTurma.getTurma());
+        novaDisciplinaTurma.setDisciplina(disciplina);
+            try {
+                Facade.getInstance().inserirOuAtualizarDisciplinaTurma(novaDisciplinaTurma);
+                Mensagem.getInstance().mostrarMensagem("Cadastro Turma", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
+                //carregarCombo();
+            } catch (BussinesException ex) {
+                Mensagem.getInstance().mostrarMensagem("Cadastro Turma", "Erro ao cadastrar Turma", Alert.AlertType.ERROR);
+            }
+        
+    }
+    void cadastrarAluno() throws IOException{
+    
+    }
+    
     void limpar(){
         nome.clear();
         anoLetivo.clear();
@@ -114,9 +141,13 @@ public class Alterar_TurmaController implements Initializable {
     }
     
     void initTurma(){
-        turma = turmaController.getT();
-        nome.setText(turma.getNome());
-        turma.setId(turma.getId());
+        
+        disciplinaTurma = turmaController.getDt();
+//        turma = turmaController.getT();
+//        nome.setText(turma.getNome());
+//        turma.setId(turma.getId());
+          nome.setText(disciplinaTurma.getTurma().getNome());
+          anoLetivo.setText(disciplinaTurma.getTurma().getAnoLetivo());
         
     
     }
@@ -125,6 +156,11 @@ public class Alterar_TurmaController implements Initializable {
        disciplinas = Facade.getInstance().buscarTodosDisciplinas();
         MaskField.numericField(anoLetivo);
        disciplina_cbox1.getItems().setAll(disciplinas);
+    }
+    
+        void carregarAluno() throws BussinesException{
+        vinculosAlunoTurmas = Facade.getInstance().buscarTodosVincAlunoTurma();
+        alunos_cbox.getItems().setAll(vinculosAlunoTurmas);
     }
 
     public static Turma getTurma() {

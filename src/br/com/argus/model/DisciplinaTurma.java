@@ -26,14 +26,27 @@ public class DisciplinaTurma extends Entidade{
     public static final long serialVersionUID = 1L;
     protected static final String SEQUENCE_ENTIDADE = "disciplina_turma_sequence";
     
-    @ManyToOne(cascade = CascadeType.ALL)
-    private VinculoAlunoTurma vinculoAlunoTurma;
-    
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Disciplina disciplina;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Turma turma;
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
+    }
             
          
     

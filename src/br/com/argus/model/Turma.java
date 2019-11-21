@@ -36,11 +36,6 @@ public class Turma extends Entidade{
     @Column(length = 20)
     private String anoLetivo;
     
-    @ManyToOne
-    @JoinColumn
-    private Disciplina disciplina;
-    
-  
 
     public String getNome() {
         return nome;
@@ -50,21 +45,17 @@ public class Turma extends Entidade{
         this.nome = nome;
     }
 
-
-    public Disciplina getDisciplina() {
-        return disciplina;
-    }
-
-    public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
-    }
-
     public String getAnoLetivo() {
         return anoLetivo;
     }
 
     public void setAnoLetivo(String anoLetivo) {
         this.anoLetivo = anoLetivo;
+    }
+
+    @Override
+    public String toString() {
+        return "" + nome;
     }
 
     

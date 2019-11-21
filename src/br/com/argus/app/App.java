@@ -11,9 +11,11 @@ import br.com.argus.facade.Facade;
 import br.com.argus.facade.IFacade;
 import br.com.argus.model.Aluno;
 import br.com.argus.model.Contato;
+import br.com.argus.model.Coordenador;
 import br.com.argus.model.Diretor;
 import br.com.argus.model.Endereco;
 import br.com.argus.model.Resp_Financeiro;
+import br.com.argus.model.Secretario;
 import br.com.argus.model.SuperUsuario;
 import br.com.argus.model.Usuario;
 import java.io.IOException;
@@ -86,13 +88,40 @@ public class App extends Application {
 //        
 //        facade.inserirOuAtualizarAluno(aluno);
 //        
-//        SuperUsuario superUsuario = new SuperUsuario();
+//        Secretario secretario = new Secretario();
 //        
-//        superUsuario.setLogin("admin");
-//        superUsuario.setSenha("admin");
-//        superUsuario.setNome("Adminstrador");
-//        superUsuario.setCpf("0000001");
-//        superUsuario.setTipoCargo(TipoCargo.SUPER_USUARIO);
+//        secretario.setLogin("secretario");
+//        secretario.setSenha("secretario");
+//        secretario.setNome("Secretaria");
+//        secretario.setCpf("000012321");
+//        secretario.setTipoCargo(TipoCargo.SECRETARIA);
+//        facade.inserirOuAtualizar(secretario);
+//        
+//        SuperUsuario sperU = new SuperUsuario();
+//        
+//        sperU.setLogin("admin");
+//        sperU.setSenha("admin");
+//        sperU.setNome("Adminstrador");
+//        sperU.setCpf("00000001");
+//        sperU.setTipoCargo(TipoCargo.SUPER_USUARIO);
+//        facade.inserirOuAtualizar(sperU);
+//        
+//        Diretor diretor = new Diretor();
+//        
+//        diretor.setLogin("diretor");
+//        diretor.setSenha("diretor");
+//        diretor.setNome("Diretoria");
+//        diretor.setCpf("0000121");
+//        diretor.setTipoCargo(TipoCargo.DIRETORIA);
+//        facade.inserirOuAtualizar(diretor);
+//        
+//                Coordenador superUsuario = new  Coordenador();
+//        
+//        superUsuario.setLogin("coordenador");
+//        superUsuario.setSenha("coordenador");
+//        superUsuario.setNome("Coordenador");
+//        superUsuario.setCpf("0002351");
+//        superUsuario.setTipoCargo(TipoCargo.SECRETARIA);
 //        facade.inserirOuAtualizar(superUsuario);
 //       
         launch(args);

@@ -69,8 +69,10 @@ public class Cadastrar_Aluno_VinculoController implements Initializable {
         aluno.setMatricula(matricula_aluno.getText());
         vinculoAlunoTurma.setAluno(aluno);
         try {
+            Facade.getInstance().inserirOuAtualizarAluno(aluno);
             Facade.getInstance().inserirOuAtualizarVincAlunoTurma(vinculoAlunoTurma);
             Mensagem.getInstance().mostrarMensagem("Cadastro Matricula", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
+            limpar();
         } catch (BussinesException ex) {
             Mensagem.getInstance().mostrarMensagem("Cadastro Matricula", "Erro ao realizar matricula", Alert.AlertType.ERROR);
             ex.printStackTrace();
@@ -78,11 +80,14 @@ public class Cadastrar_Aluno_VinculoController implements Initializable {
     }
 
     void carregarCombo() throws Exception{
+        
         alunos = Facade.getInstance().buscarTodosAlunos();
         aluno_cbox.getItems().setAll(alunos);
-        
         MaskField.numericField(matricula_aluno);
     
+    }
+    void limpar(){
+        matricula_aluno.clear();
     }
     
 }

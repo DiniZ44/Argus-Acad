@@ -147,6 +147,7 @@ public class Cadastrar_DisciplinaController implements Initializable{
         nome.clear();
         codigo.clear();
         carga_horario.clear();
+        
     }
 
 }

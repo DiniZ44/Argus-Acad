@@ -134,6 +134,13 @@ public class Aluno extends Entidade{
     public void setMatricula(String Matricula) {
         this.Matricula = Matricula;
     }
+
+    @Override
+    public String toString() {
+        return "" + nome;
+    }
+    
+    
     
     
     

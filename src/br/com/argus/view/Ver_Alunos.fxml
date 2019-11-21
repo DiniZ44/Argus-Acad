@@ -28,11 +28,11 @@
             <TableView fx:id="tabela_aluno" opacity="0.8" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
               <columns>
                 <TableColumn fx:id="table_name" prefWidth="222.0" style="-fx-background-color: A9A9A9;" text="Nome" />
-                <TableColumn fx:id="table_turma" minWidth="0.0" prefWidth="149.0" style="-fx-background-color: A9A9A9;" text="Turma" />
-                  <TableColumn fx:id="table_mae" minWidth="0.0" prefWidth="150.0" style="-fx-background-color: A9A9A9;" text="Mãe" />
+                <TableColumn fx:id="table_matricula" minWidth="0.0" prefWidth="131.0" style="-fx-background-color: A9A9A9;" text="Matricula" />
+                  <TableColumn fx:id="table_mae" minWidth="0.0" prefWidth="168.0" style="-fx-background-color: A9A9A9;" text="Mãe" />
                   <TableColumn fx:id="table_date" prefWidth="109.0" style="-fx-background-color: A9A9A9;" text="Data Nascimento" />
-                  <TableColumn fx:id="table_contato" prefWidth="137.0" style="-fx-background-color: A9A9A9;" text="Contato" />
-                  <TableColumn fx:id="table_resp" prefWidth="200.0" style="-fx-background-color: A9A9A9;" text="Responsavel Fin." />
+                  <TableColumn fx:id="table_contato" prefWidth="143.0" style="-fx-background-color: A9A9A9;" text="Contato" />
+                  <TableColumn fx:id="table_resp" prefWidth="194.0" style="-fx-background-color: A9A9A9;" text="Responsavel Fin." />
               </columns>
             </TableView>
             <Pane prefHeight="200.0" prefWidth="200.0">

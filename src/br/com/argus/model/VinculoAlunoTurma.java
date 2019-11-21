@@ -123,5 +123,15 @@ public class VinculoAlunoTurma extends Entidade{
         this.aluno = aluno;
     }
 
+    public DisciplinaTurma getDisciplinaTurma() {
+        return disciplinaTurma;
+    }
+
+    public void setDisciplinaTurma(DisciplinaTurma disciplinaTurma) {
+        this.disciplinaTurma = disciplinaTurma;
+    }
+    
+    
+
     
 }

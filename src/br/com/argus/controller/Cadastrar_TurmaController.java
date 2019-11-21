@@ -47,9 +47,6 @@ public class Cadastrar_TurmaController implements Initializable{
     @FXML
     private ComboBox<VinculoAlunoTurma> alunos_cbox;
     
-    
-    @FXML
-    private TextField matricula_aluno;
 
     @FXML
     void salvar(ActionEvent event) {
@@ -111,6 +108,7 @@ public class Cadastrar_TurmaController implements Initializable{
        disciplinas = Facade.getInstance().buscarTodosDisciplinas();
         MaskField.numericField(anoLetivo);
        disciplina_cbox1.getItems().setAll(disciplinas);
+       MaskField.numericField(anoLetivo);
     }
     
     void carregarAluno() throws BussinesException{

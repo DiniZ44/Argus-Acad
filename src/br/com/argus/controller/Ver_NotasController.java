@@ -6,7 +6,9 @@
  */
 package br.com.argus.controller;
 
+import br.com.argus.app.App;
 import br.com.argus.model.DisciplinaTurma;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -24,6 +26,7 @@ import javafx.scene.control.TextField;
  */
 public class Ver_NotasController implements Initializable {
     
+    private final static String CADASTRAR_MATRICULA = "/br/com/argus/view/Cadastrar_Aluno_Vinculo.fxml";
     
     @FXML
     private TableView<DisciplinaTurma> table_aluno;
@@ -42,11 +45,12 @@ public class Ver_NotasController implements Initializable {
 
     @FXML
     private Button add;
-
+    
     @FXML
-    void adcionar_Turma(ActionEvent event) {
-
+    void cadastrar_matricula(ActionEvent event) throws IOException {
+        App.genericaStage(CADASTRAR_MATRICULA).show();
     }
+
 
     @FXML
     void buscar_turma(ActionEvent event) {

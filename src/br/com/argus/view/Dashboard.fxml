@@ -123,9 +123,9 @@
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Button>
-            <Pane fx:id="pane_adm" prefHeight="112.0" prefWidth="312.0">
+            <Pane fx:id="pane_adm" prefHeight="88.0" prefWidth="312.0">
                <children>
-                  <Button fx:id="config_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="4.0" layoutY="51.0" mnemonicParsing="false" onAction="#abir_config" prefHeight="45.0" prefWidth="302.0" style="-fx-background-color: A9A9A9;" text="Configurações" textFill="WHITE">
+                  <Button fx:id="config_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="-4.0" layoutY="51.0" mnemonicParsing="false" onAction="#abir_config" prefHeight="45.0" prefWidth="302.0" style="-fx-background-color: A9A9A9;" text="Configurações" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="15.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -140,7 +140,7 @@
                         <Font name="Arial Black" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="usuario_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="4.0" mnemonicParsing="false" onAction="#abrir_usuario" prefHeight="45.0" prefWidth="302.0" style="-fx-background-color: A9A9A9;" text="Usuários" textFill="WHITE">
+                  <Button fx:id="usuario_button" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="6.0" mnemonicParsing="false" onAction="#abrir_usuario" prefHeight="45.0" prefWidth="302.0" style="-fx-background-color: A9A9A9;" text="Usuários" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="15.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                            <image>

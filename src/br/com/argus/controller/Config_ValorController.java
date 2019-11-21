@@ -5,6 +5,7 @@
  */
 package br.com.argus.controller;
 
+import br.com.argus.util.MaskField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -38,7 +39,9 @@ public class Config_ValorController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        MaskField.numericField(valor_EM);
+        MaskField.numericField(valor_final_EF);
+        MaskField.numericField(valor_inicial_EF);
     } 
     
     void converterInt(){

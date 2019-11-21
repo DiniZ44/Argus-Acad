@@ -68,11 +68,5 @@
          </font>
       </Label>
       <ComboBox fx:id="alunos_cbox" layoutX="40.0" layoutY="436.0" opacity="0.7" prefHeight="25.0" prefWidth="303.0" promptText="Alunos cadastrados" />
-      <TextField fx:id="matricula_aluno" layoutX="363.0" layoutY="435.0" opacity="0.7" prefHeight="25.0" prefWidth="303.0" promptText="Apenas Numeros" />
-      <Label layoutX="363.0" layoutY="402.0" prefHeight="25.0" prefWidth="185.0" text="Matricula do Aluno ">
-         <font>
-            <Font name="Arial" size="12.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

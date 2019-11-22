@@ -41,13 +41,12 @@ public class Aluno extends Entidade{
     private String naturalidade;
     
     @ManyToOne
-    @JoinColumn
     private Resp_Financeiro responsavel_financeiro;
     
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 150)
     private String pai;
     
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 150)
     private String mae;
    
     @OneToOne(cascade = CascadeType.ALL)

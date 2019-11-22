@@ -47,6 +47,13 @@ public class DisciplinaTurma extends Entidade{
     public void setTurma(Turma turma) {
         this.turma = turma;
     }
+
+    @Override
+    public String toString() {
+        return "" + turma;
+    }
+    
+    
             
          
     

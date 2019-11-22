@@ -32,13 +32,13 @@ public class Disciplina extends Entidade{
     @Column(nullable = false, unique = true)
     private String codigo;
     
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 150)
     private String nome;
     
     @ManyToOne
     private Professor professor;
     
-    @Column(nullable = false, length = 5)
+    @Column(nullable = false, length = 10)
     private String carga_horaria;
     
     @Enumerated(EnumType.STRING)

@@ -130,6 +130,12 @@ public class VinculoAlunoTurma extends Entidade{
     public void setDisciplinaTurma(DisciplinaTurma disciplinaTurma) {
         this.disciplinaTurma = disciplinaTurma;
     }
+
+    @Override
+    public String toString() {
+        return " " + disciplinaTurma;
+    }
+    
     
     
 

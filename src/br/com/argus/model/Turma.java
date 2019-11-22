@@ -30,7 +30,7 @@ public class Turma extends Entidade{
     public static final long serialVersionUID = 1L;
     protected static final String SEQUENCE_ENTIDADE = "turma_sequence";
     
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 50)
     private String nome;
     
     @Column(length = 20)

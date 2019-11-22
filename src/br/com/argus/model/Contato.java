@@ -25,7 +25,7 @@ public class Contato extends Entidade{
     
     @Column(nullable = false, length = 20)
     private String telefone;
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 100)
     private String email;
     @Column(nullable = false, length = 20)
     private String celular;

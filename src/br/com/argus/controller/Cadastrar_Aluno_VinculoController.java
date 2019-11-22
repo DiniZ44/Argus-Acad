@@ -9,6 +9,7 @@ import br.com.argus.app.App;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Aluno;
+import br.com.argus.model.DisciplinaTurma;
 import br.com.argus.model.VinculoAlunoTurma;
 import br.com.argus.util.MaskField;
 import br.com.argus.view.Mensagem;
@@ -31,14 +32,19 @@ import javafx.scene.control.TextField;
 public class Cadastrar_Aluno_VinculoController implements Initializable {
     private final static String CADASTRAR_MATRICULA = "/br/com/argus/view/Cadastrar_Aluno_Vinculo.fxml";
     private List<Aluno> alunos;
+    private List<DisciplinaTurma> disciplinaTurmas;
     private Aluno aluno;
     private VinculoAlunoTurma vinculoAlunoTurma;
+    private DisciplinaTurma disciplinaTurma;
     
     @FXML
     private ComboBox<Aluno> aluno_cbox;
 
     @FXML
     private TextField matricula_aluno;
+    
+    @FXML
+    private ComboBox<DisciplinaTurma> disciplina_turma_cbox1;
 
     @FXML
     void salvar(ActionEvent event) {
@@ -57,7 +63,8 @@ public class Cadastrar_Aluno_VinculoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            carregarCombo();
+            carregarAlunos();
+            carregarDisciplinaTurmas();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -67,6 +74,8 @@ public class Cadastrar_Aluno_VinculoController implements Initializable {
         vinculoAlunoTurma = new VinculoAlunoTurma();
         aluno = aluno_cbox.getValue();
         aluno.setMatricula(matricula_aluno.getText());
+        disciplinaTurma = disciplina_turma_cbox1.getValue();
+        vinculoAlunoTurma.setDisciplinaTurma(disciplinaTurma);
         vinculoAlunoTurma.setAluno(aluno);
         try {
             Facade.getInstance().inserirOuAtualizarAluno(aluno);
@@ -79,13 +88,21 @@ public class Cadastrar_Aluno_VinculoController implements Initializable {
         }
     }
 
-    void carregarCombo() throws Exception{
+    void carregarAlunos() throws Exception{
         
         alunos = Facade.getInstance().buscarTodosAlunos();
         aluno_cbox.getItems().setAll(alunos);
         MaskField.numericField(matricula_aluno);
     
     }
+    
+    void carregarDisciplinaTurmas() throws Exception{
+        
+        disciplinaTurmas = Facade.getInstance().buscarTodosDisciplinaTurma();
+        disciplina_turma_cbox1.getItems().setAll(disciplinaTurmas);
+        
+    }
+        
     void limpar(){
         matricula_aluno.clear();
     }

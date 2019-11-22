@@ -6,9 +6,12 @@
 package br.com.argus.controller;
 
 import br.com.argus.app.App;
+import br.com.argus.util.Backup;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,6 +40,16 @@ public class Ver_ConfigController implements Initializable {
         App.genericaStage(CONFIG_BITRI).show();
     }
     
+    @FXML
+    void Backup(ActionEvent event) {
+        try {
+            Backup.realizaBackup();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

@@ -5,6 +5,8 @@
  */
 package br.com.argus.util;
 
+import br.com.argus.model.Resp_Financeiro;
+
 
 /**
  *
@@ -12,6 +14,7 @@ package br.com.argus.util;
  */
 public class SQLUtil {
     
+    //DML
     public static final String BUSCAR_LOGIN = "select u from Usuario u where u.login = :login and u.senha = :senha";
     public static final String BUSCAR_CPF_PROFESSOR = "SELECT u FROM Professor u WHERE u.cpf = :cpf";
     public static final String BUSCAR_CPF_USUARIO = "SELECT u FROM Usuario u WHERE u.cpf = :cpf";
@@ -19,6 +22,12 @@ public class SQLUtil {
     public static final String BUSCAR_TIPO_USUARIO = "SELECT u FROM Usuario u WHERE u.tipoCargo='";
     public static final String PESQUISA_RES_FINANCEIRO= "SELECT p FROM Resp_Financeiro p WHERE p.nome LIKE '";
     public static String TIPO = "SELECT";
+    public static final String BUSCAR_TURMA_ORDEM =  "SELECT c FROM Turma c order by c.nome";
+    public static final String BUSCAR_ALUNO_ORDEM = "SELECT c FROM Aluno c order by c.nome";
+    public static final String BUSCAR_DISCIPLINA_ORDEM= "SELECT c FROM Disciplina c order by c.nome";
+//    public static final String = "";
+//    public static final String = "";
+//    public static final String = "";
 
     
     	
@@ -146,5 +155,6 @@ public class SQLUtil {
 			"ON super_usuario\n" + 
 			"FOR EACH ROW\n" + 
 			"EXECUTE PROCEDURE gera_log();";
+
     
 }

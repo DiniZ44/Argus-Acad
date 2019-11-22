@@ -9,7 +9,9 @@ import br.com.argus.view.Mensagem;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javafx.scene.control.Alert;
 
@@ -45,9 +47,9 @@ public class Backup {
     public static void realizaBackup() throws IOException, InterruptedException{
         
         final List<String> comandos = new ArrayList<String>();
-        comandos.add("\"C:\\\\Program Files\\\\PostgreSQL\\\\9.6\\\\bin\\\\pg_dump.exe\"");
+        comandos.add("C:\\Program Files\\PostgreSQL\\9.6\\bin\\pg_dump.exe");
            
-        comandos.add("-i");      
+       // comandos.add("-i");      
         comandos.add("-h");      
         comandos.add("localhost");     //ou  comandos.add("192.168.0.1"); 
         comandos.add("-p");      
@@ -60,7 +62,11 @@ public class Backup {
         comandos.add("-v");      
         comandos.add("-f");
         
-        comandos.add("c:\\Projeto_PBD.backup");
+        //comandos.add("C:\\Users\\santo\\DOCUME~1\\NETBEA~1\\PROJET~2\\src\\backup\\Projeto_PBD_Atualizado");
+        Date d = new Date();
+        String dataAtual = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
+       // comandos.add("D:\\Projeto_"+dataAtual+"_PBD.backup");
+        comandos.add("D:\\Projeto_PBD.backup");
         comandos.add("Projeto_PBD");
         
         ProcessBuilder processBuilder = new ProcessBuilder(comandos);
@@ -78,7 +84,7 @@ public class Backup {
             bufferedReader.close();
             process.waitFor();
             process.destroy();
-            Mensagem.getInstance().confirmar("Backup", "Backup realizado com sucesso", Alert.AlertType.CONFIRMATION);
+            Mensagem.getInstance().confirmar("Backup", "Backup realizado com sucesso", Alert.AlertType.INFORMATION);
          
            } catch (IOException e) {      
                e.printStackTrace();      

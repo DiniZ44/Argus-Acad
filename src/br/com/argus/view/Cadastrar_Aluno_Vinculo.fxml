@@ -44,17 +44,23 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="50.0" layoutY="343.0" prefHeight="25.0" prefWidth="93.0" text="Alunos">
+      <Label layoutX="50.0" layoutY="291.0" prefHeight="25.0" prefWidth="93.0" text="Alunos">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <ComboBox fx:id="aluno_cbox" layoutX="50.0" layoutY="376.0" opacity="0.7" prefHeight="25.0" prefWidth="303.0" promptText="Alunos cadastrados" />
+      <ComboBox fx:id="aluno_cbox" layoutX="50.0" layoutY="324.0" opacity="0.7" prefHeight="25.0" prefWidth="303.0" promptText="Alunos cadastrados" />
       <TextField fx:id="matricula_aluno" layoutX="463.0" layoutY="376.0" opacity="0.7" prefHeight="25.0" prefWidth="303.0" promptText="Apenas Numeros" />
       <Label layoutX="463.0" layoutY="343.0" prefHeight="25.0" prefWidth="185.0" text="Matricula do Aluno ">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
+      <Label layoutX="50.0" layoutY="413.0" prefHeight="25.0" prefWidth="93.0" text="Turma">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="disciplina_turma_cbox1" layoutX="50.0" layoutY="446.0" opacity="0.7" prefHeight="25.0" prefWidth="303.0" promptText="Turma Cadastrada" />
    </children>
 </AnchorPane>

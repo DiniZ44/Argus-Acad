@@ -90,7 +90,6 @@ public class App extends Application {
 //        facade.inserirOuAtualizarAluno(aluno);
 //        
 //        Secretario secretario = new Secretario();
-//        
 //        secretario.setLogin("secretario");
 //        secretario.setSenha("secretario");
 //        secretario.setNome("Secretaria");
@@ -99,7 +98,6 @@ public class App extends Application {
 //        facade.inserirOuAtualizar(secretario);
 //        
 //        SuperUsuario sperU = new SuperUsuario();
-//        
 //        sperU.setLogin("admin");
 //        sperU.setSenha("admin");
 //        sperU.setNome("Adminstrador");
@@ -108,7 +106,6 @@ public class App extends Application {
 //        facade.inserirOuAtualizar(sperU);
 //        
 //        Diretor diretor = new Diretor();
-//        
 //        diretor.setLogin("diretor");
 //        diretor.setSenha("diretor");
 //        diretor.setNome("Diretoria");
@@ -116,15 +113,14 @@ public class App extends Application {
 //        diretor.setTipoCargo(TipoCargo.DIRETORIA);
 //        facade.inserirOuAtualizar(diretor);
 //        
-//                Coordenador superUsuario = new  Coordenador();
-//        
+//        Coordenador superUsuario = new  Coordenador();
 //        superUsuario.setLogin("coordenador");
 //        superUsuario.setSenha("coordenador");
 //        superUsuario.setNome("Coordenador");
 //        superUsuario.setCpf("0002351");
 //        superUsuario.setTipoCargo(TipoCargo.SECRETARIA);
 //        facade.inserirOuAtualizar(superUsuario);
-//       
+       
         launch(args);
        
     }

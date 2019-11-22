@@ -49,7 +49,7 @@ public class Cadastrar_TurmaController implements Initializable{
     
 
     @FXML
-    void salvar(ActionEvent event) {
+    void salvar(ActionEvent event) throws BussinesException {
         cadastrar();
     }
     
@@ -67,12 +67,13 @@ public class Cadastrar_TurmaController implements Initializable{
         }
     }
     
-    void cadastrar(){
+    void cadastrar() throws BussinesException{
         turma = new Turma();
         disciplina = disciplina_cbox1.getValue();
         turma.setNome(nome.getText());
         turma.setAnoLetivo(anoLetivo.getText());
         disciplinaTurma = new DisciplinaTurma();
+        Facade.getInstance().inserirOuAtualizarTurma(turma);
         disciplinaTurma.setTurma(turma);
         disciplinaTurma.setDisciplina(disciplina);
         

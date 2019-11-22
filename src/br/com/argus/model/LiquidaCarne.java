@@ -5,9 +5,12 @@
  */
 package br.com.argus.model;
 
+import br.com.argus.enuns.SituacaoCarne;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -27,18 +30,18 @@ public class LiquidaCarne extends Entidade{
     public static final long serialVersionUID = 1L;
     protected static final String SEQUENCE_ENTIDADE = "liquidaCarne_sequence";
     
-    @Column(nullable = true)
-    private boolean pago;
+    @Enumerated(EnumType.STRING)
+    private SituacaoCarne situacaoCarne;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Carne_Pagamento carne_Pagamento;
 
-    public boolean isPago() {
-        return pago;
+    public SituacaoCarne getSituacaoCarne() {
+        return situacaoCarne;
     }
 
-    public void setPago(boolean pago) {
-        this.pago = pago;
+    public void setSituacaoCarne(SituacaoCarne situacaoCarne) {
+        this.situacaoCarne = situacaoCarne;
     }
 
     public Carne_Pagamento getCarne_Pagamento() {

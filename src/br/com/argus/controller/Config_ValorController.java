@@ -20,6 +20,11 @@ import javafx.scene.control.TextField;
  */
 public class Config_ValorController implements Initializable {
     
+    private  static double EM_valor = 800;
+    private  static double EFF_valor = 600;
+    private  static double EFI_valor = 400;
+    
+    
     @FXML
     private TextField valor_inicial_EF;
 
@@ -54,5 +59,30 @@ public class Config_ValorController implements Initializable {
         int EF_final = Integer.parseInt(Newvalor_final_EF);
         int EM = Integer.parseInt(Newvalor_EM);
     }
+
+    public static double getEM_valor() {
+        return EM_valor;
+    }
+
+    public static void setEM_valor(double EM_valor) {
+        Config_ValorController.EM_valor = EM_valor;
+    }
+
+    public static double getEFF_valor() {
+        return EFF_valor;
+    }
+
+    public static void setEFF_valor(double EFF_valor) {
+        Config_ValorController.EFF_valor = EFF_valor;
+    }
+
+    public static double getEFI_valor() {
+        return EFI_valor;
+    }
+
+    public static void setEFI_valor(double EFI_valor) {
+        Config_ValorController.EFI_valor = EFI_valor;
+    }
+    
     
 }

@@ -31,10 +31,13 @@ public class Carne_Pagamento extends Entidade{
     private double valor;
     
     @Column(nullable = false, length = 9)
-    private LocalDate data;
+    private LocalDate data_vencimento;
     
-    @ManyToOne
-    private Resp_Financeiro resp_Financeiro;
+    @Column(length = 9)
+    private LocalDate data_pago;
+    
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Aluno aluno;
 
     public double getValor() {
         return valor;
@@ -44,22 +47,30 @@ public class Carne_Pagamento extends Entidade{
         this.valor = valor;
     }
 
-    public LocalDate getData() {
-        return data;
+    public LocalDate getData_vencimento() {
+        return data_vencimento;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public void setData_vencimento(LocalDate data_vencimento) {
+        this.data_vencimento = data_vencimento;
     }
 
-    public Resp_Financeiro getResp_Financeiro() {
-        return resp_Financeiro;
+    public LocalDate getData_pago() {
+        return data_pago;
     }
 
-    public void setResp_Financeiro(Resp_Financeiro resp_Financeiro) {
-        this.resp_Financeiro = resp_Financeiro;
+    public void setData_pago(LocalDate data_pago) {
+        this.data_pago = data_pago;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
     
     
-    
+        
 }

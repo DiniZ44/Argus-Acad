@@ -28,6 +28,8 @@ public class SQLUtil {
 //    public static final String = "";
 //    public static final String = "";
 //    public static final String = "";
+    // Fazer consulta por turma para ver disciplinas
+    // Fazer consulta por disciplina para ver alunos
 
     
     	

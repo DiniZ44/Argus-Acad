@@ -26,7 +26,7 @@ import javax.persistence.Table;
 @Table(name = "turma")
 @SequenceGenerator(name = Entidade.SEQUENCE_ENTIDADE, sequenceName = Turma.SEQUENCE_ENTIDADE, initialValue = 1, allocationSize = 1)
 public class Turma extends Entidade{
-    
+
     public static final long serialVersionUID = 1L;
     protected static final String SEQUENCE_ENTIDADE = "turma_sequence";
     

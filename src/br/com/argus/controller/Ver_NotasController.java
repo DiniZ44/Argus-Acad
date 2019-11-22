@@ -39,7 +39,7 @@ public class Ver_NotasController implements Initializable {
     private static VinculoAlunoTurma vaT;
     
     @FXML
-    private TableView<VinculoAlunoTurma> table_aluno;
+    private TableView<VinculoAlunoTurma> turma_table;
 
     @FXML
     private TableColumn<VinculoAlunoTurma, String> table_name;
@@ -69,7 +69,11 @@ public class Ver_NotasController implements Initializable {
 
     @FXML
     void sicronizar(ActionEvent event) {
-
+        try {
+            atualizarTabela(Facade.getInstance().buscarTodosVincAlunoTurma());
+        } catch (BussinesException ex) {
+            ex.printStackTrace();
+        }
     }
     /**
      * Initializes the controller class.
@@ -85,13 +89,13 @@ public class Ver_NotasController implements Initializable {
         
         
         // --------------------------------------------------
-            table_aluno.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            turma_table.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
                 try {
                     if(event.getClickCount() == 2){
-                        if(table_aluno.getSelectionModel().getSelectedItem() != null){
-                            vaT = table_aluno.getSelectionModel().getSelectedItem();
+                        if(turma_table.getSelectionModel().getSelectedItem() != null){
+                            vaT = turma_table.getSelectionModel().getSelectedItem();
                             App.genericaStage(VER_NOTAS_DISCIPLINA).show();
                         }else{
                             Mensagem.getInstance().confirmar("Atenção", "Selecione o usuario", Alert.AlertType.WARNING);
@@ -115,7 +119,7 @@ public class Ver_NotasController implements Initializable {
         table_name.setCellValueFactory(data ->  new SimpleStringProperty(data.getValue().getDisciplinaTurma().getTurma().getNome()));
         table_anoLetivo.setCellValueFactory(data ->  new SimpleStringProperty(data.getValue().getDisciplinaTurma().getTurma().getAnoLetivo()));
         
-        table_aluno.getItems().setAll(alunosTurma);
+        turma_table.getItems().setAll(alunosTurma);
 
     }
 

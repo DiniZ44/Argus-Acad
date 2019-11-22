@@ -7,6 +7,7 @@ package br.com.argus.controller;
 
 import br.com.argus.app.App;
 import br.com.argus.util.Backup;
+import br.com.argus.util.Restore;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -49,6 +50,13 @@ public class Ver_ConfigController implements Initializable {
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
+    }
+    
+    
+    @FXML
+    void restore(ActionEvent event) {
+        Restore.realizaRestore();
+        
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

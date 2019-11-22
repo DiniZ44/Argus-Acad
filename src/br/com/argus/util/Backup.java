@@ -84,7 +84,7 @@ public class Backup {
             bufferedReader.close();
             process.waitFor();
             process.destroy();
-            Mensagem.getInstance().confirmar("Backup", "Backup realizado com sucesso", Alert.AlertType.INFORMATION);
+            Mensagem.getInstance().confirmar("Backup", "Backup do Banco de Dados realizado com sucesso", Alert.AlertType.INFORMATION);
          
            } catch (IOException e) {      
                e.printStackTrace();      
@@ -93,4 +93,6 @@ public class Backup {
            }         
         
     }
+    
+
 }

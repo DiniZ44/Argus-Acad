@@ -18,6 +18,7 @@ import br.com.argus.model.Resp_Financeiro;
 import br.com.argus.model.Secretario;
 import br.com.argus.model.SuperUsuario;
 import br.com.argus.model.Usuario;
+import br.com.argus.util.Backup;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -168,6 +169,13 @@ public class App extends Application {
 		return STAGE;
 	}
     
+    public void stop() throws Exception{
+//        super.stop();
+//        
+//        Backup.bakcup(System.getProperty("user.home")+"/Backup Projeto_PBD");
+//        System.exit(0);
+        
+    }
   
     /**
      * @param args the command line arguments

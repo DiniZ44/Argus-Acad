@@ -8,6 +8,7 @@ package br.com.argus.controller;
 import br.com.argus.app.App;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
+import br.com.argus.model.Aluno;
 import br.com.argus.model.VinculoAlunoTurma;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
@@ -128,20 +129,20 @@ public class Ver_Notas_AlunoController implements Initializable {
     
     void carregarTabela(List<VinculoAlunoTurma> alunos){
         for (VinculoAlunoTurma aluno : alunos) {
-            if(aluno.getDisciplinaTurma().getTurma().getId() == vinculoAlunoTurma.getDisciplinaTurma().getTurma().getId()){
+            if(aluno.getAluno().getId() == vinculoAlunoTurma.getAluno().getId()){
                 disciplina_label.setText(vinculoAlunoTurma.getDisciplinaTurma().getDisciplina().getNome());
                 
                 table_nota.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota1()));
                 table_nota2.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota2()));
                 table_nota3.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota3()));
                 table_nota4.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota4()));
-                
+              //  aluno_table.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNome()));
                 table_media.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getMedia()));
                 table_mediaFinal.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getMediaFinal()));
 //                table_situacaoAluno.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getSituacaoAluno().toString()));
                
-            }
-            //aluno_table.setCellValueFactory(data-> new SimpleStringProperty(data.getValue().getAluno().getNome()));
+           }
+            
              table_aluno.getItems().setAll(aluno);
         }
         

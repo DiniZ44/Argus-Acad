@@ -51,7 +51,7 @@ public class LoginController implements Initializable {
         
        if(efetuarLogin()){
         
-        App.stagePrincipal().show();;
+        App.stagePrincipal().show();
         App.stagePrincipal().setResizable(false);
         App.stagePrincipal().setTitle("Tela Inicial");
         App.stageLogin().close();
@@ -106,6 +106,8 @@ public class LoginController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
              Mensagem.getInstance().mostrarMensagem("LOGIN", "Senha ou Email incorretos, Por favor verifique novamente seus dados", Alert.AlertType.ERROR);
+            this.login_field.clear();
+            this.senha_passField.clear();
             return false;
         }
 

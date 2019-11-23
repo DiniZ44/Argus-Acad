@@ -38,7 +38,8 @@ import javafx.scene.input.MouseEvent;
 public class Ver_Notas_DisciplinasController implements Initializable {
     private static VinculoAlunoTurma vinculoAlunoTurma, Vat;
     private Ver_NotasController ver_NotasController;
-    private final static String VER_NOTAS_ALUNO =  "/br/com/argus/view/Ver_Notas_Aluno.fxml";       //"/br/com/argus/view/Ver_Notas_Aluno.fxml";
+    private final static String VER_NOTAS_ALUNO =  "/br/com/argus/view/Ver_Notas_Aluno.fxml";
+    private final static String CADASTRAR_NOTA = "/br/com/argus/view/Cadastrar_Nota.fxml";
     @FXML
     private TableView<VinculoAlunoTurma> turma_table;
 

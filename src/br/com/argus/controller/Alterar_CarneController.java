@@ -120,7 +120,7 @@ public class Alterar_CarneController implements Initializable {
                 cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
                 cell1.setBackgroundColor(BaseColor.BLUE);
                 PdfPCell cell2 = new PdfPCell(new Paragraph("Responsável Financeiro"));
-                cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
+                cell2.setHorizontalAlignment(Element.ALIGN_LEFT);
                 cell2.setBackgroundColor(BaseColor.BLUE);
                 PdfPCell cell3 = new PdfPCell(new Paragraph("Data de Vencimento"));
                 cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -143,11 +143,17 @@ public class Alterar_CarneController implements Initializable {
                 table.addCell(cell6);
                 
                 cell1 = new PdfPCell(new Paragraph(liquidaCarne.getCarne_Pagamento().getAluno().getNome()));
+                cell1.setHorizontalAlignment(Element.ALIGN_LEFT);
                 cell2 = new PdfPCell(new Paragraph(liquidaCarne.getCarne_Pagamento().getAluno().getResponsavel_financeiro().getNome()));
+                cell2.setHorizontalAlignment(Element.ALIGN_LEFT);
                 cell3 = new PdfPCell(new Paragraph(liquidaCarne.getCarne_Pagamento().getData_vencimento()+ ""));
+                cell3.setHorizontalAlignment(Element.ALIGN_LEFT);
                 cell4 = new PdfPCell(new Paragraph(liquidaCarne.getCarne_Pagamento().getData_pago()+ ""));
+                cell4.setHorizontalAlignment(Element.ALIGN_LEFT);
                 cell5 = new PdfPCell(new Paragraph(liquidaCarne.getCarne_Pagamento().getValor()+ ""));
+                cell5.setHorizontalAlignment(Element.ALIGN_LEFT);
                 cell6 = new PdfPCell(new Paragraph(liquidaCarne.getSituacaoCarne().toString()));
+                cell6.setHorizontalAlignment(Element.ALIGN_LEFT);
                 
                 table.addCell(cell1);
                 table.addCell(cell2);

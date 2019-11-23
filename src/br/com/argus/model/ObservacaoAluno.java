@@ -30,7 +30,7 @@ public class ObservacaoAluno extends Entidade{
     @Column
     private LocalDate data;
    
-    @Column(length = Integer.MAX_VALUE)
+    @Column(length = 500)
     private String descricao;
     
     @ManyToOne

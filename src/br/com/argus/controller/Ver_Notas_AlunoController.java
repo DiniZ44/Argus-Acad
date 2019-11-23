@@ -14,9 +14,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -41,7 +40,7 @@ public class Ver_Notas_AlunoController implements Initializable {
     private Ver_Notas_DisciplinasController ver_Notas_DisciplinasController;
 
     @FXML
-    private TableView<VinculoAlunoTurma> turma_table;
+    private TableView<VinculoAlunoTurma> table_aluno;
 
     @FXML
     private TableColumn<VinculoAlunoTurma, Double> table_nota;
@@ -65,7 +64,7 @@ public class Ver_Notas_AlunoController implements Initializable {
     private TableColumn<VinculoAlunoTurma, String>table_situacaoAluno;
     
     @FXML
-    private TableColumn<VinculoAlunoTurma, String> table_aluno;
+    private TableColumn<VinculoAlunoTurma, String> aluno_table;
 
     @FXML
     private TextField pesquisa;
@@ -91,13 +90,13 @@ public class Ver_Notas_AlunoController implements Initializable {
         
         
           // --------------------------------------------------
-            turma_table.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            table_aluno.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
                 try {
                     if(event.getClickCount() == 2){
-                        if(turma_table.getSelectionModel().getSelectedItem() != null){
-                            VAT = turma_table.getSelectionModel().getSelectedItem();
+                        if(table_aluno.getSelectionModel().getSelectedItem() != null){
+                            VAT = table_aluno.getSelectionModel().getSelectedItem();
                             App.genericaStage(CADASTRAR_NOTA).show();
                         }else{
                             Mensagem.getInstance().confirmar("Atenção", "Selecione o usuario", Alert.AlertType.WARNING);
@@ -128,13 +127,10 @@ public class Ver_Notas_AlunoController implements Initializable {
     }    
     
     void carregarTabela(List<VinculoAlunoTurma> alunos){
-        
-        
-        
         for (VinculoAlunoTurma aluno : alunos) {
             if(aluno.getDisciplinaTurma().getTurma().getId() == vinculoAlunoTurma.getDisciplinaTurma().getTurma().getId()){
                 disciplina_label.setText(vinculoAlunoTurma.getDisciplinaTurma().getDisciplina().getNome());
-                table_aluno.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getAluno().getNome()));
+                
                 table_nota.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota1()));
                 table_nota2.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota2()));
                 table_nota3.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota3()));
@@ -142,11 +138,11 @@ public class Ver_Notas_AlunoController implements Initializable {
                 
                 table_media.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getMedia()));
                 table_mediaFinal.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getMediaFinal()));
-                table_situacaoAluno.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getSituacaoAluno().toString()));
-                
-                turma_table.getItems().setAll(aluno);
-
+//                table_situacaoAluno.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getSituacaoAluno().toString()));
+               
             }
+            //aluno_table.setCellValueFactory(data-> new SimpleStringProperty(data.getValue().getAluno().getNome()));
+             table_aluno.getItems().setAll(aluno);
         }
         
         

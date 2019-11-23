@@ -27,14 +27,14 @@
          <children>
             <TableView fx:id="table_aluno" opacity="0.8" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn fx:id="table_aluno" prefWidth="267.0" style="-fx-background-color: A9A9A9;" text="Aluno" />
-                  <TableColumn fx:id="table_nota" prefWidth="90.0" style="-fx-background-color: A9A9A9;" text="1° Nota" />
+                  <TableColumn fx:id="table_situacaoAluno1" prefWidth="231.0" style="-fx-background-color: A9A9A9;" text="Aluno" />
+                  <TableColumn fx:id="table_nota" prefWidth="78.0" style="-fx-background-color: A9A9A9;" text="1° Nota" />
                   <TableColumn fx:id="table_nota2" prefWidth="89.0" style="-fx-background-color: A9A9A9;" text="2° Nota " />
-                  <TableColumn fx:id="table_nota3" prefWidth="93.0" style="-fx-background-color: A9A9A9;" text="3° Nota" />
-                  <TableColumn fx:id="table_nota4" prefWidth="83.0" style="-fx-background-color: A9A9A9;" text="4° Nota" />
-                  <TableColumn fx:id="table_media" prefWidth="81.0" style="-fx-background-color: A9A9A9;" text="Média Geral" />
-                  <TableColumn fx:id="table_mediaFinal" prefWidth="91.0" style="-fx-background-color: A9A9A9;" text="Média Final" />
-                  <TableColumn fx:id="table_situacaoAluno" prefWidth="173.0" style="-fx-background-color: A9A9A9;" text="Situação Aluno" />
+                  <TableColumn fx:id="table_nota3" prefWidth="81.0" style="-fx-background-color: A9A9A9;" text="3° Nota" />
+                  <TableColumn fx:id="table_nota4" prefWidth="95.0" style="-fx-background-color: A9A9A9;" text="4° Nota" />
+                  <TableColumn fx:id="table_media" prefWidth="95.0" style="-fx-background-color: A9A9A9;" text="Média Geral" />
+                  <TableColumn fx:id="table_mediaFinal" prefWidth="93.0" style="-fx-background-color: A9A9A9;" text="Média Final" />
+                  <TableColumn fx:id="table_situacaoAluno" prefWidth="205.0" style="-fx-background-color: A9A9A9;" text="Situação Aluno" />
                </columns>
             </TableView>
             <Pane prefHeight="200.0" prefWidth="200.0">

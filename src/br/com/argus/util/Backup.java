@@ -6,7 +6,9 @@
 package br.com.argus.util;
 
 import br.com.argus.view.Mensagem;
+import java.awt.Desktop;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.DateFormat;
@@ -66,7 +68,7 @@ public class Backup {
         Date d = new Date();
         String dataAtual = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
        // comandos.add("D:\\Projeto_"+dataAtual+"_PBD.backup");
-        comandos.add("D:\\Projeto_PBD.backup");
+        comandos.add("Projeto_PBD.backup");
         comandos.add("Projeto_PBD");
         
         ProcessBuilder processBuilder = new ProcessBuilder(comandos);
@@ -85,7 +87,8 @@ public class Backup {
             process.waitFor();
             process.destroy();
             Mensagem.getInstance().confirmar("Backup", "Backup do Banco de Dados realizado com sucesso", Alert.AlertType.INFORMATION);
-         
+            String file = "Projeto_PBD.backup";
+            Desktop.getDesktop().open(new File(file));
            } catch (IOException e) {      
                e.printStackTrace();      
            } catch (InterruptedException ie) {      

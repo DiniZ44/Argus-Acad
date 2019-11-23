@@ -27,6 +27,8 @@ import javafx.scene.control.TextField;
 public class Cadastar_NotaController implements Initializable {
     private static VinculoAlunoTurma vinculoAlunoTurma, carregadoVinculoAluno;
     private Ver_Notas_AlunoController alunoController;
+    double nm ;
+    double nmf;
     
     @FXML
     private TextField nota1;
@@ -52,7 +54,7 @@ public class Cadastar_NotaController implements Initializable {
     
     @FXML
     void imprimir(ActionEvent event) {
-
+        
     }
     /**
      * Initializes the controller class.
@@ -65,10 +67,12 @@ public class Cadastar_NotaController implements Initializable {
     void cadastrar(){
         
         vinculoAlunoTurma = alunoController.getVAT();
-        vinculoAlunoTurma.setNota1(0);
-        vinculoAlunoTurma.setNota2(0);
-        vinculoAlunoTurma.setNota3(0);
-        vinculoAlunoTurma.setNota4(0);
+        calculoMedia();
+//        vinculoAlunoTurma.setNota1(0);
+//        vinculoAlunoTurma.setNota2(0);
+//        vinculoAlunoTurma.setNota3(0);
+//        vinculoAlunoTurma.setNota4(0);
+        
         
         try {
             Facade.getInstance().inserirOuAtualizarVincAlunoTurma(vinculoAlunoTurma);
@@ -84,5 +88,35 @@ public class Cadastar_NotaController implements Initializable {
     
            carregadoVinculoAluno = alunoController.getVAT();
     }
+    
+    void calculoMedia(){
+        double nn = 7;
+        double nn1 = Double.parseDouble(nota1.getText());
+        double nn2 = Double.parseDouble(nota2.getText());
+        double nn3 = Double.parseDouble(nota3.getText());
+        double nn4 = Double.parseDouble(nota4.getText());
+        double media = (nn1+nn2+nn3+nn4)/4;
+        if(media >= 7){
+             nm = media;
+             nmf = 0;
+        }else{
+             nm = media;
+             nmf = media;
+        }
+
+        vinculoAlunoTurma.setNota1(nn1);
+        vinculoAlunoTurma.setNota2(nn2);
+        vinculoAlunoTurma.setNota3(nn3);
+        vinculoAlunoTurma.setNota4(nn4);
+        vinculoAlunoTurma.setMedia(nm);
+        vinculoAlunoTurma.setMediaFinal(nmf);
+        
+    }
+    
+    void gerarPdf(){
+    
+        
+    }
+        
     
 }

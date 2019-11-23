@@ -37,7 +37,7 @@ public class Restore {
            comandos.add("Projeto_PBD");     
            comandos.add("-v");      
              
-           comandos.add("D:\\Projeto_PBD.backup");
+           comandos.add("Projeto_PBD.backup");
 
            ProcessBuilder pb = new ProcessBuilder(comandos);      
              

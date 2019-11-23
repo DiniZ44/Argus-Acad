@@ -6,6 +6,7 @@
 package br.com.argus.controller;
 
 import br.com.argus.app.App;
+import br.com.argus.enuns.SituacaoCarne;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Aluno;
@@ -42,9 +43,12 @@ public class Cadastrar_CarneController implements Initializable {
 
     @FXML
     private DatePicker data_venc;
+    
+    @FXML
+    private ComboBox<SituacaoCarne> tipo_pagemnto_cbox;
 
     @FXML
-    void salvar(ActionEvent event) {
+    void salvar(ActionEvent event) throws BussinesException {
         cadastrar();
     }
 
@@ -66,7 +70,7 @@ public class Cadastrar_CarneController implements Initializable {
         }
     }
 
-    void cadastrar(){
+    void cadastrar() throws BussinesException{
         
         liquidaCarne = new LiquidaCarne();
         carne_Pagamento = new Carne_Pagamento();
@@ -74,6 +78,8 @@ public class Cadastrar_CarneController implements Initializable {
         carne_Pagamento.setAluno(aluno);
         carne_Pagamento.setData_vencimento(data_venc.getValue());
         carne_Pagamento.setValor(400);
+        Facade.getInstance().inserirOuAtualizarCarnePag(carne_Pagamento);
+        liquidaCarne.setSituacaoCarne(tipo_pagemnto_cbox.getValue());
         liquidaCarne.setCarne_Pagamento(carne_Pagamento);
         
         try {
@@ -89,6 +95,8 @@ public class Cadastrar_CarneController implements Initializable {
     void carregarAlunos() throws Exception{
         alunos = Facade.getInstance().buscarTodosAlunos();
         aluno_cbox.getItems().setAll(alunos);
+        
+        tipo_pagemnto_cbox.getItems().setAll(SituacaoCarne.values());
         
     }
         

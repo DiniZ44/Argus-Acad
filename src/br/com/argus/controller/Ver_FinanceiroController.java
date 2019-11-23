@@ -118,7 +118,7 @@ public class Ver_FinanceiroController implements Initializable {
     void atualizarTabela(List<LiquidaCarne> carnes){
         table_aluno.setCellValueFactory(data-> new SimpleStringProperty(data.getValue().getCarne_Pagamento().getAluno().getNome()));
         table_date.setCellValueFactory(data -> new SimpleObjectProperty<>(data.getValue().getCarne_Pagamento().getData_vencimento()));
-//        table_pago.setCellValueFactory(data-> new SimpleStringProperty(data.getValue().getSituacaoCarne().toString()));
+        table_pago.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getSituacaoCarne().toString()));
         table_resp.setCellValueFactory(data-> new SimpleStringProperty(data.getValue().getCarne_Pagamento().getAluno().getResponsavel_financeiro().getNome()));        
         table_valor.setCellValueFactory(data -> new SimpleObjectProperty<>(data.getValue().getCarne_Pagamento().getValor()));
         

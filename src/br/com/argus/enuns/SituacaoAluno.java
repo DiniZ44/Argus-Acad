@@ -12,7 +12,7 @@ package br.com.argus.enuns;
 public enum SituacaoAluno {
     
      AM ("Aprovado por média"), AP ("Aprovado"), 
-    RP ("Reprovado");
+    RP ("Reprovado"), ND("Não definido");
     
     private final String descricao;
     

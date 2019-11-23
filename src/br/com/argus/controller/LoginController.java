@@ -105,6 +105,7 @@ public class LoginController implements Initializable {
             
         } catch (Exception e) {
             e.printStackTrace();
+             Mensagem.getInstance().mostrarMensagem("LOGIN", "Senha ou Email incorretos, Por favor verifique novamente seus dados", Alert.AlertType.ERROR);
             return false;
         }
 

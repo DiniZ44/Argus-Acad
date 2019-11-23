@@ -5,17 +5,29 @@
  */
 package br.com.argus.controller;
 
+import br.com.argus.app.App;
+import br.com.argus.exceptions.BussinesException;
+import br.com.argus.facade.Facade;
 import br.com.argus.model.VinculoAlunoTurma;
+import br.com.argus.view.Mensagem;
+import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -24,7 +36,9 @@ import javafx.scene.control.TextField;
  */
 public class Ver_Notas_AlunoController implements Initializable {
     
-    
+    private static VinculoAlunoTurma vinculoAlunoTurma, VAT;
+    private final static String CADASTRAR_NOTA = "/br/com/argus/view/Cadastrar_Nota.fxml";
+    private Ver_Notas_DisciplinasController ver_Notas_DisciplinasController;
 
     @FXML
     private TableView<VinculoAlunoTurma> turma_table;
@@ -48,7 +62,10 @@ public class Ver_Notas_AlunoController implements Initializable {
     private TableColumn<VinculoAlunoTurma, Double> table_mediaFinal;
 
     @FXML
-    private TableColumn<VinculoAlunoTurma, Double>table_situacaoAluno;
+    private TableColumn<VinculoAlunoTurma, String>table_situacaoAluno;
+    
+    @FXML
+    private TableColumn<VinculoAlunoTurma, String> table_aluno;
 
     @FXML
     private TextField pesquisa;
@@ -66,18 +83,88 @@ public class Ver_Notas_AlunoController implements Initializable {
 
     @FXML
     void sicronizar(ActionEvent event) {
+        try {
+            carregarTabela(Facade.getInstance().buscarTodosVincAlunoTurma());
+        } catch (BussinesException ex) {
+            ex.printStackTrace();
+        }
+        
+        
+          // --------------------------------------------------
+            turma_table.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    if(event.getClickCount() == 2){
+                        if(turma_table.getSelectionModel().getSelectedItem() != null){
+                            VAT = turma_table.getSelectionModel().getSelectedItem();
+                            App.genericaStage(CADASTRAR_NOTA).show();
+                        }else{
+                            Mensagem.getInstance().confirmar("Atenção", "Selecione o usuario", Alert.AlertType.WARNING);
+                        }
+                   
+                }
+                    
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                        }
 
+            }
+        
+        
+        });
     }
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        initVinculoAluno();
+        try {
+            carregarTabela(Facade.getInstance().buscarTodosVincAlunoTurma());
+        } catch (BussinesException ex) {
+            ex.printStackTrace();
+        }
     }    
     
-    void carregarTabela(){
+    void carregarTabela(List<VinculoAlunoTurma> alunos){
+        
+        
+        
+        for (VinculoAlunoTurma aluno : alunos) {
+            if(aluno.getDisciplinaTurma().getTurma().getId() == vinculoAlunoTurma.getDisciplinaTurma().getTurma().getId()){
+                disciplina_label.setText(vinculoAlunoTurma.getDisciplinaTurma().getDisciplina().getNome());
+                table_aluno.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getAluno().getNome()));
+                table_nota.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota1()));
+                table_nota2.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota2()));
+                table_nota3.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota3()));
+                table_nota4.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota4()));
+                
+                table_media.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getMedia()));
+                table_mediaFinal.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getMediaFinal()));
+                table_situacaoAluno.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getSituacaoAluno().toString()));
+                
+                turma_table.getItems().setAll(aluno);
+
+            }
+        }
+        
+        
+    }
+    
+    void initVinculoAluno(){
+        vinculoAlunoTurma = ver_Notas_DisciplinasController.getVat();
     
     }
+
+    public static VinculoAlunoTurma getVAT() {
+        return VAT;
+    }
+
+    public static void setVAT(VinculoAlunoTurma VAT) {
+        Ver_Notas_AlunoController.VAT = VAT;
+    }
+    
+    
     
 }

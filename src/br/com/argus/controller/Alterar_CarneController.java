@@ -52,7 +52,10 @@ public class Alterar_CarneController implements Initializable {
         App.genericaStage(ALTERAR_CARNE).close();
     }
     
-    
+    @FXML
+    void imprimir(ActionEvent event) {
+
+    }
     
     /**
      * Initializes the controller class.
@@ -73,9 +76,8 @@ public class Alterar_CarneController implements Initializable {
     
         void cadastrar() throws IOException{
         liquidaCarne = ver_FinanceiroController.getLc();
-        carne_Pagamento.setData_pago(data_pag.getValue());
+        liquidaCarne.getCarne_Pagamento().setData_pago(data_pag.getValue());
         liquidaCarne.setSituacaoCarne(tipo_pagemnto_cbox.getValue());
-        liquidaCarne.setCarne_Pagamento(carne_Pagamento);
         
         try {
             Facade.getInstance().inserirOuAtualizarLiquidaCarne(liquidaCarne);

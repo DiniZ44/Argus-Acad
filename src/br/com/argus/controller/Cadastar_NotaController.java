@@ -5,11 +5,18 @@
  */
 package br.com.argus.controller;
 
+import br.com.argus.exceptions.BussinesException;
+import br.com.argus.facade.Facade;
+import br.com.argus.model.VinculoAlunoTurma;
+import br.com.argus.view.Mensagem;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 /**
@@ -18,6 +25,8 @@ import javafx.scene.control.TextField;
  * @author Hakkinen
  */
 public class Cadastar_NotaController implements Initializable {
+    private static VinculoAlunoTurma vinculoAlunoTurma, carregadoVinculoAluno;
+    private Ver_Notas_AlunoController alunoController;
     
     @FXML
     private TextField nota1;
@@ -33,11 +42,16 @@ public class Cadastar_NotaController implements Initializable {
 
     @FXML
     void salvar(ActionEvent event) {
-
+        cadastrar();
     }
 
     @FXML
     void voltar(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void imprimir(ActionEvent event) {
 
     }
     /**
@@ -45,7 +59,30 @@ public class Cadastar_NotaController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        initVinculo();
+    }   
+    
+    void cadastrar(){
+        
+        vinculoAlunoTurma = alunoController.getVAT();
+        vinculoAlunoTurma.setNota1(0);
+        vinculoAlunoTurma.setNota2(0);
+        vinculoAlunoTurma.setNota3(0);
+        vinculoAlunoTurma.setNota4(0);
+        
+        try {
+            Facade.getInstance().inserirOuAtualizarVincAlunoTurma(vinculoAlunoTurma);
+            Mensagem.getInstance().mostrarMensagem("Cadastro Notas", "Cadastro realizado com sucesso", Alert.AlertType.INFORMATION);
+        } catch (BussinesException ex) {
+           ex.printStackTrace();
+           Mensagem.getInstance().mostrarMensagem("Cadastro Notas", "Erro ao realizar cadastro", Alert.AlertType.ERROR);
+        }
+        
+    }
+    
+    void initVinculo(){
+    
+           carregadoVinculoAluno = alunoController.getVAT();
+    }
     
 }

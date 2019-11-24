@@ -599,6 +599,10 @@ public class Facade implements IFacade{
     public List<Log> buscarTodosLogs() throws BussinesException {
         return logBusiness.buscarTodos();
     }
+    @Override
+    public List<Log> buscarTudo() throws BussinesException {
+        return logBusiness.buscarTudo();
+    }
 
 
 

@@ -5,12 +5,16 @@
  */
 package br.com.argus.dao;
 
+import br.com.argus.exceptions.DAOException;
 import br.com.argus.model.Log;
+import java.util.List;
 
 /**
  *
  * @author Hakkinen
  */
 public interface ILogDAO extends IDao<Log>{
+    
+    public List<Log> buscarTudo () throws DAOException;
     
 }

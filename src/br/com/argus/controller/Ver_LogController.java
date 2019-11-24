@@ -46,7 +46,7 @@ public class Ver_LogController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 //        try {
-//            carregarTabela(Facade.getInstance().buscarTodosLogs());
+//            carregarTabela(Facade.getInstance().buscarTudo());
 //        } catch (BussinesException ex) {
 //            ex.printStackTrace();
 //        }

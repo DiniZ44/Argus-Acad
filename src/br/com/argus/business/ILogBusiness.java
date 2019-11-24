@@ -5,12 +5,16 @@
  */
 package br.com.argus.business;
 
+import br.com.argus.exceptions.BussinesException;
 import br.com.argus.model.Log;
+import java.util.List;
 
 /**
  *
  * @author Hakkinen
  */
 public interface ILogBusiness extends IBusiness<Log>{
+    
+    public List<Log> buscarTudo () throws BussinesException;
     
 }

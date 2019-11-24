@@ -26,14 +26,28 @@ public class SQLUtil {
     public static final String BUSCAR_TURMA_ORDEM =  "SELECT c FROM Turma c order by c.nome";
     public static final String BUSCAR_ALUNO_ORDEM = "SELECT c FROM Aluno c order by c.nome";
     public static final String BUSCAR_DISCIPLINA_ORDEM= "SELECT c FROM Disciplina c order by c.nome";
+    public static final String BUSCAR_LOG = "select l.data, l.alteracao, l.autor, l.tabela FROM log l ";
     
     
     //  VIEWS
 
-    public static final String a = "";
+    public static final String OBSERVACAO_VIEW = "CREATE VIEW observacao_view as\n" +
+                                                "select o.descricao, a.nome, c.nome as n_coordenador\n" +
+                                                "from observacao_aluno o inner join aluno a on \n" +
+                                                "(a.id = o.aluno_id) inner join cord_pedagogo c on \n" +
+                                                "(c.id = o.coordenador_id )";
     
+    public static final String ALUNO_VIEW = "CREATE VIEW aluno_resp_view AS\n" +
+                                            "select a.nome, r.nome as nome_responsavel \n" +
+                                            "from aluno a inner join resp_financeiro r \n" +
+                                            "on (a.responsavel_financeiro_id = r.id)";
     
-    // PROCEDURES
+    public static final String ALUNO_CONTATO = "Create VIEW aluno_contato_view as \n" +
+                                                "SELECT a.nome, c.celular, c.email, c.telefone \n" +
+                                                "from aluno a inner join contato c ON c.id = a.contato_id ";
+    
+
+    //  PROCEDURES
     
     
     // TRIGGERS

@@ -194,5 +194,6 @@ public interface IFacade {
     //  Log
     
     public List<Log> buscarTodosLogs() throws BussinesException;
+    public List<Log> buscarTudo () throws BussinesException;
     
 }

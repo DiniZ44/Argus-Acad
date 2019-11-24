@@ -7,8 +7,11 @@ package br.com.argus.business;
 
 import br.com.argus.dao.ILogDAO;
 import br.com.argus.dao.LodDAO;
+import br.com.argus.exceptions.BussinesException;
+import br.com.argus.exceptions.DAOException;
 import br.com.argus.exceptions.ValidacaoException;
 import br.com.argus.model.Log;
+import java.util.List;
 
 /**
  *
@@ -29,6 +32,17 @@ public class LogBusiness extends Business<Log> implements ILogBusiness{
     @Override
     public void isValid(Log t) throws ValidacaoException {
         
+    }
+
+    @Override
+    public List<Log> buscarTudo() throws BussinesException {
+        try {
+            List<Log> usuarios = logDAO.buscarTudo();
+            return usuarios;
+        } catch (DAOException e) {
+            e.printStackTrace();
+            throw new BussinesException(e.getMessage());
+        }
     }
     
 }

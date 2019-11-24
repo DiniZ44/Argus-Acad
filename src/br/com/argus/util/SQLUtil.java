@@ -30,7 +30,7 @@ public class SQLUtil {
     
     
     //  VIEWS
-
+    
     public static final String OBSERVACAO_VIEW = "CREATE VIEW observacao_view as\n" +
                                                 "select o.descricao, a.nome, c.nome as n_coordenador\n" +
                                                 "from observacao_aluno o inner join aluno a on \n" +
@@ -91,6 +91,10 @@ public class SQLUtil {
     
     
     // TRIGGERS
+    
+    public static final String GETILHOS_ = "";
+    
+    public static final String GATILHOS_ = "";
     
     
     public static final String GATILHOS_LOG = "CREATE OR REPLACE FUNCTION gera_log()\n" + 

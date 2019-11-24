@@ -6,6 +6,7 @@
 package br.com.argus.controller;
 
 import br.com.argus.app.App;
+import br.com.argus.enuns.ResetSenha;
 import br.com.argus.enuns.TipoCargo;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
@@ -144,6 +145,7 @@ public class Alterar_UsuarioController implements Initializable {
         superUsuario.setLogin(login.getText());
         superUsuario.setSenha(cpf.getText());
         superUsuario.setTipoCargo(TipoCargo.SUPER_USUARIO);
+        superUsuario.setSolicitar_reset(ResetSenha.NAO);
         
             try {
                 Facade.getInstance().inserirOuAtualizar(superUsuario);
@@ -163,6 +165,7 @@ public class Alterar_UsuarioController implements Initializable {
         coordenador.setLogin(login.getText());
         coordenador.setSenha(cpf.getText());
         coordenador.setTipoCargo(TipoCargo.COORDENAÇÃO_PEDAGOGA);
+        coordenador.setSolicitar_reset(ResetSenha.NAO);
         
              try {
                 Facade.getInstance().inserirOuAtualizar(coordenador);
@@ -182,6 +185,7 @@ public class Alterar_UsuarioController implements Initializable {
         diretor.setLogin(login.getText());
         diretor.setSenha(cpf.getText());
         diretor.setTipoCargo(TipoCargo.DIRETORIA);
+        diretor.setSolicitar_reset(ResetSenha.NAO);
         
              try {
                 Facade.getInstance().inserirOuAtualizar(diretor);
@@ -201,6 +205,7 @@ public class Alterar_UsuarioController implements Initializable {
         secretario.setLogin(login.getText());
         secretario.setSenha(cpf.getText());
         secretario.setTipoCargo(TipoCargo.SECRETARIA);
+        secretario.setSolicitar_reset(ResetSenha.NAO);
         
              try {
                 Facade.getInstance().inserirOuAtualizar(secretario);

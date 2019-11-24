@@ -18,6 +18,8 @@ public interface IUsuarioBusiness extends IBusiness<Usuario>{
     
     public Usuario buscarLoginUsuario(String login, String senha) throws BussinesException;
     
+    public Usuario buscarLogin(String login) throws BussinesException;
+    
     public List<Usuario> buscarTodos(String string) throws BussinesException;
     
     public Usuario buscarTipo(String tipocargo) throws BussinesException;

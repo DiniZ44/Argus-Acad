@@ -32,8 +32,6 @@ public class UsuarioBusiness extends Business<Usuario> implements IUsuarioBusine
     public void criarOuAtualizar(Usuario t) throws BussinesException {
         super.criarOuAtualizar(t); 
     }
-    
-    
 
     @Override
     public void isValid(Usuario t) throws ValidacaoException {
@@ -82,6 +80,18 @@ public class UsuarioBusiness extends Business<Usuario> implements IUsuarioBusine
         } catch (DAOException ex) {
             ex.printStackTrace();
             throw new BussinesException(ex.getMessage());
+        }
+    }
+
+    @Override
+    public Usuario buscarLogin(String login) throws BussinesException {
+        try {
+            
+            Usuario user = usuarioDAO.buscarLogin(login);
+            return user;
+        } catch (DAOException e) {
+            e.printStackTrace();
+            throw new BussinesException(e.getMessage());
         }
     }
     

@@ -45,6 +45,7 @@ public interface IFacade {
     public void buscarUsuario (Usuario usuario) throws BussinesException;
     public List<Usuario> buscarTodosUsers() throws BussinesException;
     public Usuario buscarCPF (String cpf) throws BussinesException;
+    public Usuario buscaLogin (String login) throws BussinesException;
     
     
     //  Endereco

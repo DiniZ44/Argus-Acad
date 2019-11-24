@@ -27,12 +27,12 @@
          <children>
             <TableView fx:id="table_usuario" opacity="0.8" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn fx:id="table_name" prefWidth="210.0" style="-fx-background-color: A9A9A9;" text="Nome" />
-                  <TableColumn fx:id="table_login" minWidth="0.0" prefWidth="141.0" style="-fx-background-color: A9A9A9;" text="Login" />
-                  <TableColumn fx:id="table_senha" prefWidth="149.0" style="-fx-background-color: A9A9A9;" text="Senha" />
-                  <TableColumn fx:id="table_cpf" prefWidth="179.0" style="-fx-background-color: A9A9A9;" text="CPF" />
-                  <TableColumn fx:id="table_cargo" prefWidth="179.0" style="-fx-background-color: A9A9A9;" text="Tipo Cargo" />
-                  <TableColumn fx:id="table_reset" prefWidth="109.0" style="-fx-background-color: A9A9A9;" text="Solicitação Reset" />
+                  <TableColumn fx:id="table_name" prefWidth="200.0" style="-fx-background-color: A9A9A9;" text="Nome" />
+                  <TableColumn fx:id="table_login" minWidth="0.0" prefWidth="137.0" style="-fx-background-color: A9A9A9;" text="Login" />
+                  <TableColumn fx:id="table_senha" prefWidth="143.0" style="-fx-background-color: A9A9A9;" text="Senha" />
+                  <TableColumn fx:id="table_cpf" prefWidth="149.0" style="-fx-background-color: A9A9A9;" text="CPF" />
+                  <TableColumn fx:id="table_cargo" prefWidth="153.0" style="-fx-background-color: A9A9A9;" text="Tipo Cargo" />
+                  <TableColumn fx:id="table_reset" prefWidth="185.0" style="-fx-background-color: A9A9A9;" text="Solicitação Reset" />
                </columns>
             </TableView>
             <Pane prefHeight="200.0" prefWidth="200.0">

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package br.com.argus.app;
+import br.com.argus.enuns.ResetSenha;
 import br.com.argus.enuns.TipoCargo;
 import br.com.argus.enuns.TipoEstadoUF;
 import br.com.argus.exceptions.BussinesException;
@@ -88,13 +89,14 @@ public class App extends Application {
 //
 //        
 //        facade.inserirOuAtualizarAluno(aluno);
-//        
+        
 //        Secretario secretario = new Secretario();
 //        secretario.setLogin("secretario");
 //        secretario.setSenha("secretario");
 //        secretario.setNome("Secretaria");
 //        secretario.setCpf("000012321");
 //        secretario.setTipoCargo(TipoCargo.SECRETARIA);
+//        secretario.setSolicitar_reset(ResetSenha.NAO);
 //        facade.inserirOuAtualizar(secretario);
 //        
 //        SuperUsuario sperU = new SuperUsuario();
@@ -102,6 +104,7 @@ public class App extends Application {
 //        sperU.setSenha("admin");
 //        sperU.setNome("Adminstrador");
 //        sperU.setCpf("00000001");
+//        sperU.setSolicitar_reset(ResetSenha.NAO);
 //        sperU.setTipoCargo(TipoCargo.SUPER_USUARIO);
 //        facade.inserirOuAtualizar(sperU);
 //        
@@ -110,6 +113,7 @@ public class App extends Application {
 //        diretor.setSenha("diretor");
 //        diretor.setNome("Diretoria");
 //        diretor.setCpf("0000121");
+//        diretor.setSolicitar_reset(ResetSenha.NAO);
 //        diretor.setTipoCargo(TipoCargo.DIRETORIA);
 //        facade.inserirOuAtualizar(diretor);
 //        
@@ -118,9 +122,10 @@ public class App extends Application {
 //        superUsuario.setSenha("coordenador");
 //        superUsuario.setNome("Coordenador");
 //        superUsuario.setCpf("0002351");
+//        superUsuario.setSolicitar_reset(ResetSenha.NAO);
 //        superUsuario.setTipoCargo(TipoCargo.SECRETARIA);
 //        facade.inserirOuAtualizar(superUsuario);
-       
+//       
         launch(args);
        
     }

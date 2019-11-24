@@ -162,6 +162,11 @@ public class Facade implements IFacade{
     public Usuario buscarCPF(String cpf) throws BussinesException {
         return usuarioBusiness.buscarCPF(cpf);
     }
+    
+        @Override
+    public Usuario buscaLogin(String login) throws BussinesException {
+        return usuarioBusiness.buscarLogin(login);
+    }
 
     
     

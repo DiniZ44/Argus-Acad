@@ -130,7 +130,7 @@ public class Ver_UsuariosController implements Initializable{
     
     void carregarTabela(List<Usuario> usuarios ) {
         
-        table_reset.setCellValueFactory(new PropertyValueFactory<>("status"));
+        table_reset.setCellValueFactory(new PropertyValueFactory<>("solicitar_reset"));
         table_cargo.setCellValueFactory(new PropertyValueFactory<>("tipoCargo"));
         table_cpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
         table_login.setCellValueFactory(new PropertyValueFactory<>("login"));

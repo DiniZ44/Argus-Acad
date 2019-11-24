@@ -5,6 +5,7 @@
  */
 package br.com.argus.model;
 
+import br.com.argus.enuns.ResetSenha;
 import br.com.argus.enuns.TipoCargo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,6 +45,9 @@ public abstract class Usuario extends Entidade{
     
     @Enumerated(EnumType.STRING)
     private TipoCargo tipoCargo;
+    
+    @Enumerated(EnumType.STRING)
+    private ResetSenha solicitar_reset;
 
 
     public String getNome() {
@@ -85,6 +89,19 @@ public abstract class Usuario extends Entidade{
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+    public ResetSenha getSolicitar_reset() {
+        return solicitar_reset;
+    }
+
+    public void setSolicitar_reset(ResetSenha solicitar_reset) {
+        this.solicitar_reset = solicitar_reset;
+    }
+
+
+    
+
+    
      
     
     

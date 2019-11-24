@@ -16,6 +16,7 @@ public class SQLUtil {
     
     //DML
     public static final String BUSCAR_LOGIN = "select u from Usuario u where u.login = :login and u.senha = :senha";
+    public static final String BUSCAR_LOGIN_APENAS = "select u from Usuario u where u.login = :login";
     public static final String BUSCAR_CPF_PROFESSOR = "SELECT u FROM Professor u WHERE u.cpf = :cpf";
     public static final String BUSCAR_CPF_USUARIO = "SELECT u FROM Usuario u WHERE u.cpf = :cpf";
     public static final String BUSCAR_CPF_RESPONSAVEL = "SELECT u FROM Resp_Financeiro u WHERE u.cpf = :cpf";

@@ -54,7 +54,9 @@ public class Alterar_AlunoController implements Initializable {
     Resp_Financeiro financeiro;
     private static Aluno aluno;
 
-
+    @FXML
+    private Button add;
+    
     @FXML
     private TextField nome_aluno;
 
@@ -387,6 +389,11 @@ public class Alterar_AlunoController implements Initializable {
     public void setReps_combo(ComboBox<Resp_Financeiro> reps_combo) {
         this.reps_combo = reps_combo;
     }
+
+    public Button getAdd() {
+        return add;
+    }
+    
     
     
     

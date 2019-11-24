@@ -58,5 +58,6 @@
          </children>
       </Pane>
       <Label disable="true" layoutX="84.0" layoutY="576.0" prefHeight="17.0" prefWidth="265.0" text="© ARGUS 2019 - Todos os direitos reservados" />
+      <Label layoutX="105.0" layoutY="377.0" opacity="0.3" text="* CPF, configurado ex: 000.000.00-00" />
    </children>
 </AnchorPane>

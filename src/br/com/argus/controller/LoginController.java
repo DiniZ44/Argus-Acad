@@ -5,6 +5,7 @@ import br.com.argus.enuns.TipoCargo;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Usuario;
 import br.com.argus.util.SQLUtil;
+import br.com.argus.util.Segurança;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
@@ -26,7 +27,7 @@ public class LoginController implements Initializable {
 
     public static String user_Login_Logado, user_Senha_Logado;;
     private  Usuario usuario;
-    private Usuario u;
+    private static Usuario u;
     private DashboardController dashboardController;
     private Facade facade = Facade.getInstance();
 
@@ -89,15 +90,17 @@ public class LoginController implements Initializable {
         
         try {
             usuario = facade.buscarLoginUsuario(login_field.getText(),senha_passField.getText());
-            
+            user_Senha_Logado = usuario.getSenha();
             
             if (usuario == null){
                 Mensagem.getInstance().mostrarMensagem("LOGIN", "Senha ou Email incorretos, Por favor verifique novamente seus dados", Alert.AlertType.ERROR);
                 return false;
             }
             
-            user_Login_Logado = login_field.getText();
-            user_Senha_Logado = senha_passField.getText();
+//            user_Login_Logado = login_field.getText();
+//            user_Senha_Logado = senha_passField.getText();
+            
+            u = usuario;
             this.login_field.clear();
             this.senha_passField.clear();
             SQLUtil.TIPO =  usuario.getTipoCargo().toString();
@@ -143,6 +146,11 @@ public class LoginController implements Initializable {
     public Usuario getUsuario() {
         return usuario;
     }
+
+    public static Usuario getU() {
+        return u;
+    }
+    
     
     
 }

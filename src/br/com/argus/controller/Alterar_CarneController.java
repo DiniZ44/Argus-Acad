@@ -34,6 +34,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
+import javafx.scene.control.Button;
 /**
  * FXML Controller class
  *
@@ -51,6 +52,9 @@ public class Alterar_CarneController implements Initializable {
 
     @FXML
     private DatePicker data_pag;
+    
+        @FXML
+    private Button add;
 
     @FXML
     void salvar(ActionEvent event) throws IOException {
@@ -170,5 +174,9 @@ public class Alterar_CarneController implements Initializable {
                 Mensagem.getInstance().mostrarMensagem("Gerar PDF", "Ocorreu um erro ao gerar o PDF, por favor tente novamente", Alert.AlertType.ERROR);
             }
         }
+
+    public Button getAdd() {
+        return add;
+    }
     
 }

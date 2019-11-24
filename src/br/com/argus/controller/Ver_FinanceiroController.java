@@ -6,7 +6,6 @@
 package br.com.argus.controller;
 
 import br.com.argus.app.App;
-import static br.com.argus.controller.Ver_AlunosController.ALTERAR_ALUNO;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.LiquidaCarne;
@@ -23,6 +22,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -58,6 +58,9 @@ public class Ver_FinanceiroController implements Initializable {
 
     @FXML
     private TextField pesquisa;
+    
+    @FXML
+    private Button novo_carne;
 
     @FXML
     void adcionar_carne(ActionEvent event) throws IOException {
@@ -132,6 +135,10 @@ public class Ver_FinanceiroController implements Initializable {
 
     public static void setLc(LiquidaCarne lc) {
         Ver_FinanceiroController.lc = lc;
+    }
+
+    public Button getNovo_carne() {
+        return novo_carne;
     }
     
     

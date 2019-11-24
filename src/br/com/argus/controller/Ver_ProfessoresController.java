@@ -49,6 +49,9 @@ public class Ver_ProfessoresController implements Initializable{
 
     @FXML
     private TextField pesquisa;
+    
+    @FXML
+    private Button add;
 
 
      @FXML
@@ -117,5 +120,11 @@ public class Ver_ProfessoresController implements Initializable{
     public static void setP(Professor p) {
         Ver_ProfessoresController.p = p;
     }
+
+    public Button getAdd() {
+        return add;
+    }
+    
+    
     
 }

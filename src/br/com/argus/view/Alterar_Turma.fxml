@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="806.0" prefWidth="968.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.argus.controller.Alterar_TurmaController">
    <children>
-      <Button fx:id="salvar_button" layoutX="743.0" layoutY="735.0" mnemonicParsing="false" onAction="#salvar" opacity="0.7" prefHeight="39.0" prefWidth="185.0" style="-fx-background-color: #DCDCDC;">
+      <Button fx:id="add" layoutX="743.0" layoutY="735.0" mnemonicParsing="false" onAction="#salvar" opacity="0.7" prefHeight="39.0" prefWidth="185.0" style="-fx-background-color: #DCDCDC;">
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>

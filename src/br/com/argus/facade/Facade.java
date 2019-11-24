@@ -24,6 +24,7 @@ import br.com.argus.business.IDisciplinaTurmaBussiness;
 import br.com.argus.business.IEnderecoBusiness;
 import br.com.argus.business.IFaltaBusiness;
 import br.com.argus.business.ILiquidaCarneBusiness;
+import br.com.argus.business.ILogBusiness;
 import br.com.argus.business.IObservacaoAlunoBusiness;
 import br.com.argus.business.IProfessorBusiness;
 import br.com.argus.business.IRes_FinBusiness;
@@ -33,6 +34,7 @@ import br.com.argus.business.ITurmaBisiness;
 import br.com.argus.business.IUsuarioBusiness;
 import br.com.argus.business.IVinculoAlunoTurmaBusiness;
 import br.com.argus.business.LiquidaCarneBusiness;
+import br.com.argus.business.LogBusiness;
 import br.com.argus.business.ObservacaoAlunoBusiness;
 import br.com.argus.business.ProfessorBusiness;
 import br.com.argus.business.Res_FinBusiness;
@@ -54,6 +56,7 @@ import br.com.argus.model.Disciplina;
 import br.com.argus.model.DisciplinaTurma;
 import br.com.argus.model.Falta;
 import br.com.argus.model.LiquidaCarne;
+import br.com.argus.model.Log;
 import br.com.argus.model.ObservacaoAluno;
 import br.com.argus.model.Professor;
 import br.com.argus.model.Resp_Financeiro;
@@ -62,8 +65,7 @@ import br.com.argus.model.Turma;
 import br.com.argus.model.Secretario;
 import br.com.argus.model.VinculoAlunoTurma;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -99,6 +101,7 @@ public class Facade implements IFacade{
     private IObservacaoAlunoBusiness observacaoAlunoBusiness;
     private IVinculoAlunoTurmaBusiness vinculoAlunoTurmaBusiness;
     private IDisciplinaTurmaBussiness disciplinaTurmaBussiness;
+    private ILogBusiness logBusiness;
     
     
     private Facade(){
@@ -120,7 +123,7 @@ public class Facade implements IFacade{
         observacaoAlunoBusiness = new ObservacaoAlunoBusiness();
         vinculoAlunoTurmaBusiness = new VinculoAlunoTurmaBusiness();
         disciplinaTurmaBussiness = new DisciplinaTurmaBussiness();
-              
+        logBusiness = new LogBusiness();
     }
 
 
@@ -586,6 +589,15 @@ public class Facade implements IFacade{
     @Override
     public List<DisciplinaTurma> buscarTodosDisciplinaTurma() throws BussinesException {
         return disciplinaTurmaBussiness.buscarTodos();
+    }
+
+    
+    //Log
+    
+    
+    @Override
+    public List<Log> buscarTodosLogs() throws BussinesException {
+        return logBusiness.buscarTodos();
     }
 
 

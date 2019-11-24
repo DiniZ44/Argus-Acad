@@ -60,6 +60,9 @@ public class Alterar_TurmaController implements Initializable {
     @FXML
     private TextField anoLetivo;
     
+    @FXML
+    private Button add;
+    
     
     @FXML
     void salvar_aluno(ActionEvent event) throws IOException {
@@ -171,6 +174,11 @@ public class Alterar_TurmaController implements Initializable {
     public static void setTurma(Turma turma) {
         Alterar_TurmaController.turma = turma;
     }
+
+    public Button getAdd() {
+        return add;
+    }
+    
     
     
 }

@@ -1,7 +1,6 @@
 package br.com.argus.controller;
 
 import br.com.argus.app.App;
-import static br.com.argus.controller.Ver_UsuariosController.ALTERAR_USUARIO;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Disciplina;
@@ -15,6 +14,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -44,7 +44,9 @@ public class Ver_DisciplinasController implements Initializable{
 
     @FXML
     private TextField pesquisa;
-
+    
+    @FXML
+    private Button add;
 
     @FXML
     void adcionar_disciplina(ActionEvent event) throws IOException {
@@ -113,6 +115,10 @@ public class Ver_DisciplinasController implements Initializable{
 
     public static void setD(Disciplina d) {
         Ver_DisciplinasController.d = d;
+    }
+
+    public Button getAdd() {
+        return add;
     }
     
 

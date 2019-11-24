@@ -116,16 +116,16 @@ public class App extends Application {
 //        diretor.setSolicitar_reset(ResetSenha.NAO);
 //        diretor.setTipoCargo(TipoCargo.DIRETORIA);
 //        facade.inserirOuAtualizar(diretor);
-//        
+        
 //        Coordenador superUsuario = new  Coordenador();
 //        superUsuario.setLogin("coordenador");
 //        superUsuario.setSenha("coordenador");
 //        superUsuario.setNome("Coordenador");
 //        superUsuario.setCpf("0002351");
 //        superUsuario.setSolicitar_reset(ResetSenha.NAO);
-//        superUsuario.setTipoCargo(TipoCargo.SECRETARIA);
+//        superUsuario.setTipoCargo(TipoCargo.COORDENAÇÃO_PEDAGOGA);
 //        facade.inserirOuAtualizar(superUsuario);
-//       
+       
         launch(args);
        
     }

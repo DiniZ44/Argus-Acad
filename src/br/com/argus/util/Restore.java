@@ -26,7 +26,7 @@ public class Restore {
             comandos.add("C:\\Program Files\\PostgreSQL\\9.6\\bin\\pg_restore.exe");
            
            
-           //comandos.add("-i");      
+          comandos.add("-i");      
            comandos.add("-h");      
            comandos.add("localhost");   
            comandos.add("-p");      

@@ -18,6 +18,7 @@ import br.com.argus.model.Disciplina;
 import br.com.argus.model.DisciplinaTurma;
 import br.com.argus.model.Falta;
 import br.com.argus.model.LiquidaCarne;
+import br.com.argus.model.Log;
 import br.com.argus.model.ObservacaoAluno;
 import br.com.argus.model.Professor;
 import br.com.argus.model.Resp_Financeiro;
@@ -189,5 +190,9 @@ public interface IFacade {
     public void deletarDisciplinaTurma(DisciplinaTurma disciplinaTurma) throws BussinesException;
     public void buscarDisciplinaTurma(DisciplinaTurma disciplinaTurma) throws BussinesException;
     public List<DisciplinaTurma> buscarTodosDisciplinaTurma () throws BussinesException;
+    
+    //  Log
+    
+    public List<Log> buscarTodosLogs() throws BussinesException;
     
 }

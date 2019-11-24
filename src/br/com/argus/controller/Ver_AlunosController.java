@@ -60,6 +60,9 @@ public class Ver_AlunosController  implements Initializable{
 
     @FXML
     private TextField pesquisa;
+    
+    @FXML
+    private static Button add;
 
 
     @FXML
@@ -150,6 +153,17 @@ public class Ver_AlunosController  implements Initializable{
         Ver_AlunosController.a = a;
     }
 
+    public static Button getAdd() {
+        return add;
+    }
+
+    public static void setAdd(Button add) {
+        Ver_AlunosController.add = add;
+    }
+    
+    
+    
+    
     
   
  

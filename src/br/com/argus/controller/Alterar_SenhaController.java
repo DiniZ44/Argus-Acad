@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import br.com.argus.model.Usuario;
+import br.com.argus.util.Segurança;
 import br.com.argus.view.Mensagem;
 import java.util.List;
 import javafx.scene.control.Alert;

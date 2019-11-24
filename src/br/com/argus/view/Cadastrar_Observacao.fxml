@@ -4,15 +4,16 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="806.0" prefWidth="968.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.argus.controller.Alterar_CarneController">
+<AnchorPane id="AnchorPane" prefHeight="806.0" prefWidth="968.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.argus.controller.Cadastrar_ObservacaoController">
    <children>
-      <Button fx:id="add" layoutX="743.0" layoutY="735.0" mnemonicParsing="false" onAction="#salvar" opacity="0.7" prefHeight="39.0" prefWidth="185.0" style="-fx-background-color: #DCDCDC;">
+      <Button layoutX="743.0" layoutY="735.0" mnemonicParsing="false" onAction="#salvar" opacity="0.7" prefHeight="39.0" prefWidth="185.0" style="-fx-background-color: #DCDCDC;">
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -23,24 +24,23 @@
       </Button>
       <Pane layoutY="38.0" prefHeight="68.0" prefWidth="968.0" style="-fx-background-color: A9A9A9;">
          <children>
-            <Label layoutX="88.0" layoutY="15.0" prefHeight="39.0" prefWidth="310.0" text="Liquidar Carne">
+            <Label layoutX="88.0" layoutY="15.0" prefHeight="39.0" prefWidth="330.0" text="Cadastrar Observação">
                <font>
                   <Font name="Arial Black" size="26.0" />
                </font>
             </Label>
             <ImageView fitHeight="47.0" fitWidth="39.0" layoutX="24.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../res/money%20input.png" />
+                  <Image url="@../../../../res/curriculum.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Label layoutX="32.0" layoutY="319.0" prefHeight="25.0" prefWidth="110.0" text="Tipo de Transação">
+      <Label layoutX="73.0" layoutY="427.0" prefHeight="25.0" prefWidth="74.0" text="Observação">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <ComboBox fx:id="tipo_pagemnto_cbox" layoutX="26.0" layoutY="358.0" opacity="0.7" prefHeight="25.0" prefWidth="263.0" promptText="Pago/Pendente" />
       <Button layoutX="40.0" layoutY="735.0" mnemonicParsing="false" onAction="#voltar" opacity="0.7" prefHeight="39.0" prefWidth="185.0" style="-fx-background-color: #DCDCDC;">
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
@@ -50,20 +50,28 @@
             </ImageView>
          </graphic>
       </Button>
-      <DatePicker fx:id="data_pag" layoutX="367.0" layoutY="358.0" opacity="0.71" promptText="Data de Pagamento" />
-      <Label layoutX="367.0" layoutY="319.0" prefHeight="25.0" prefWidth="140.0" text="Data de Pagamento">
+      <ComboBox fx:id="cbox_vinculo" layoutX="375.0" layoutY="330.0" opacity="0.7" prefWidth="150.0" promptText="Cadastrados" />
+      <Label layoutX="73.0" layoutY="297.0" prefHeight="25.0" prefWidth="150.0" text="Coordenador Responsavel">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Button layoutX="692.0" layoutY="351.0" mnemonicParsing="false" onAction="#imprimir" opacity="0.7" prefHeight="39.0" prefWidth="174.0" style="-fx-background-color: #DCDCDC;">
-         <graphic>
-            <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../res/printer.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
+      <Label layoutX="375.0" layoutY="297.0" prefHeight="25.0" prefWidth="74.0" text="Alunos">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="observacao" layoutX="73.0" layoutY="477.0" opacity="0.7" prefHeight="190.0" prefWidth="830.0" />
+      <DatePicker fx:id="data" layoutX="624.0" layoutY="330.0" opacity="0.7" />
+      <Label layoutX="624.0" layoutY="297.0" prefHeight="25.0" prefWidth="112.0" text="Data da Observação">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_coord" layoutX="75.0" layoutY="330.0" prefHeight="25.0" prefWidth="244.0" text="Coordenador Responsavel">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -14,23 +14,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="813.0" prefWidth="962.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.argus.controller.Ver_FinanceiroController">
+<AnchorPane id="AnchorPane" prefHeight="806.0" prefWidth="968.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.argus.controller.Ver_ObservacaoController">
    <children>
-      <Pane layoutY="58.0" prefHeight="122.0" prefWidth="978.0" style="-fx-background-color: A9A9A9;">
-         <children>
-            <Label layoutX="92.0" layoutY="14.0" prefHeight="39.0" prefWidth="168.0" text="/Inicial/Financeiro" textFill="WHITE">
-               <font>
-                  <Font name="Arial Black" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="92.0" layoutY="41.0" prefHeight="60.0" prefWidth="272.0" text="Financeiro" textFill="WHITE">
-               <font>
-                  <Font name="Arial Black" size="41.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <GridPane layoutY="239.0" prefHeight="572.0" prefWidth="978.0">
+      <GridPane layoutY="229.0" prefHeight="572.0" prefWidth="968.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
@@ -39,13 +25,12 @@
             <RowConstraints maxHeight="523.0" minHeight="10.0" prefHeight="517.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <TableView fx:id="carnes_table" opacity="0.8" prefHeight="516.0" prefWidth="1008.0" GridPane.rowIndex="1">
+            <TableView fx:id="table_OBS" opacity="0.8" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn fx:id="table_aluno" minWidth="0.0" prefWidth="284.0" style="-fx-background-color: A9A9A9;" text="Aluno" />
-                  <TableColumn fx:id="table_resp" prefWidth="265.0" style="-fx-background-color: A9A9A9;" text="Responsavel Financeiro" />
-                  <TableColumn fx:id="table_valor" prefWidth="142.0" style="-fx-background-color: A9A9A9;" text="Valor" />
-                  <TableColumn fx:id="table_date" prefWidth="142.0" style="-fx-background-color: A9A9A9;" text="Data Pagamento" />
-                  <TableColumn fx:id="table_pago" prefWidth="144.0" style="-fx-background-color: A9A9A9;" text="Pago" />
+                  <TableColumn fx:id="table_aluno" prefWidth="276.0" style="-fx-background-color: A9A9A9;" text="Aluno" />
+                  <TableColumn fx:id="table_matricula" minWidth="0.0" prefWidth="227.0" style="-fx-background-color: A9A9A9;" text="Matricula" />
+                  <TableColumn fx:id="table_data" minWidth="0.0" prefWidth="170.0" style="-fx-background-color: A9A9A9;" text="Data Observação" />
+                  <TableColumn fx:id="table_coord" prefWidth="294.0" style="-fx-background-color: A9A9A9;" text="Coordenador Responsavel" />
                </columns>
             </TableView>
             <Pane prefHeight="200.0" prefWidth="200.0">
@@ -55,7 +40,7 @@
                         <Font name="Arial Black" size="14.0" />
                      </font>
                   </TextField>
-                  <Button layoutX="312.0" layoutY="9.0" mnemonicParsing="false" onAction="#buscar_turma" opacity="0.7" prefHeight="39.0" prefWidth="95.0" style="-fx-background-color: #DCDCDC;">
+                  <Button fx:id="buscar" layoutX="312.0" layoutY="9.0" mnemonicParsing="false" onAction="#buscar_aluno" opacity="0.7" prefHeight="39.0" prefWidth="95.0" style="-fx-background-color: #DCDCDC;">
                      <graphic>
                         <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -64,19 +49,19 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="novo_carne" layoutX="738.0" layoutY="9.0" mnemonicParsing="false" onAction="#adcionar_carne" opacity="0.7" prefHeight="39.0" prefWidth="204.0" style="-fx-background-color: #DCDCDC;" text="Novo Carne">
-                     <font>
-                        <Font name="Arial Black" size="14.0" />
-                     </font>
+                  <Button fx:id="add" layoutX="738.0" layoutY="9.0" mnemonicParsing="false" onAction="#add_obs" opacity="0.7" prefHeight="39.0" prefWidth="204.0" style="-fx-background-color: #DCDCDC;" text="Nova Observação">
                      <graphic>
                         <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../res/acconuts.png" />
+                              <Image url="@../../../../res/student.png" />
                            </image>
                         </ImageView>
                      </graphic>
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
                   </Button>
-                  <Button layoutX="444.0" layoutY="9.0" mnemonicParsing="false" onAction="#sicronizar" opacity="0.7" prefHeight="39.0" prefWidth="210.0" style="-fx-background-color: #DCDCDC;" text="Sicronizar">
+                  <Button layoutX="453.0" layoutY="9.0" mnemonicParsing="false" onAction="#sicronizar" opacity="0.7" prefHeight="39.0" prefWidth="210.0" style="-fx-background-color: #DCDCDC;" text="Sicronizar">
                      <graphic>
                         <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -92,5 +77,19 @@
             </Pane>
          </children>
       </GridPane>
+      <Pane layoutY="58.0" prefHeight="122.0" prefWidth="968.0" style="-fx-background-color: A9A9A9;">
+         <children>
+            <Label layoutX="92.0" layoutY="14.0" prefHeight="39.0" prefWidth="186.0" text="/inicial/Observações" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="92.0" layoutY="41.0" prefHeight="60.0" prefWidth="444.0" text="Observações Aluno" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="41.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

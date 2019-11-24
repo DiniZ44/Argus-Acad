@@ -21,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -81,7 +82,9 @@ public class Alterar_ProfessorController implements Initializable {
     
     @FXML
     private TextField naturalidade;
-
+    
+    @FXML
+    private Button add;
     @FXML
     void salvar(ActionEvent event) throws IOException {
         cadastrar();
@@ -182,5 +185,11 @@ public class Alterar_ProfessorController implements Initializable {
         nome.setText(professor.getNome());
     
     }
+
+    public Button getAdd() {
+        return add;
+    }
+        
+        
     
 }

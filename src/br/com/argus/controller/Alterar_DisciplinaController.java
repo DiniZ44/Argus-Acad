@@ -39,8 +39,9 @@ public class Alterar_DisciplinaController implements Initializable {
     private List<Professor> professores;
     Ver_DisciplinasController ver_DisciplinasController;
 
+
     @FXML
-    private Button salvar_button;
+    private Button add;
 
     @FXML
     private TextField nome;
@@ -56,6 +57,7 @@ public class Alterar_DisciplinaController implements Initializable {
 
     @FXML
     private Button voltar;
+    
 
     @FXML
     void salvar(ActionEvent event) throws IOException {
@@ -87,12 +89,8 @@ public class Alterar_DisciplinaController implements Initializable {
         
     }
 
-    public Button getSalvar_button() {
-        return salvar_button;
-    }
-
-    public void setSalvar_button(Button salvar_button) {
-        this.salvar_button = salvar_button;
+    public Button getAdd() {
+        return add;
     }
 
     public TextField getNome() {

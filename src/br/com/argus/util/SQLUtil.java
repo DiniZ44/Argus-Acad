@@ -14,7 +14,7 @@ import br.com.argus.model.Resp_Financeiro;
  */
 public class SQLUtil {
     
-    //DML
+    //  DML
     public static final String BUSCAR_LOGIN = "select u from Usuario u where u.login = :login and u.senha = :senha";
     public static final String BUSCAR_LOGIN_APENAS = "select u from Usuario u where u.login = :login";
     public static final String BUSCAR_CPF_PROFESSOR = "SELECT u FROM Professor u WHERE u.cpf = :cpf";
@@ -26,63 +26,17 @@ public class SQLUtil {
     public static final String BUSCAR_TURMA_ORDEM =  "SELECT c FROM Turma c order by c.nome";
     public static final String BUSCAR_ALUNO_ORDEM = "SELECT c FROM Aluno c order by c.nome";
     public static final String BUSCAR_DISCIPLINA_ORDEM= "SELECT c FROM Disciplina c order by c.nome";
-//    public static final String = "";
-//    public static final String = "";
-//    public static final String = "";
-    // Fazer consulta por turma para ver disciplinas
-    // Fazer consulta por disciplina para ver alunos
+    
+    
+    //  VIEWS
 
-    
-    	
-    
+    public static final String a = "";
     
     
+    // PROCEDURES
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // TRIGGERS
     public static final String GATILHOS_LOG = "CREATE OR REPLACE FUNCTION gera_log()\n" + 
 			"RETURNS TRIGGER\n" + 
 			"AS $$\n" + 
@@ -93,71 +47,64 @@ public class SQLUtil {
 			"END; \n" + 
 			"$$ LANGUAGE plpgsql;\n" + 
 			"\n" + 
-			"CREATE TRIGGER tr_gera_log_admin\n" + 
+			"CREATE TRIGGER tr_gera_log_super_user\n" + 
 			"BEFORE INSERT OR UPDATE OR DELETE\n" + 
-			"ON administrador\n" + 
+			"ON super_usuario\n" + 
 			"FOR EACH ROW\n" + 
 			"EXECUTE PROCEDURE gera_log();\n" + 
 			"\n" + 
-			"CREATE TRIGGER tr_gera_log_aluga\n" + 
+			"CREATE TRIGGER tr_gera_log_secretaria\n" + 
 			"BEFORE INSERT OR UPDATE OR DELETE\n" + 
-			"ON aluga\n" + 
+			"ON secretaria\n" + 
 			"FOR EACH ROW\n" + 
 			"EXECUTE PROCEDURE gera_log();\n" + 
 			"\n" + 
-			"CREATE TRIGGER tr_gera_log_caixa\n" + 
+			"CREATE TRIGGER tr_gera_log_coord\n" + 
 			"BEFORE INSERT OR UPDATE OR DELETE\n" + 
-			"ON caixa\n" + 
+			"ON cord_pedagogo\n" + 
 			"FOR EACH ROW\n" + 
 			"EXECUTE PROCEDURE gera_log();\n" + 
 			"\n" + 
-			"CREATE TRIGGER tr_gera_log_contato\n" + 
+			"CREATE TRIGGER tr_gera_log_diretor\n" + 
 			"BEFORE INSERT OR UPDATE OR DELETE\n" + 
-			"ON contato\n" + 
+			"ON diretor\n" + 
 			"FOR EACH ROW\n" + 
 			"EXECUTE PROCEDURE gera_log();\n" + 
-			"\n" + 
-			"CREATE TRIGGER tr_gera_log_endereco\n" + 
+			"\n" +
+                        "CREATE TRIGGER tr_gera_log_endereco\n" + 
 			"BEFORE INSERT OR UPDATE OR DELETE\n" + 
 			"ON endereco\n" + 
 			"FOR EACH ROW\n" + 
 			"EXECUTE PROCEDURE gera_log();\n" + 
-			"\n" + 
-			"CREATE TRIGGER tr_gera_log_funcionario\n" + 
+			"\n"+
+                        "CREATE TRIGGER tr_gera_log_contato\n" + 
 			"BEFORE INSERT OR UPDATE OR DELETE\n" + 
-			"ON funcionario\n" + 
+			"ON contato\n" + 
 			"FOR EACH ROW\n" + 
 			"EXECUTE PROCEDURE gera_log();\n" + 
-			"\n" + 
-			"CREATE TRIGGER tr_gera_log_pessoa_fisica\n" + 
+			"\n"+
+                        "CREATE TRIGGER tr_gera_log_aluno\n" + 
 			"BEFORE INSERT OR UPDATE OR DELETE\n" + 
-			"ON pessoa_fisica\n" + 
+			"ON aluno\n" + 
 			"FOR EACH ROW\n" + 
 			"EXECUTE PROCEDURE gera_log();\n" + 
-			"\n" + 
-			"CREATE TRIGGER tr_gera_log_pessoa_juridica\n" + 
+			"\n"+
+                        "CREATE TRIGGER tr_gera_log_professor\n" + 
 			"BEFORE INSERT OR UPDATE OR DELETE\n" + 
-			"ON pessoa_juridica\n" + 
+			"ON professor\n" + 
 			"FOR EACH ROW\n" + 
 			"EXECUTE PROCEDURE gera_log();\n" + 
-			"\n" + 
-			"CREATE TRIGGER tr_gera_log_quarto\n" + 
+			"\n"+
+                        "CREATE TRIGGER tr_gera_log_turma\n" + 
 			"BEFORE INSERT OR UPDATE OR DELETE\n" + 
-			"ON quarto\n" + 
+			"ON turma\n" + 
 			"FOR EACH ROW\n" + 
 			"EXECUTE PROCEDURE gera_log();\n" + 
-			"\n" + 
-			"CREATE TRIGGER tr_gera_log_reserva\n" + 
+			"\n"+"CREATE TRIGGER tr_gera_log_disciplina\n" + 
 			"BEFORE INSERT OR UPDATE OR DELETE\n" + 
-			"ON reserva\n" + 
+			"ON disciplina\n" + 
 			"FOR EACH ROW\n" + 
 			"EXECUTE PROCEDURE gera_log();\n" + 
-			"\n" + 
-			"CREATE TRIGGER tr_gera_log_super_usuario\n" + 
-			"BEFORE INSERT OR UPDATE OR DELETE\n" + 
-			"ON super_usuario\n" + 
-			"FOR EACH ROW\n" + 
-			"EXECUTE PROCEDURE gera_log();";
-
+			"\n";
     
 }

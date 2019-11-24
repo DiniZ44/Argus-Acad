@@ -30,11 +30,11 @@ public class ObservacaoAluno extends Entidade{
     @Column
     private LocalDate data;
    
-    @Column(length = 500)
+    @Column(length = 500000)
     private String descricao;
     
     @ManyToOne
-    private VinculoAlunoTurma vinculoAlunoTurma;
+    private Aluno aluno;
     
     @ManyToOne
     private Coordenador coordenador;
@@ -56,12 +56,21 @@ public class ObservacaoAluno extends Entidade{
         this.descricao = descricao;
     }
 
-    public VinculoAlunoTurma getVinculoAlunoTurma() {
-        return vinculoAlunoTurma;
+    public Aluno getAluno() {
+        return aluno;
     }
 
-    public void setVinculoAlunoTurma(VinculoAlunoTurma vinculoAlunoTurma) {
-        this.vinculoAlunoTurma = vinculoAlunoTurma;
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
+
+    public Coordenador getCoordenador() {
+        return coordenador;
+    }
+
+    public void setCoordenador(Coordenador coordenador) {
+        this.coordenador = coordenador;
     }
     
 }

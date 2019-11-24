@@ -2,14 +2,8 @@ package br.com.argus.controller;
 
 import br.com.argus.app.App;
 import br.com.argus.enuns.TipoCargo;
-import br.com.argus.facade.Facade;
-import br.com.argus.model.Coordenador;
-import br.com.argus.model.Diretor;
-import br.com.argus.model.Secretario;
-import br.com.argus.model.SuperUsuario;
-import br.com.argus.model.Usuario;
+import br.com.argus.util.Backup;
 import br.com.argus.util.SQLUtil;
-import br.com.argus.view.Mensagem;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,11 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -42,6 +33,21 @@ public class DashboardController implements Initializable{
     public static final String VER_FINANÇAS = "/br/com/argus/view/Ver_Financas.fxml" ;
     public static final String VER_CONFIG = "/br/com/argus/view/Ver_Configuracao.fxml" ;
     public static final String VER_NOTAS = "/br/com/argus/view/Ver_Notas.fxml" ;
+    public static final String VER_OBS = "/br/com/argus/view/Ver_Observacao.fxml" ;
+    public static final String VER_LOG = "/br/com/argus/view/Ver_Log.fxml" ;
+    
+    
+    private static Ver_AlunosController alunosController;
+    private Ver_DisciplinasController disciplinasController;
+    private Ver_FinanceiroController financeiroController;
+    private Ver_NotasController notasController;
+    private Ver_ProfessoresController professoresController;
+    private Ver_TurmaController turmaController;
+    private Alterar_AlunoController alterar_AlunoController;
+    private Alterar_CarneController alterar_CarneController;
+    private Alterar_DisciplinaController alterar_DisciplinaController;
+    private Alterar_ProfessorController alterar_ProfessorController;
+    private Alterar_TurmaController alterar_TurmaController;
     
     
     //  DASHBOARD
@@ -87,8 +93,17 @@ public class DashboardController implements Initializable{
     @FXML
     private AnchorPane anchor_pane;
     
+    
     @FXML
-    void abrir_observaçao(ActionEvent event) {
+    void abir_log(ActionEvent event) throws IOException{
+        getAnchor_pane().getChildren().clear();
+        getAnchor_pane().getChildren().add(FXMLLoader.load(getClass().getResource(VER_LOG)));
+    }
+    
+    @FXML
+    void abrir_observaçao(ActionEvent event) throws IOException{
+        getAnchor_pane().getChildren().clear();
+        getAnchor_pane().getChildren().add(FXMLLoader.load(getClass().getResource(VER_OBS)));
 
     }
     @FXML
@@ -134,9 +149,10 @@ public class DashboardController implements Initializable{
     }
     
     @FXML
-    void deslogar(ActionEvent event) throws IOException{
+    void deslogar(ActionEvent event) throws IOException, InterruptedException{
         App.stagePrincipal().close();
         App.stageLogin().show();
+        Backup.realizarBackupSaida();
     }
     
     @FXML
@@ -172,6 +188,16 @@ public class DashboardController implements Initializable{
             aluno_button.setVisible(false);
         }else if(SQLUtil.TIPO.equalsIgnoreCase(TipoCargo.DIRETORIA.toString())){
             pane_adm.setVisible(false);
+//            alunosController.getAdd().setDisable(false);
+//            disciplinasController.getAdd().setVisible(false);
+//            financeiroController.getNovo_carne().setVisible(false);
+//            professoresController.getAdd().setVisible(false);
+//            turmaController.getAdd().setVisible(false);
+//            alterar_AlunoController.getAdd().setVisible(false);
+//            alterar_CarneController.getAdd().setVisible(false);
+//            alterar_DisciplinaController.getAdd().setVisible(false);
+//            alterar_ProfessorController.getAdd().setVisible(false);
+//            alterar_TurmaController.getAdd().setVisible(false);
             
         }else if (SQLUtil.TIPO.equalsIgnoreCase(TipoCargo.SECRETARIA.toString())){
             pane_adm.setVisible(false);

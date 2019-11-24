@@ -164,6 +164,15 @@ public class App extends Application {
 			public void handle(WindowEvent event) { STAGE.close(); }});
 		return STAGE;
 	}
+        
+        public static Stage genericaStage01(String caminho) throws IOException {
+		STAGE.setScene(new Scene(
+				FXMLLoader.load(App.class.getResource (caminho))));
+		STAGE.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			public void handle(WindowEvent event) { STAGE.close(); }});
+		return STAGE;
+	}
+        
     
     public void stop() throws Exception{
 //        super.stop();

@@ -6,6 +6,7 @@
 package br.com.argus.controller;
 
 import br.com.argus.app.App;
+import br.com.argus.enuns.SituacaoAluno;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Aluno;
@@ -74,6 +75,7 @@ public class Cadastrar_Aluno_VinculoController implements Initializable {
         vinculoAlunoTurma = new VinculoAlunoTurma();
         aluno = aluno_cbox.getValue();
         aluno.setMatricula(matricula_aluno.getText());
+        vinculoAlunoTurma.setSituacaoAluno(SituacaoAluno.ND);
         disciplinaTurma = disciplina_turma_cbox1.getValue();
         vinculoAlunoTurma.setDisciplinaTurma(disciplinaTurma);
         vinculoAlunoTurma.setAluno(aluno);

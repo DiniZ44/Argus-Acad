@@ -8,7 +8,6 @@ package br.com.argus.controller;
 import br.com.argus.app.App;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
-import br.com.argus.model.Aluno;
 import br.com.argus.model.VinculoAlunoTurma;
 import br.com.argus.view.Mensagem;
 import java.io.IOException;
@@ -16,7 +15,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -37,7 +35,8 @@ import javafx.scene.input.MouseEvent;
 public class Ver_Notas_AlunoController implements Initializable {
     
     private static VinculoAlunoTurma vinculoAlunoTurma, VAT;
-    private final static String CADASTRAR_NOTA = "/br/com/argus/view/Cadastrar_Nota.fxml";
+    private final static String CADASTRAR_NOTA = "/br/com/argus/view/Cadastar_Nota.fxml";
+    private final static String VER_NOTAS_ALUNO =  "/br/com/argus/view/Ver_Notas_Aluno.fxml";
     private Ver_Notas_DisciplinasController ver_Notas_DisciplinasController;
 
     @FXML
@@ -65,7 +64,7 @@ public class Ver_Notas_AlunoController implements Initializable {
     private TableColumn<VinculoAlunoTurma, String>table_situacaoAluno;
     
     @FXML
-    private TableColumn<VinculoAlunoTurma, String> aluno_table;
+    private TableColumn<VinculoAlunoTurma, String> table_aluno_nome;
 
     @FXML
     private TextField pesquisa;
@@ -89,8 +88,20 @@ public class Ver_Notas_AlunoController implements Initializable {
             ex.printStackTrace();
         }
         
-        
-          // --------------------------------------------------
+
+    }
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        initVinculoAluno();
+        try {
+            carregarTabela(Facade.getInstance().buscarTodosVincAlunoTurma());
+        } catch (BussinesException ex) {
+            ex.printStackTrace();
+        }
+                  // --------------------------------------------------
             table_aluno.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
@@ -98,7 +109,7 @@ public class Ver_Notas_AlunoController implements Initializable {
                     if(event.getClickCount() == 2){
                         if(table_aluno.getSelectionModel().getSelectedItem() != null){
                             VAT = table_aluno.getSelectionModel().getSelectedItem();
-                            App.genericaStage(CADASTRAR_NOTA).show();
+                            App.genericaStage01(CADASTRAR_NOTA).show();
                         }else{
                             Mensagem.getInstance().confirmar("Atenção", "Selecione o usuario", Alert.AlertType.WARNING);
                         }
@@ -113,19 +124,7 @@ public class Ver_Notas_AlunoController implements Initializable {
         
         
         });
-    }
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        initVinculoAluno();
-        try {
-            carregarTabela(Facade.getInstance().buscarTodosVincAlunoTurma());
-        } catch (BussinesException ex) {
-            ex.printStackTrace();
-        }
-    }    
+   }    
     
     void carregarTabela(List<VinculoAlunoTurma> alunos){
         for (VinculoAlunoTurma aluno : alunos) {
@@ -136,10 +135,10 @@ public class Ver_Notas_AlunoController implements Initializable {
                 table_nota2.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota2()));
                 table_nota3.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota3()));
                 table_nota4.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota4()));
-              //  aluno_table.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNome()));
+                table_aluno_nome.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getAluno().getNome()));
                 table_media.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getMedia()));
                 table_mediaFinal.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getMediaFinal()));
-//                table_situacaoAluno.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getSituacaoAluno().toString()));
+                table_situacaoAluno.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getSituacaoAluno().toString()));
                
            }
             

@@ -17,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "aluno_resp_view")
-public class AlunoView implements Serializable {
+public class AlunoRespView implements Serializable {
     
     @Id
     @Column(name = "nome")

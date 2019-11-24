@@ -46,11 +46,53 @@ public class SQLUtil {
                                                 "SELECT a.nome, c.celular, c.email, c.telefone \n" +
                                                 "from aluno a inner join contato c ON c.id = a.contato_id ";
     
-
+   
     //  PROCEDURES
+    
+    public static final String CALCULO_DIA = "CREATE OR REPLACE FUNCTION calcular_dias(data_entrada date, data_saida date) \n" +
+"			RETURNS integer AS $$ \n" +
+"				DECLARE num_dias int; \n" +
+"			BEGIN\n" +
+"				SELECT abs(data_saida - data_entrada) INTO num_dias; \n" +
+"				RETURN num_dias;\n" +
+"			END; $$\n" +
+"			LANGUAGE plpgsql;";
+    
+    public static final String CALCULAR_MEDIA4 = "CREATE OR REPLACE FUNCTION calcular_media4(nota1 DOUBLE PRECISION, nota2 DOUBLE PRECISION, \n" +
+"										   nota3 DOUBLE PRECISION, nota4 DOUBLE PRECISION) \n" +
+                                                "RETURNS integer AS $$ \n" +
+                                                "DECLARE media DOUBLE PRECISION; \n" +
+                                                "BEGIN\n" +
+                                                "SELECT abs(nota1 + nota2 + nota3 + nota4)/4 INTO media; \n" +
+                                                "RETURN media;\n" +
+                                                "END; $$\n" +
+                                                "LANGUAGE plpgsql;";
+    
+    public static final String CALCULAR_MEDIA3 = "CREATE OR REPLACE FUNCTION calcular_media3(nota1 DOUBLE PRECISION, nota2 DOUBLE PRECISION, \n" +
+"										   nota3 DOUBLE PRECISION) \n" +
+"			RETURNS integer AS $$ \n" +
+"				DECLARE media DOUBLE PRECISION; \n" +
+"			BEGIN\n" +
+"				SELECT abs(nota1 + nota2 + nota3)/3 INTO media; \n" +
+"				RETURN media;\n" +
+"			END; $$\n" +
+"			LANGUAGE plpgsql;";
+    
+
+    public static final String CALCULAR_MEDIA_FINAL = "CREATE OR REPLACE FUNCTION calcular_mediaFinal(prova DOUBLE PRECISION, media DOUBLE PRECISION)\n" +
+"                       RETURNS integer AS $$ \n" +
+"                       DECLARE mediaFinal DOUBLE PRECISION;\n" +
+"			BEGIN\n" +
+"				SELECT abs(prova + media)/2 INTO mediaFinal;\n" +
+"				RETURN mediaFinal;\n" +
+"			END; $$\n" +
+"			LANGUAGE plpgsql;";
+
     
     
     // TRIGGERS
+    
+    
     public static final String GATILHOS_LOG = "CREATE OR REPLACE FUNCTION gera_log()\n" + 
 			"RETURNS TRIGGER\n" + 
 			"AS $$\n" + 

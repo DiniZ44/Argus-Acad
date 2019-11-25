@@ -206,8 +206,6 @@ public class DashboardController implements Initializable{
             aluno_button.setVisible(false);
             finan_button1.setVisible(false);
             observacao_button.setVisible(false);
-        }else{
-            
         }
     }
 

@@ -28,6 +28,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.event.EventHandler;
+import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
 /**
@@ -137,6 +138,7 @@ public class App extends Application {
       
       stageLogin().setResizable(false);
       stageLogin().setTitle("Login Argus Acadêmico");
+//      stageLogin().initStyle(StageStyle.UNDECORATED);
       stageLogin().show();
       
     }

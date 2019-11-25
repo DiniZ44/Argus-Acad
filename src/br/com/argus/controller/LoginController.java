@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class LoginController implements Initializable {
 
@@ -55,6 +56,7 @@ public class LoginController implements Initializable {
         App.stagePrincipal().show();
         App.stagePrincipal().setResizable(false);
         App.stagePrincipal().setTitle("Tela Inicial");
+//        App.stagePrincipal().initStyle(StageStyle.UNDECORATED);
         App.stageLogin().close();
        }
        

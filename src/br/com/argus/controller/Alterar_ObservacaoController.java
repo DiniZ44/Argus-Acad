@@ -90,7 +90,7 @@ public class Alterar_ObservacaoController implements Initializable {
             try {
                 PdfWriter.getInstance(doc, new FileOutputStream(arquivoPDF));
                 doc.open();
-                Paragraph p = new Paragraph(" Relatório Observação -- Carnê Argus Acadêmico");
+                Paragraph p = new Paragraph(" Relatório Observação -- Argus Acadêmico");
                 p.setAlignment(1);
                 doc.add(p);
                 p = new Paragraph(" ");

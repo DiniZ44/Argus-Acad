@@ -148,11 +148,13 @@ public class Alterar_UsuarioController implements Initializable {
         superUsuario.setSolicitar_reset(ResetSenha.NAO);
         
             try {
+
                 Facade.getInstance().inserirOuAtualizar(superUsuario);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
                 App.genericaStage(ALTERAR_USUARIO).close();
                // carregar_comboBox();
+                cpf.clear();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
             }
@@ -168,11 +170,13 @@ public class Alterar_UsuarioController implements Initializable {
         coordenador.setSolicitar_reset(ResetSenha.NAO);
         
              try {
+
                 Facade.getInstance().inserirOuAtualizar(coordenador);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
                 App.genericaStage(ALTERAR_USUARIO).close();
                 //carregar_comboBox();
+                cpf.clear();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
             }
@@ -188,10 +192,12 @@ public class Alterar_UsuarioController implements Initializable {
         diretor.setSolicitar_reset(ResetSenha.NAO);
         
              try {
+
                 Facade.getInstance().inserirOuAtualizar(diretor);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
                 App.genericaStage(ALTERAR_USUARIO).close();
+                 cpf.clear();
                // carregar_comboBox();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
@@ -208,10 +214,12 @@ public class Alterar_UsuarioController implements Initializable {
         secretario.setSolicitar_reset(ResetSenha.NAO);
         
              try {
+
                 Facade.getInstance().inserirOuAtualizar(secretario);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
                 App.genericaStage(ALTERAR_USUARIO).close();
+                 cpf.clear();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
             }
@@ -237,6 +245,22 @@ public class Alterar_UsuarioController implements Initializable {
         login.setText(usuario.getLogin());
         tipo_ComboBox.setValue(usuario.getTipoCargo());
         usuario.setId(usuario.getId());
+    }
+    
+    boolean verificarCPF (){
+        
+        try {
+            Usuario user = Facade.getInstance().buscarCPF(cpf.getText());
+            if(user == null){
+                return true;
+            }
+                Mensagem.getInstance().mostrarMensagem("Campo CPF", "O CPF "+cpf.getText()+" ja foi cadastrado no sistema", Alert.AlertType.ERROR);
+                return false;
+
+        } catch (BussinesException ex) {
+            return true;
+        }
+
     }
     
 

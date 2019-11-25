@@ -76,6 +76,7 @@ public class Cadastrar_ProfessorController implements Initializable{
     @FXML
     void salvar(ActionEvent event) {
         cadastrar();
+        
     }
 
     @FXML
@@ -112,9 +113,12 @@ public class Cadastrar_ProfessorController implements Initializable{
         professor.setNome(nome.getText());
         
            try {
+               if(verificarCPF()){
                 Facade.getInstance().inserirOuAtualizarProfessor(professor);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Professor", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
+               }
+               cpf.clear();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Professor", "Erro ao cadastrar Professor", Alert.AlertType.ERROR);
             }
@@ -153,17 +157,14 @@ public class Cadastrar_ProfessorController implements Initializable{
             Professor prof = Facade.getInstance().buscarCPF_Professor(cpf.getText());
             if(prof == null){
                 return true;
-            }else{
-                
-                Mensagem.getInstance().mostrarMensagem("Campo CPF", "O CPF, ja foi cadastrado no sistema", Alert.AlertType.ERROR);
-                return false;
             }
-        } catch (BussinesException ex) {
-            ex.printStackTrace();
+            Mensagem.getInstance().mostrarMensagem("CPF INVALIDO", "CPF "+ cpf.getText() +" Ja cadastrado no sistema", Alert.AlertType.ERROR);
             return false;
+        } catch (BussinesException ex) {
+            return true;
         }
 
-    }
-
+}
+    
 }
 

@@ -126,10 +126,12 @@ public class Alterar_ProfessorController implements Initializable {
         professor.setNome(nome.getText());
         
            try {
+
                 Facade.getInstance().inserirOuAtualizarProfessor(professor);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Professor", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
-                 App.genericaStage(ALTERAR_PROFESSOR).close();
+                App.genericaStage(ALTERAR_PROFESSOR).close();
+                cpf.clear();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Professor", "Erro ao cadastrar Professor", Alert.AlertType.ERROR);
             }
@@ -189,6 +191,21 @@ public class Alterar_ProfessorController implements Initializable {
     public Button getAdd() {
         return add;
     }
+    
+//        boolean verificarCPF (){
+//        
+//        try {
+//            Professor prof = Facade.getInstance().buscarCPF_Professor(cpf.getText());
+//            if(prof == null){
+//                return true;
+//            }
+//            Mensagem.getInstance().mostrarMensagem("CPF INVALIDO", "CPF "+ cpf.getText() +" Ja cadastrado no sistema", Alert.AlertType.ERROR);
+//            return false;
+//        } catch (BussinesException ex) {
+//            return true;
+//        }
+//
+//}
         
         
     

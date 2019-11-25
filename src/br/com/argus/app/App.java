@@ -57,7 +57,6 @@ public class App extends Application {
     public static void main(String[] args) throws BussinesException{
         
        IFacade facade = Facade.getInstance();
-       // JODATIME
       
 //        Aluno aluno = new Aluno();
 //        Contato contato = new Contato();

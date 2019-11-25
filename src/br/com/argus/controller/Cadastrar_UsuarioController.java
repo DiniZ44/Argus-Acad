@@ -145,9 +145,11 @@ public class Cadastrar_UsuarioController implements Initializable{
         superUsuario.setTipoCargo(TipoCargo.SUPER_USUARIO);
         
             try {
+                if(verificarCPF()){
                 Facade.getInstance().inserirOuAtualizar(superUsuario);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
-                limparCampos();
+                limparCampos();}
+                cpf.clear();
                // carregar_comboBox();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
@@ -164,9 +166,11 @@ public class Cadastrar_UsuarioController implements Initializable{
         coordenador.setTipoCargo(TipoCargo.COORDENAÇÃO_PEDAGOGA);
         
              try {
+                 if(verificarCPF()){
                 Facade.getInstance().inserirOuAtualizar(coordenador);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
                 limparCampos();
+                 }cpf.clear();
                 //carregar_comboBox();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
@@ -183,9 +187,11 @@ public class Cadastrar_UsuarioController implements Initializable{
         diretor.setTipoCargo(TipoCargo.DIRETORIA);
         
              try {
+                 if(verificarCPF()){
                 Facade.getInstance().inserirOuAtualizar(diretor);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
-                limparCampos();
+                limparCampos();}
+                 cpf.clear();
                // carregar_comboBox();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
@@ -202,9 +208,11 @@ public class Cadastrar_UsuarioController implements Initializable{
         secretario.setTipoCargo(TipoCargo.SECRETARIA);
         
              try {
+                 if(verificarCPF()){
                 Facade.getInstance().inserirOuAtualizar(secretario);
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Cadastrado com sucesso", Alert.AlertType.INFORMATION);
-                limparCampos();
+                limparCampos();}
+                 cpf.clear();
             } catch (BussinesException ex) {
                 Mensagem.getInstance().mostrarMensagem("Cadastro Usuario", "Erro ao cadastrar Usuario", Alert.AlertType.ERROR);
             }
@@ -230,16 +238,17 @@ public class Cadastrar_UsuarioController implements Initializable{
             Usuario user = Facade.getInstance().buscarCPF(cpf.getText());
             if(user == null){
                 return true;
-            }else{
-                Mensagem.getInstance().mostrarMensagem("Campo CPF", "O CPF, ja foi cadastrado no sistema", Alert.AlertType.ERROR);
-                return false;
             }
+                Mensagem.getInstance().mostrarMensagem("Campo CPF", "O CPF "+cpf.getText()+" ja foi cadastrado no sistema", Alert.AlertType.ERROR);
+                return false;
+
         } catch (BussinesException ex) {
-            ex.printStackTrace();
-            return false;
+            return true;
         }
 
     }
+        
+
 }
 
 

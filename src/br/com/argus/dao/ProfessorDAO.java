@@ -32,8 +32,6 @@ public class ProfessorDAO extends Dao<Professor> implements IProfessorDAO{
             return typedQuery.getSingleResult();
             
         } catch (NoResultException e) {
-            e.printStackTrace();
-            System.err.println(e.getMessage());
             throw new DAOException("Não foi encontrado nenhum cpf");
             
         }catch(Exception e){

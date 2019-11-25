@@ -363,7 +363,7 @@ public class Facade implements IFacade{
         return res_FinBusiness.buscarTodos();
     }
     @Override
-    public Resp_Financeiro buscarCPF_Responsavel(String cpf) throws DAOException {
+    public Resp_Financeiro buscarCPF_Responsavel(String cpf) throws BussinesException {
         return res_FinBusiness.buscarCPF(cpf);
     }
 

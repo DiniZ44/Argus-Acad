@@ -16,16 +16,27 @@ public class SQLUtil {
     
     //  DML
     public static final String BUSCAR_LOGIN = "select u from Usuario u where u.login = :login and u.senha = :senha";
+    
     public static final String BUSCAR_LOGIN_APENAS = "select u from Usuario u where u.login = :login";
+   
     public static final String BUSCAR_CPF_PROFESSOR = "SELECT u FROM Professor u WHERE u.cpf = :cpf";
+    
     public static final String BUSCAR_CPF_USUARIO = "SELECT u FROM Usuario u WHERE u.cpf = :cpf";
-    public static final String BUSCAR_CPF_RESPONSAVEL = "SELECT u FROM Resp_Financeiro u WHERE u.cpf = :cpf";
+    
+    public static final String BUSCAR_CPF_RESPONSAVEL = "SELECT u from Resp_Financeiro u WHERE u.cpf = :cpf";
+    
     public static final String BUSCAR_TIPO_USUARIO = "SELECT u FROM Usuario u WHERE u.tipoCargo='";
+    
     public static final String PESQUISA_RES_FINANCEIRO= "SELECT p FROM Resp_Financeiro p WHERE p.nome LIKE '";
+    
     public static String TIPO = "SELECT";
-    public static final String BUSCAR_TURMA_ORDEM =  "SELECT c FROM Turma c order by c.nome";
+    
+    static final String BUSCAR_TURMA_ORDEM =  "SELECT c FROM Turma c order by c.nome";
+    
     public static final String BUSCAR_ALUNO_ORDEM = "SELECT c FROM Aluno c order by c.nome";
+    
     public static final String BUSCAR_DISCIPLINA_ORDEM= "SELECT c FROM Disciplina c order by c.nome";
+    
     public static final String BUSCAR_LOG = "select l.data, l.alteracao, l.autor, l.tabela FROM log l ";
     
     

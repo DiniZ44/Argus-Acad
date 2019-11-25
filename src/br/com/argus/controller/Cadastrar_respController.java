@@ -54,7 +54,7 @@ public class Cadastrar_respController implements Initializable {
     private TableColumn<Resp_Financeiro, String> table_cpf;
 
     @FXML
-    void salvar(ActionEvent event) throws BussinesException {
+    void salvar(ActionEvent event) throws BussinesException, DAOException {
         
             cadastrar();
 
@@ -91,18 +91,20 @@ public class Cadastrar_respController implements Initializable {
         
     }
     
-    void cadastrar(){
+    void cadastrar() throws DAOException{
         
         resp_Financeiro = new Resp_Financeiro();
         resp_Financeiro.setNome(nome_resp.getText());
         resp_Financeiro.setCpf(cpf_resp.getText());
         
         try {
+            if(verificarCPF()){
             Facade.getInstance().inserirOuAtualizarResp_Fin(resp_Financeiro);
-            limpar();
             Mensagem.getInstance().mostrarMensagem("Cadastro", "Cadastro feito com sucesso", Alert.AlertType.INFORMATION);
+            limpar();
+            } 
+            cpf_resp.clear();
         } catch (BussinesException ex) {
-            ex.printStackTrace();
             Mensagem.getInstance().mostrarMensagem("Cadastro", "Erro ao realizar cadastro", Alert.AlertType.ERROR);
 
         }
@@ -114,5 +116,19 @@ public class Cadastrar_respController implements Initializable {
        cpf_resp.clear();}
     
     
+        boolean verificarCPF (){
         
+        try {
+            Resp_Financeiro re = Facade.getInstance().buscarCPF_Responsavel(cpf_resp.getText());
+            System.out.println(re);
+            if(re == null){
+                return true;
+            }
+            Mensagem.getInstance().mostrarMensagem("CPF INVALIDO", "CPF "+ cpf_resp.getText() +" Ja cadastrado no sistema", Alert.AlertType.ERROR);
+            return false;
+        } catch (BussinesException ex) {
+            return true;
+        }
+
+}
 }

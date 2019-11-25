@@ -91,8 +91,6 @@ public class UsuarioDAO extends Dao<Usuario> implements IUsuarioDAO {
             return typedQuery.getSingleResult();
             
         } catch (NoResultException e) {
-            e.printStackTrace();
-            System.err.println(e.getMessage());
             throw new DAOException("Não foi encontrado nenhum cpf");
             
         }catch(Exception e){

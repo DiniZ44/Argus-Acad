@@ -42,16 +42,31 @@ public class Resp_FinDAO extends Dao<Resp_Financeiro> implements IResp_FinDAO{
         }
     }
 
-    @Override
+//    @Override
+//    public Resp_Financeiro buscarCPF(String cpf) throws DAOException {
+//         try {
+//            TypedQuery<Resp_Financeiro> typedQuery = entityManager().createQuery(SQLUtil.BUSCAR_CPF_RESPONSAVEL, class1);
+//            typedQuery.setParameter("cpf", cpf);
+//            return typedQuery.getSingleResult();
+//            
+//        } catch (NoResultException e) {
+//            throw new DAOException("Não foi encontrado nenhum cpf");
+//            
+//        }catch(Exception e){
+//            e.printStackTrace();
+//            System.err.println(e.getMessage());
+//            throw new DAOException("Erro de busca no "+ class1.getSimpleName()+ " " +e.getMessage());
+//        }
+//    }
+    
+        @Override
     public Resp_Financeiro buscarCPF(String cpf) throws DAOException {
-         try {
-            TypedQuery<Resp_Financeiro> typedQuery = entityManager().createQuery("SELECT u FROM Resp_Financeiro u WHERE u.cpf = :cpf", class1);
+                 try {
+            TypedQuery<Resp_Financeiro> typedQuery = entityManager().createQuery(SQLUtil.BUSCAR_CPF_RESPONSAVEL, class1);
             typedQuery.setParameter("cpf", cpf);
             return typedQuery.getSingleResult();
             
         } catch (NoResultException e) {
-            e.printStackTrace();
-            System.err.println(e.getMessage());
             throw new DAOException("Não foi encontrado nenhum cpf");
             
         }catch(Exception e){

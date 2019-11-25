@@ -46,10 +46,10 @@ public class Res_FinBusiness extends Business<Resp_Financeiro> implements IRes_F
     }
 
     @Override
-    public Resp_Financeiro buscarCPF(String cpf) throws DAOException {
+    public Resp_Financeiro buscarCPF(String cpf) throws BussinesException {
 
         try {
-               Resp_Financeiro responsavel = iResp_FinDAO.buscarRep(cpf);
+               Resp_Financeiro responsavel = iResp_FinDAO.buscarCPF(cpf);
             return responsavel;
         } catch (DAOException ex) {
             ex.printStackTrace();

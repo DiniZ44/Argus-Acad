@@ -115,7 +115,7 @@ public interface IFacade {
     public void buscarResp_Fin(Resp_Financeiro resp_Financeiro) throws BussinesException;
     public List<Resp_Financeiro> buscarTodosResp_FinS() throws BussinesException;
     public Resp_Financeiro buscarRep (String pesquisa) throws BussinesException;
-    public Resp_Financeiro buscarCPF_Responsavel (String cpf) throws DAOException;
+    public Resp_Financeiro buscarCPF_Responsavel (String cpf) throws BussinesException;
     
     
     //  Secretario    

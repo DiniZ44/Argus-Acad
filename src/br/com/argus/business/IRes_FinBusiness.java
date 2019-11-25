@@ -17,5 +17,5 @@ public interface IRes_FinBusiness extends IBusiness<Resp_Financeiro>{
     
     public Resp_Financeiro buscarRep (String pesquisa) throws BussinesException;
     
-     public Resp_Financeiro buscarCPF (String cpf) throws DAOException;
+     public Resp_Financeiro buscarCPF (String cpf) throws BussinesException;
 }

@@ -65,6 +65,9 @@ public class Ver_Notas_AlunoController implements Initializable {
     
     @FXML
     private TableColumn<VinculoAlunoTurma, String> table_aluno_nome;
+    
+    @FXML
+    private TableColumn<VinculoAlunoTurma, Double> table_notaFinal;
 
     @FXML
     private TextField pesquisa;
@@ -135,6 +138,7 @@ public class Ver_Notas_AlunoController implements Initializable {
                 table_nota2.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota2()));
                 table_nota3.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota3()));
                 table_nota4.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNota4()));
+                table_notaFinal.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getNotaFinal()));
                 table_aluno_nome.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getAluno().getNome()));
                 table_media.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getMedia()));
                 table_mediaFinal.setCellValueFactory(data-> new SimpleObjectProperty<>(data.getValue().getMediaFinal()));

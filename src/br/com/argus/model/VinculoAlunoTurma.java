@@ -41,12 +41,16 @@ public class VinculoAlunoTurma extends Entidade{
    
     @Column
     private double nota4;
+    
+    @Column
+    private double notaFinal;
    
     @Column
     private double media;
     
     @Column
     private double mediaFinal;
+    
     
     @Enumerated(EnumType.STRING)
     private SituacaoAluno situacaoAluno;
@@ -57,7 +61,14 @@ public class VinculoAlunoTurma extends Entidade{
     
     @ManyToOne
     private Aluno aluno;
-    
+
+    public double getNotaFinal() {
+        return notaFinal;
+    }
+
+    public void setNotaFinal(double notaFinal) {
+        this.notaFinal = notaFinal;
+    }
     
     public double getNota1() {
         return nota1;

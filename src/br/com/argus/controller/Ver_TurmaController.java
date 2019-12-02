@@ -44,6 +44,9 @@ public class Ver_TurmaController implements Initializable{
     
     @FXML
     private TableColumn<DisciplinaTurma, String> table_anoLetivo;
+    
+    @FXML
+    private TableColumn<DisciplinaTurma, String> table_ensino;
 
     @FXML
     private TextField pesquisa;
@@ -104,7 +107,8 @@ public class Ver_TurmaController implements Initializable{
     void carregarTabela(List<DisciplinaTurma> turmas){
     table_name.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getTurma().getNome()));
     table_disciplinas.setCellValueFactory(new PropertyValueFactory<>("disciplina")); 
-    table_anoLetivo.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getTurma().getAnoLetivo())); 
+    table_anoLetivo.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getTurma().getAnoLetivo()));
+    table_ensino.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getTurma().getTipoEnsino().toString()));
         
      turma_table.getItems().setAll(turmas);
     }

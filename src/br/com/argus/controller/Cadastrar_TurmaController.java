@@ -1,6 +1,7 @@
 package br.com.argus.controller;
 
 import br.com.argus.app.App;
+import br.com.argus.enuns.TipoEnsino;
 import br.com.argus.exceptions.BussinesException;
 import br.com.argus.facade.Facade;
 import br.com.argus.model.Disciplina;
@@ -28,10 +29,8 @@ public class Cadastrar_TurmaController implements Initializable{
     public static final String CADASTRO_TURMA = "/br/com/argus/view/Cadastrar_Turma.fxml" ;
     private static Disciplina disciplina;
     private List<Disciplina> disciplinas;
-    private List<VinculoAlunoTurma> vinculosAlunosTurma;
     private Turma turma;
     private DisciplinaTurma disciplinaTurma;
-    private VinculoAlunoTurma alunoTurma;
     
 
     @FXML
@@ -45,7 +44,7 @@ public class Cadastrar_TurmaController implements Initializable{
     private TextField anoLetivo;
     
     @FXML
-    private ComboBox<VinculoAlunoTurma> alunos_cbox;
+    private ComboBox<TipoEnsino> ensino_cbox;
     
 
     @FXML
@@ -62,6 +61,7 @@ public class Cadastrar_TurmaController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         try {
             carregaeDisciplinas();
+            carregarEnsino();
         } catch (BussinesException ex) {
             ex.printStackTrace();
         }
@@ -72,6 +72,7 @@ public class Cadastrar_TurmaController implements Initializable{
         disciplina = disciplina_cbox1.getValue();
         turma.setNome(nome.getText());
         turma.setAnoLetivo(anoLetivo.getText());
+        turma.setTipoEnsino(ensino_cbox.getValue());
         disciplinaTurma = new DisciplinaTurma();
         Facade.getInstance().inserirOuAtualizarTurma(turma);
         disciplinaTurma.setTurma(turma);
@@ -112,9 +113,8 @@ public class Cadastrar_TurmaController implements Initializable{
        MaskField.numericField(anoLetivo);
     }
     
-    void carregarAluno() throws BussinesException{
-        vinculosAlunosTurma = Facade.getInstance().buscarTodosVincAlunoTurma();
-        alunos_cbox.getItems().setAll(vinculosAlunosTurma);
+    void carregarEnsino() throws BussinesException{
+        ensino_cbox.getItems().setAll(TipoEnsino.values());
     }
 
 }

@@ -54,6 +54,7 @@ public class Ver_ObservacaoController  implements Initializable {
 
     @FXML
     private TableColumn<ObservacaoAluno, String> table_coord;
+    
 
     @FXML
     private TextField pesquisa;
@@ -83,6 +84,10 @@ public class Ver_ObservacaoController  implements Initializable {
         }
     }
     
+    @FXML
+    void imprimirTudo(ActionEvent event) {
+
+    }
     /**
      * Initializes the controller class.
      */

@@ -25,13 +25,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -43,6 +43,7 @@ public class Cadastar_NotaController implements Initializable {
     private Ver_Notas_AlunoController alunoController;
     double nm ;
     double nmf;
+    double npf;
     private final static String CADASTRAR_NOTA = "/br/com/argus/view/Cadastar_Nota.fxml";
     private final static String VER_NOTAS_ALUNO =  "/br/com/argus/view/Ver_Notas_Aluno.fxml";
     @FXML
@@ -57,6 +58,20 @@ public class Cadastar_NotaController implements Initializable {
     @FXML
     private TextField nota4;
 
+    @FXML
+    private Pane panel_notas;
+    
+    
+    @FXML
+    private Pane panel_final;
+    
+    @FXML
+    private Label media_label;
+    
+    @FXML
+    private TextField nota_final;
+    
+    
     @FXML
     void salvar(ActionEvent event) {
         cadastrar();
@@ -78,6 +93,7 @@ public class Cadastar_NotaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initVinculo();
+        panel_final.setVisible(false);
     }   
     
     void cadastrar(){
@@ -114,14 +130,28 @@ public class Cadastar_NotaController implements Initializable {
         if(media >= 7){
              nm = media;
              nmf = 0.0;
+             npf = 0.0;
              vinculoAlunoTurma.setSituacaoAluno(SituacaoAluno.AM);
+             
         }else if(media >= 5 && media  < 7){
+            media_label.setText("" +media);
+            panel_notas.setVisible(false);
+            panel_final.setVisible(true);
+            npf = Double.parseDouble(nota_final.getText());
+            double mediaFinal =(media+npf)/2;
+            if(mediaFinal >= 5){
              nm = media;
-             nmf = nm;
+             nmf = mediaFinal;
              vinculoAlunoTurma.setSituacaoAluno(SituacaoAluno.AP);
+            }else{
+                nm = media;
+                nmf = mediaFinal;
+                vinculoAlunoTurma.setSituacaoAluno(SituacaoAluno.RP);
+            }
         }else{
             nm = media;
             nmf = nm;
+            npf = 0.0;
             vinculoAlunoTurma.setSituacaoAluno(SituacaoAluno.RP);
         }
 
@@ -130,6 +160,7 @@ public class Cadastar_NotaController implements Initializable {
         vinculoAlunoTurma.setNota3(nn3);
         vinculoAlunoTurma.setNota4(nn4);
         vinculoAlunoTurma.setMedia(nm);
+        vinculoAlunoTurma.setNotaFinal(npf);
         vinculoAlunoTurma.setMediaFinal(nmf);
         
     }
@@ -177,7 +208,7 @@ public class Cadastar_NotaController implements Initializable {
                  
                 p = new Paragraph(" ");
                 doc.add(p);
-                PdfPTable table2 = new PdfPTable(6);
+                PdfPTable table2 = new PdfPTable(7);
                 PdfPCell cell7 = new PdfPCell(new Paragraph("1° Média"));
                 cell7.setHorizontalAlignment(Element.ALIGN_CENTER);
                 cell7.setBackgroundColor(BaseColor.DARK_GRAY);
@@ -190,6 +221,9 @@ public class Cadastar_NotaController implements Initializable {
                 PdfPCell cel1l0 = new PdfPCell(new Paragraph("4° Média"));
                 cel1l0.setHorizontalAlignment(Element.ALIGN_CENTER);
                 cel1l0.setBackgroundColor(BaseColor.DARK_GRAY);
+                PdfPCell c = new PdfPCell(new Paragraph("Nota Final"));
+                c.setHorizontalAlignment(Element.ALIGN_CENTER);
+                c.setBackgroundColor(BaseColor.DARK_GRAY);
                 PdfPCell cel1l1 = new PdfPCell(new Paragraph("Média Geral"));
                 cel1l1.setHorizontalAlignment(Element.ALIGN_CENTER);
                 cel1l1.setBackgroundColor(BaseColor.RED);                
@@ -202,6 +236,7 @@ public class Cadastar_NotaController implements Initializable {
                 table2.addCell(cell8);
                 table2.addCell(cell9);
                 table2.addCell(cel1l0);
+                table2.addCell(c);
                 table2.addCell(cel1l1);
                 table2.addCell(cel1l3);
 
@@ -212,6 +247,8 @@ public class Cadastar_NotaController implements Initializable {
                 cell9 = new PdfPCell(new Paragraph(carregadoVinculoAluno.getNota3()+""));
                 cell9.setHorizontalAlignment(Element.ALIGN_CENTER);
                 cel1l0 = new PdfPCell(new Paragraph(carregadoVinculoAluno.getNota4()+""));
+                c = new PdfPCell(new Paragraph(carregadoVinculoAluno.getNotaFinal()+""));
+                c.setHorizontalAlignment(Element.ALIGN_CENTER);
                 cel1l0.setHorizontalAlignment(Element.ALIGN_CENTER);
                 cel1l1 = new PdfPCell(new Paragraph(carregadoVinculoAluno.getMedia()+""));
                 cel1l1.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -222,6 +259,7 @@ public class Cadastar_NotaController implements Initializable {
                 table2.addCell(cell8);
                 table2.addCell(cell9);
                 table2.addCell(cel1l0);
+                table2.addCell(c);
                 table2.addCell(cel1l1);
                 table2.addCell(cel1l3);
                 

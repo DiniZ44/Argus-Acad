@@ -7,16 +7,19 @@ package br.com.argus.enuns;
 
 /**
  *
- * @author santo
+ * @author Hakkinen
  */
-public enum SituacaoAluno {
-    
-    AM ("Aprovado por média"), AP ("Aprovado"), 
-    RP ("Reprovado"), ND("Não definido");
-    
-    private final String descricao;
-    
-    	private SituacaoAluno(String descricao) {
+public enum TipoEnsino {
+            
+        EM ("Ensino Médio"), EF ("Ensino Fundamental"), 
+	EMF ("Ensino Médio Anos Finais");
+	
+	private String descricao;
+	
+	/**
+	 * 
+	 */
+	private TipoEnsino(String descricao) {
 	
 		this.descricao = descricao;
 	}
@@ -25,7 +28,9 @@ public enum SituacaoAluno {
 		return this.descricao;
 	}
 	
-
+	/* (non-Javadoc)
+	 * @see java.lang.Enum#toString()
+	 */
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
@@ -34,4 +39,3 @@ public enum SituacaoAluno {
 	
     
 }
-    

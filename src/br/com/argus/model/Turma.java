@@ -5,6 +5,7 @@
  */
 package br.com.argus.model;
 
+import br.com.argus.enuns.TipoEnsino;
 import br.com.argus.enuns.TipoSituacao;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -36,6 +37,17 @@ public class Turma extends Entidade{
     @Column(length = 20)
     private String anoLetivo;
     
+    @Column
+    private TipoEnsino tipoEnsino;
+
+    
+    public TipoEnsino getTipoEnsino() {
+        return tipoEnsino;
+    }
+
+    public void setTipoEnsino(TipoEnsino tipoEnsino) {
+        this.tipoEnsino = tipoEnsino;
+    }
 
     public String getNome() {
         return nome;
